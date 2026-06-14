@@ -83,95 +83,46 @@
     });
   }
 
-  // ---------- GLOBE ----------
-  let rotationAngle = 0;
-  let globeAnimationId = null;
-
+  // ---------- CODE CLOUD ----------
   function initGlobe() {
     const globe = document.getElementById('globe');
-    const container = document.getElementById('globe-container');
-    if (!globe || !container || CODES.length === 0) return;
+    if (!globe || CODES.length === 0) return;
 
-    function layout() {
-      globe.innerHTML = '';
-      const rect = container.getBoundingClientRect();
-      const cx = rect.width / 2;
-      const cy = rect.height / 2;
-      const rx = rect.width * 0.45;
-      const ry = rect.height * 0.42;
+    // Shuffle once for visual variety (positive/negative mixed in)
+    const shuffled = CODES.slice().sort(() => Math.random() - 0.5);
 
-      const n = CODES.length;
-      const goldenAngle = Math.PI * (3 - Math.sqrt(5));
+    shuffled.forEach((codeObj) => {
+      const token = document.createElement('span');
+      token.className = 'code-token';
+      token.textContent = codeObj.code;
+      token.setAttribute('role', 'button');
+      token.setAttribute('tabindex', '0');
+      token.setAttribute('aria-label', codeObj.code + ' ' + codeObj.title);
+      token.dataset.code = codeObj.code;
 
-      CODES.forEach((codeObj, i) => {
-        const y = 1 - (i / (n - 1)) * 2; // -1..1
-        const radiusFactor = Math.sqrt(1 - y * y);
-        const theta = goldenAngle * i;
+      // Size variety: most are 12-15px, ~12% are 18-22px for texture
+      const big = Math.random() < 0.12;
+      const baseSize = big
+        ? 18 + Math.random() * 4
+        : 12 + Math.random() * 3;
+      token.style.fontSize = baseSize.toFixed(1) + 'px';
 
-        const x = Math.cos(theta) * radiusFactor;
-        const z = Math.sin(theta) * radiusFactor;
+      // Color classification: negatives bias to red ~50%, otherwise mix of bright/dim
+      const isNeg = codeObj.code.startsWith('-');
+      const colorRand = Math.random();
+      if (isNeg && colorRand < 0.5) token.classList.add('neg');
+      else if (colorRand < 0.3) token.classList.add('dim');
 
-        const jitterX = (Math.random() - 0.5) * 40;
-        const jitterY = (Math.random() - 0.5) * 40;
-
-        const px = cx + x * rx + jitterX;
-        const py = cy + y * ry + jitterY;
-
-        const token = document.createElement('span');
-        token.className = 'code-token';
-        token.textContent = codeObj.code;
-        token.setAttribute('role', 'button');
-        token.setAttribute('tabindex', '0');
-        token.setAttribute('aria-label', codeObj.code + ' ' + codeObj.title);
-        token.dataset.code = codeObj.code;
-
-        // Z-depth determines opacity, size, brightness
-        const depth = (z + 1) / 2;
-        const opacity = 0.5 + depth * 0.5;
-        const baseSize = Math.random() < 0.1 ? 16 + Math.random() * 3 : 11 + Math.random() * 3;
-        const isNeg = codeObj.code.startsWith('-');
-        const colorRand = Math.random();
-        let colorClass = '';
-        if (isNeg && colorRand < 0.5) colorClass = 'neg';
-        else if (colorRand < 0.3) colorClass = 'dim';
-        if (colorClass) token.classList.add(colorClass);
-
-        token.style.left = px + 'px';
-        token.style.top = py + 'px';
-        token.style.fontSize = baseSize + 'px';
-        token.style.opacity = opacity;
-        token.style.transform = 'translate(-50%, -50%)';
-        token.style.zIndex = Math.floor(depth * 100);
-
-        token.addEventListener('click', () => openModal(codeObj));
-        token.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(codeObj); }
-        });
-
-        // Lightweight tooltip on hover
-        token.addEventListener('mouseenter', () => showCodeTooltip(token, codeObj));
-        token.addEventListener('mouseleave', () => hideCodeTooltip(token));
-        token.addEventListener('focus', () => showCodeTooltip(token, codeObj));
-        token.addEventListener('blur', () => hideCodeTooltip(token));
-
-        globe.appendChild(token);
+      token.addEventListener('click', () => openModal(codeObj));
+      token.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(codeObj); }
       });
-    }
+      token.addEventListener('mouseenter', () => showCodeTooltip(token, codeObj));
+      token.addEventListener('mouseleave', () => hideCodeTooltip(token));
+      token.addEventListener('focus', () => showCodeTooltip(token, codeObj));
+      token.addEventListener('blur', () => hideCodeTooltip(token));
 
-    function rotate() {
-      if (prefersReducedMotion) return;
-      rotationAngle = (rotationAngle + 0.1) % 360;
-      globe.style.transform = 'rotateY(' + rotationAngle + 'deg)';
-      globeAnimationId = requestAnimationFrame(rotate);
-    }
-
-    layout();
-    if (!prefersReducedMotion) rotate();
-
-    let resizeT;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeT);
-      resizeT = setTimeout(layout, 200);
+      globe.appendChild(token);
     });
   }
 

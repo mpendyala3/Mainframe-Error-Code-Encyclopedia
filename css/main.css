@@ -344,43 +344,56 @@ body, .top-nav, .hero, .modal, .about {
 
 .globe-container {
   position: relative;
-  width: 80vw;
-  max-width: 1200px;
-  height: 70vh;
-  max-height: 720px;
+  width: 92vw;
+  max-width: 1400px;
   margin: 0 auto 24px;
+  padding: 16px;
 }
 
 .globe {
-  position: absolute;
-  inset: 0;
-  transform-style: preserve-3d;
-  will-change: transform;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px 14px;
+  line-height: 1.4;
 }
 
 .code-token {
-  position: absolute;
+  display: inline-block;
   font-family: 'Share Tech Mono', monospace;
   cursor: pointer;
-  transition: transform 150ms ease, color 150ms ease, text-shadow 150ms ease;
+  transition: font-size 180ms cubic-bezier(.34,1.56,.64,1),
+              color 180ms ease,
+              text-shadow 180ms ease,
+              font-weight 180ms ease,
+              padding 180ms cubic-bezier(.34,1.56,.64,1);
   white-space: nowrap;
   user-select: none;
   color: var(--green);
   text-shadow: 0 0 4px var(--glow);
+  padding: 1px 4px;
+  border-radius: 2px;
+  position: relative;
 }
 
-.code-token.dim { color: var(--green-dim); }
+.code-token.dim { color: var(--green-dim); opacity: 0.75; }
 .code-token.neg { color: var(--red); text-shadow: 0 0 4px var(--red-glow); }
 
 .code-token:hover, .code-token:focus {
-  transform: translate(-50%, -50%) scale(1.4) !important;
-  text-shadow: 0 0 14px var(--green), 0 0 28px var(--green);
+  font-size: 32px !important;
+  font-weight: bold;
+  color: var(--green);
+  text-shadow: 0 0 16px var(--green), 0 0 32px var(--green), 0 0 48px var(--green);
+  opacity: 1 !important;
   z-index: 100;
   outline: none;
+  padding: 4px 10px;
 }
 
 .code-token.neg:hover, .code-token.neg:focus {
-  text-shadow: 0 0 14px var(--red), 0 0 28px var(--red);
+  color: var(--red);
+  text-shadow: 0 0 16px var(--red), 0 0 32px var(--red), 0 0 48px var(--red);
 }
 
 .code-tooltip {
