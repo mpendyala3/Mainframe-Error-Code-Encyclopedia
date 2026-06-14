@@ -357,6 +357,10 @@ body, .top-nav, .hero, .modal, .about {
   justify-content: center;
   gap: 6px 14px;
   line-height: 1.4;
+  /* explicitly disable any rotation/transform inherited or cached */
+  transform: none !important;
+  animation: none !important;
+  perspective: none;
 }
 
 .code-token {
