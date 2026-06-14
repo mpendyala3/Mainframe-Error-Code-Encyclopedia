@@ -119,15 +119,16 @@
       const H = rect.height;
       if (W < 10 || H < 10) return;
 
-      const padX = 30;
-      const padY = 20;
+      const padX = 20;
+      const padY = 16;
       const usableW = Math.max(100, W - padX * 2);
       const usableH = Math.max(100, H - padY * 2);
 
       const n = CODES.length;
-      // Grid-with-jitter so codes scatter without big gaps or clusters
+      // Dense grid-with-jitter so codes scatter without big gaps
       const aspect = usableW / usableH;
-      const cols = Math.max(8, Math.round(Math.sqrt(n * aspect)));
+      const density = 1.45; // higher = packed tighter
+      const cols = Math.max(10, Math.round(Math.sqrt(n * aspect) * Math.sqrt(density)));
       const rows = Math.ceil(n / cols);
       const cellW = usableW / cols;
       const cellH = usableH / rows;
@@ -139,15 +140,20 @@
         const col = i % cols;
         const row = Math.floor(i / cols);
 
-        // Random jitter within cell, with row-level horizontal offset to break grid lines
-        const rowOffset = (row % 2 === 0 ? 1 : -1) * cellW * 0.25;
-        const jitterX = (Math.random() - 0.5) * cellW * 0.85;
-        const jitterY = (Math.random() - 0.5) * cellH * 0.85;
+        // Random jitter within cell + per-row stagger
+        const rowOffset = (row % 2 === 0 ? 1 : -1) * cellW * 0.22;
+        const jitterX = (Math.random() - 0.5) * cellW * 0.9;
+        const jitterY = (Math.random() - 0.5) * cellH * 0.9;
         const x = padX + col * cellW + cellW / 2 + jitterX + rowOffset;
         const y = padY + row * cellH + cellH / 2 + jitterY;
 
         const cx = Math.min(Math.max(x, padX), W - padX);
         const cy = Math.min(Math.max(y, padY), H - padY);
+
+        // Z depth for globe parallax - more depth near horizontal center
+        const horizFrac = (cx / W - 0.5) * 2; // -1..1
+        const depthBase = Math.cos(horizFrac * Math.PI * 0.5) * 220; // up to 220px forward at center
+        const depth = depthBase + (Math.random() - 0.5) * 120; // jitter for organic feel
 
         const token = document.createElement('span');
         token.className = 'code-token';
@@ -157,7 +163,6 @@
         token.setAttribute('aria-label', codeObj.code + ' ' + codeObj.title);
         token.dataset.code = codeObj.code;
 
-        // Importance-based sizing with random jitter
         const imp = importanceFor(codeObj.code);
         let size;
         if (imp === 'high') size = 22 + Math.random() * 8;       // 22-30
@@ -165,7 +170,6 @@
         else size = 11 + Math.random() * 4;                       // 11-15
         token.style.fontSize = size.toFixed(1) + 'px';
 
-        // Color: high-importance always vivid, medium mixed, low can be dim
         const isNeg = codeObj.code.startsWith('-');
         const cr = Math.random();
         if (isNeg && (imp === 'high' ? cr < 0.55 : cr < 0.45)) token.classList.add('neg');
@@ -173,6 +177,7 @@
 
         token.style.left = cx + 'px';
         token.style.top = cy + 'px';
+        token.style.setProperty('--depth', depth.toFixed(1) + 'px');
 
         token.addEventListener('click', () => openModal(codeObj));
         token.addEventListener('keydown', (e) => {
@@ -198,7 +203,6 @@
       const active = tokenRecords.find(r => r.el === activeEl);
       if (!active) return;
       activeEl.classList.add('is-active');
-      // Grow the active token by ~70%
       const newSize = active.baseSize * 1.75;
       activeEl.style.fontSize = newSize.toFixed(1) + 'px';
 
@@ -213,7 +217,8 @@
           const k = Math.pow((pushRadius - dist) / pushRadius, 2);
           const ox = (dx / dist) * pushStrength * k;
           const oy = (dy / dist) * pushStrength * k;
-          r.el.style.transform = 'translate(-50%, -50%) translate(' + ox.toFixed(1) + 'px, ' + oy.toFixed(1) + 'px)';
+          r.el.style.setProperty('--ox', ox.toFixed(1) + 'px');
+          r.el.style.setProperty('--oy', oy.toFixed(1) + 'px');
         }
       });
     }
@@ -222,7 +227,8 @@
       tokenRecords.forEach(r => {
         r.el.classList.remove('is-active');
         r.el.style.fontSize = r.baseSize.toFixed(1) + 'px';
-        r.el.style.transform = 'translate(-50%, -50%)';
+        r.el.style.setProperty('--ox', '0px');
+        r.el.style.setProperty('--oy', '0px');
       });
     }
 
