@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Mainframe Error Code Encyclopedia | DB2 SQL Codes Explained</title>
+  <meta name="description" content="Searchable encyclopedia of DB2 SQLCODEs and z/OS mainframe errors. Causes, fixes, and COBOL examples for SQLCODE -803, -805, -811, -818, -911 and 240+ more.">
+  <meta name="keywords" content="DB2 SQL codes, mainframe errors, SQLCODE, IBM DB2, z/OS, SQLCODE -803, SQLCODE -911, COBOL, mainframe encyclopedia, mainframe developer">
+  <meta name="author" content="Mainframe Error Code Encyclopedia">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mpendyala3.github.io/mainframe-error-code-encyclopedia/">
+
+  <meta property="og:title" content="Mainframe Error Code Encyclopedia | DB2 SQL Codes Explained">
+  <meta property="og:description" content="A liquid-glass terminal encyclopedia of DB2 SQLCODEs. Search, click, and decode mainframe errors with causes, fixes, and examples.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mpendyala3.github.io/mainframe-error-code-encyclopedia/">
+  <meta property="og:image" content="https://mpendyala3.github.io/mainframe-error-code-encyclopedia/assets/og-image.png">
+  <meta property="og:site_name" content="Mainframe Error Code Encyclopedia">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mainframe Error Code Encyclopedia">
+  <meta name="twitter:description" content="Search and decode DB2 SQLCODEs and z/OS mainframe errors. 240+ codes with causes, fixes, and examples.">
+  <meta name="twitter:image" content="https://mpendyala3.github.io/mainframe-error-code-encyclopedia/assets/og-image.png">
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="alternate icon" href="assets/favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Press+Start+2P&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Press+Start+2P&display=swap">
+  <link rel="stylesheet" href="css/main.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Mainframe Error Code Encyclopedia",
+    "url": "https://mpendyala3.github.io/mainframe-error-code-encyclopedia/",
+    "description": "Searchable encyclopedia of DB2 SQLCODEs and z/OS mainframe errors.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://mpendyala3.github.io/mainframe-error-code-encyclopedia/?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mpendyala3.github.io/mainframe-error-code-encyclopedia/" },
+      { "@type": "ListItem", "position": 2, "name": "DB2 SQL Codes", "item": "https://mpendyala3.github.io/mainframe-error-code-encyclopedia/pages/db2.html" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What does SQLCODE -803 mean?",
+        "acceptedAnswer": { "@type": "Answer", "text": "SQLCODE -803 is a unique index violation. An INSERT or UPDATE attempted to create a duplicate of an existing key in a UNIQUE INDEX or PRIMARY KEY." } },
+      { "@type": "Question", "name": "What does SQLCODE -805 mean?",
+        "acceptedAnswer": { "@type": "Answer", "text": "SQLCODE -805 means the DBRM or package was not found in the plan. Bind the package and ensure it is in the plan's PKLIST." } },
+      { "@type": "Question", "name": "What does SQLCODE -811 mean?",
+        "acceptedAnswer": { "@type": "Answer", "text": "SQLCODE -811 occurs when a SELECT INTO returns more than one row. Use a cursor to fetch multiple rows or narrow the WHERE clause." } },
+      { "@type": "Question", "name": "What does SQLCODE -818 mean?",
+        "acceptedAnswer": { "@type": "Answer", "text": "SQLCODE -818 is a precompile/bind timestamp mismatch between the load module and DBRM. Recompile and rebind together." } },
+      { "@type": "Question", "name": "What does SQLCODE -904 mean?",
+        "acceptedAnswer": { "@type": "Answer", "text": "SQLCODE -904 indicates an unavailable resource. Check the reason code for the specific tablespace or index status (COPY-pending, LPL, etc.)." } },
+      { "@type": "Question", "name": "What does SQLCODE -911 mean?",
+        "acceptedAnswer": { "@type": "Answer", "text": "SQLCODE -911 means the unit of work was rolled back due to a deadlock or timeout. Restart the unit of work and commit more frequently." } },
+      { "@type": "Question", "name": "What does SQLCODE -922 mean?",
+        "acceptedAnswer": { "@type": "Answer", "text": "SQLCODE -922 is an authorization failure. The user ID, password, or RACF profile was rejected." } },
+      { "@type": "Question", "name": "What does SQLCODE -180 mean?",
+        "acceptedAnswer": { "@type": "Answer", "text": "SQLCODE -180 indicates a datetime value is in an invalid format. Use ISO 'YYYY-MM-DD' or a format matching CURRENT DATE FORMAT." } },
+      { "@type": "Question", "name": "What does SQLCODE +100 mean?",
+        "acceptedAnswer": { "@type": "Answer", "text": "SQLCODE +100 means no row was found that satisfied the search condition. It is a normal end-of-data condition for cursor loops." } },
+      { "@type": "Question", "name": "What does SQLCODE -551 mean?",
+        "acceptedAnswer": { "@type": "Answer", "text": "SQLCODE -551 means the authorization ID does not have the required privilege for the operation. GRANT the needed privilege or switch auth IDs." } }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Matrix rain canvas -->
+  <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+
+  <!-- Scanline overlay -->
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="crt-vignette" aria-hidden="true"></div>
+
+  <!-- Top navigation -->
+  <nav class="top-nav" aria-label="Primary">
+    <div class="nav-logo">
+      <span class="logo-square" aria-hidden="true">&#9632;</span>
+      <span class="logo-text">MAINFRAME.ENC</span>
+    </div>
+    <ul class="nav-links" role="menubar">
+      <li role="none"><a role="menuitem" href="index.html" class="active">[HOME]</a></li>
+      <li role="none"><a role="menuitem" href="pages/db2.html">[DB2 SQL]</a></li>
+      <li role="none"><a role="menuitem" href="#" class="disabled" data-tooltip="COMING SOON" aria-disabled="true">[JCL]</a></li>
+      <li role="none"><a role="menuitem" href="#" class="disabled" data-tooltip="COMING SOON" aria-disabled="true">[VSAM]</a></li>
+      <li role="none"><a role="menuitem" href="#" class="disabled" data-tooltip="COMING SOON" aria-disabled="true">[SYSTEM]</a></li>
+      <li role="none"><a role="menuitem" href="#about">[ABOUT]</a></li>
+    </ul>
+    <div class="nav-search" role="search">
+      <span class="prompt-prefix">&gt;</span>
+      <input id="search-input" type="search" placeholder="SEARCH SQLCODE..." aria-label="Search SQL codes" autocomplete="off">
+      <span class="cursor-blink" aria-hidden="true">&#9608;</span>
+      <button id="search-button" type="button" aria-label="Execute search">[EXEC]</button>
+      <div id="search-results" class="search-results" role="listbox" aria-label="Search suggestions"></div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title" class="hero-title">MAINFRAME ERROR CODE ENCYCLOPEDIA</h1>
+      <p class="hero-tagline">
+        <span class="prompt-prefix">&gt;</span>
+        <span id="typewriter" aria-live="polite"></span><span class="cursor-blink" aria-hidden="true">_</span>
+      </p>
+
+      <div id="globe-container" class="globe-container" aria-label="Interactive cloud of DB2 SQL codes">
+        <div id="globe" class="globe"></div>
+      </div>
+
+      <div class="stats" aria-label="Encyclopedia statistics">
+        <div class="stat-badge"><span class="stat-num" data-target="240">0</span><span class="stat-label">DB2 SQLCODES</span></div>
+        <div class="stat-badge"><span class="stat-num" data-target="14">0</span><span class="stat-label">CATEGORIES</span></div>
+      </div>
+    </section>
+
+    <section id="about" class="about glass" aria-labelledby="about-title">
+      <h2 id="about-title">&gt; ABOUT</h2>
+      <p>The MAINFRAME ERROR CODE ENCYCLOPEDIA is a free, searchable reference for DB2 SQLCODEs encountered on IBM z/OS systems. Each entry includes a plain-language description, common causes, step-by-step fixes, and a COBOL or SQL example.</p>
+      <p>JCL, VSAM, and system abend codes are coming soon. Built by mainframe developers for mainframe developers.</p>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-code" aria-hidden="true">
+    <div class="modal glass" role="document">
+      <header class="modal-header">
+        <span id="modal-code" class="modal-code"></span>
+        <button id="modal-close" class="modal-close" aria-label="Close dialog">&times;</button>
+      </header>
+      <div class="modal-body">
+        <h2 id="modal-title" class="modal-title"></h2>
+        <div class="modal-meta">
+          <span id="modal-category" class="meta-tag"></span>
+          <span id="modal-severity" class="meta-tag"></span>
+        </div>
+        <section class="modal-section">
+          <h3>&#128203; DESCRIPTION</h3>
+          <p id="modal-description"></p>
+        </section>
+        <section class="modal-section">
+          <h3>&#128269; COMMON CAUSE</h3>
+          <p id="modal-cause"></p>
+        </section>
+        <section class="modal-section">
+          <h3>&#128736; HOW TO FIX</h3>
+          <p id="modal-fix"></p>
+        </section>
+        <section class="modal-section">
+          <h3>&#128161; EXAMPLE</h3>
+          <pre><code id="modal-example"></code></pre>
+        </section>
+      </div>
+      <footer class="modal-footer">
+        <button id="modal-copy" type="button" class="btn">[COPY SQLCODE]</button>
+        <button id="modal-close-btn" type="button" class="btn">[CLOSE]</button>
+      </footer>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>&gt; MAINFRAME.ENC v1.0 &mdash; Decoding the mainframe, one error at a time.</p>
+  </footer>
+
+  <script src="js/db2-sql-codes.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

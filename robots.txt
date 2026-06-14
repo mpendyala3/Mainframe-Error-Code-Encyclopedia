@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mpendyala3.github.io/mainframe-error-code-encyclopedia/sitemap.xml
