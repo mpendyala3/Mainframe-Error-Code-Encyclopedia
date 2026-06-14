@@ -2,7 +2,7 @@
 
 A static, searchable encyclopedia of DB2 SQLCODEs and z/OS mainframe errors. Styled as a liquid-glass 3270 terminal with CRT scanlines, phosphor green, and matrix-rain backdrop.
 
-Live site: https://mpendyala3.github.io/mainframe-error-code-encyclopedia/
+Live site: https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/
 
 ## Features
 
