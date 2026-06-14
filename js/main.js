@@ -84,45 +84,154 @@
   }
 
   // ---------- CODE CLOUD ----------
+  // Common SQLCODEs every mainframe dev encounters
+  const HIGH_IMPORTANCE = new Set([
+    '-803','-805','-811','-818','-904','-911','-913','-922','+100','-180',
+    '-204','-206','-407','-551','-150','-501','-502','-530','-545','-802'
+  ]);
+  const MEDIUM_IMPORTANCE = new Set([
+    '-101','-102','-104','-107','-117','-118','-181','-204','-304','-401',
+    '-402','-404','-405','-406','-408','-412','-503','-504','-530','-532',
+    '-533','-552','-553','-601','-612','-805','-900','-905','-912','-918',
+    '-924','-925','-926','-927','+304','+222','-150','-440','-540'
+  ]);
+
+  function importanceFor(code) {
+    if (HIGH_IMPORTANCE.has(code)) return 'high';
+    if (MEDIUM_IMPORTANCE.has(code)) return 'med';
+    return 'low';
+  }
+
+  // Track tokens so the push-on-hover handler can iterate them quickly
+  const tokenRecords = [];
+
   function initGlobe() {
     const globe = document.getElementById('globe');
-    if (!globe || CODES.length === 0) return;
+    const container = document.getElementById('globe-container');
+    if (!globe || !container || CODES.length === 0) return;
 
-    // Shuffle once for visual variety (positive/negative mixed in)
-    const shuffled = CODES.slice().sort(() => Math.random() - 0.5);
+    function buildTokens() {
+      globe.innerHTML = '';
+      tokenRecords.length = 0;
 
-    shuffled.forEach((codeObj) => {
-      const token = document.createElement('span');
-      token.className = 'code-token';
-      token.textContent = codeObj.code;
-      token.setAttribute('role', 'button');
-      token.setAttribute('tabindex', '0');
-      token.setAttribute('aria-label', codeObj.code + ' ' + codeObj.title);
-      token.dataset.code = codeObj.code;
+      const rect = container.getBoundingClientRect();
+      const W = rect.width;
+      const H = rect.height;
+      if (W < 10 || H < 10) return;
 
-      // Size variety: most are 12-15px, ~12% are 18-22px for texture
-      const big = Math.random() < 0.12;
-      const baseSize = big
-        ? 18 + Math.random() * 4
-        : 12 + Math.random() * 3;
-      token.style.fontSize = baseSize.toFixed(1) + 'px';
+      const padX = 30;
+      const padY = 20;
+      const usableW = Math.max(100, W - padX * 2);
+      const usableH = Math.max(100, H - padY * 2);
 
-      // Color classification: negatives bias to red ~50%, otherwise mix of bright/dim
-      const isNeg = codeObj.code.startsWith('-');
-      const colorRand = Math.random();
-      if (isNeg && colorRand < 0.5) token.classList.add('neg');
-      else if (colorRand < 0.3) token.classList.add('dim');
+      const n = CODES.length;
+      // Grid-with-jitter so codes scatter without big gaps or clusters
+      const aspect = usableW / usableH;
+      const cols = Math.max(8, Math.round(Math.sqrt(n * aspect)));
+      const rows = Math.ceil(n / cols);
+      const cellW = usableW / cols;
+      const cellH = usableH / rows;
 
-      token.addEventListener('click', () => openModal(codeObj));
-      token.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(codeObj); }
+      // Shuffle codes so importance/sign aren't grid-aligned
+      const order = CODES.slice().sort(() => Math.random() - 0.5);
+
+      order.forEach((codeObj, i) => {
+        const col = i % cols;
+        const row = Math.floor(i / cols);
+
+        // Random jitter within cell, with row-level horizontal offset to break grid lines
+        const rowOffset = (row % 2 === 0 ? 1 : -1) * cellW * 0.25;
+        const jitterX = (Math.random() - 0.5) * cellW * 0.85;
+        const jitterY = (Math.random() - 0.5) * cellH * 0.85;
+        const x = padX + col * cellW + cellW / 2 + jitterX + rowOffset;
+        const y = padY + row * cellH + cellH / 2 + jitterY;
+
+        const cx = Math.min(Math.max(x, padX), W - padX);
+        const cy = Math.min(Math.max(y, padY), H - padY);
+
+        const token = document.createElement('span');
+        token.className = 'code-token';
+        token.textContent = codeObj.code;
+        token.setAttribute('role', 'button');
+        token.setAttribute('tabindex', '0');
+        token.setAttribute('aria-label', codeObj.code + ' ' + codeObj.title);
+        token.dataset.code = codeObj.code;
+
+        // Importance-based sizing with random jitter
+        const imp = importanceFor(codeObj.code);
+        let size;
+        if (imp === 'high') size = 22 + Math.random() * 8;       // 22-30
+        else if (imp === 'med') size = 16 + Math.random() * 5;   // 16-21
+        else size = 11 + Math.random() * 4;                       // 11-15
+        token.style.fontSize = size.toFixed(1) + 'px';
+
+        // Color: high-importance always vivid, medium mixed, low can be dim
+        const isNeg = codeObj.code.startsWith('-');
+        const cr = Math.random();
+        if (isNeg && (imp === 'high' ? cr < 0.55 : cr < 0.45)) token.classList.add('neg');
+        else if (imp === 'low' && cr < 0.35) token.classList.add('dim');
+
+        token.style.left = cx + 'px';
+        token.style.top = cy + 'px';
+
+        token.addEventListener('click', () => openModal(codeObj));
+        token.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(codeObj); }
+        });
+        token.addEventListener('mouseenter', () => {
+          showCodeTooltip(token, codeObj);
+          activateToken(token);
+        });
+        token.addEventListener('mouseleave', () => {
+          hideCodeTooltip(token);
+          deactivateAll();
+        });
+        token.addEventListener('focus', () => { showCodeTooltip(token, codeObj); activateToken(token); });
+        token.addEventListener('blur', () => { hideCodeTooltip(token); deactivateAll(); });
+
+        globe.appendChild(token);
+        tokenRecords.push({ el: token, x: cx, y: cy, baseSize: size });
       });
-      token.addEventListener('mouseenter', () => showCodeTooltip(token, codeObj));
-      token.addEventListener('mouseleave', () => hideCodeTooltip(token));
-      token.addEventListener('focus', () => showCodeTooltip(token, codeObj));
-      token.addEventListener('blur', () => hideCodeTooltip(token));
+    }
 
-      globe.appendChild(token);
+    function activateToken(activeEl) {
+      const active = tokenRecords.find(r => r.el === activeEl);
+      if (!active) return;
+      activeEl.classList.add('is-active');
+      // Grow the active token by ~70%
+      const newSize = active.baseSize * 1.75;
+      activeEl.style.fontSize = newSize.toFixed(1) + 'px';
+
+      const pushRadius = 200;
+      const pushStrength = 55;
+      tokenRecords.forEach(r => {
+        if (r.el === activeEl) return;
+        const dx = r.x - active.x;
+        const dy = r.y - active.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < pushRadius && dist > 0.5) {
+          const k = Math.pow((pushRadius - dist) / pushRadius, 2);
+          const ox = (dx / dist) * pushStrength * k;
+          const oy = (dy / dist) * pushStrength * k;
+          r.el.style.transform = 'translate(-50%, -50%) translate(' + ox.toFixed(1) + 'px, ' + oy.toFixed(1) + 'px)';
+        }
+      });
+    }
+
+    function deactivateAll() {
+      tokenRecords.forEach(r => {
+        r.el.classList.remove('is-active');
+        r.el.style.fontSize = r.baseSize.toFixed(1) + 'px';
+        r.el.style.transform = 'translate(-50%, -50%)';
+      });
+    }
+
+    buildTokens();
+
+    let resizeT;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeT);
+      resizeT = setTimeout(buildTokens, 200);
     });
   }
 
