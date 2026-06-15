@@ -126,7 +126,7 @@
     token.addEventListener('blur', () => hideCodeTooltip(token));
   }
 
-  function makeToken(codeObj, ariaHidden) {
+  function makeToken(codeObj, ariaHidden, sizeScale) {
     const token = document.createElement('span');
     token.className = 'code-token';
     token.textContent = codeObj.code;
@@ -140,7 +140,7 @@
     if (imp === 'high') size = isLong ? 16 + Math.random() * 4 : 22 + Math.random() * 8; // long 16-20, short 22-30
     else if (imp === 'med') size = isLong ? 13 + Math.random() * 3 : 16 + Math.random() * 5; // long 13-16, short 16-21
     else size = 11 + Math.random() * (isLong ? 2 : 4);       // long 11-13, short 11-15
-    token.style.fontSize = size.toFixed(1) + 'px';
+    token.style.fontSize = (size * (sizeScale || 1)).toFixed(1) + 'px';
 
     // Color: high vivid, low can be dim, negatives bias to red
     const isNeg = codeObj.code.startsWith('-');
@@ -173,17 +173,36 @@
       const H = rect.height;
       if (W < 10 || H < 10) { setTimeout(build, 100); return; }
 
-      // One "panel" is a bit wider than the viewport so codes spread out and the
-      // loop period is long. The track holds two identical panels side by side.
-      const panelW = Math.round(W * 1.5);
+      const isMobile = W < 640;
+      const isTablet = W >= 640 && W < 1024;
+
+      // On smaller screens use only HIGH+MED codes to reduce visual density
+      let displayCodes;
+      if (isMobile) {
+        const pool = CODES.filter(c => HIGH_IMPORTANCE.has(c.code) || MEDIUM_IMPORTANCE.has(c.code));
+        displayCodes = pool.length >= 20 ? pool : CODES;
+      } else if (isTablet) {
+        const pool = CODES.filter(c => HIGH_IMPORTANCE.has(c.code) || MEDIUM_IMPORTANCE.has(c.code));
+        displayCodes = pool.length >= 60 ? pool : CODES;
+      } else {
+        displayCodes = CODES;
+      }
+
+      const panelMult   = isMobile ? 2.2  : isTablet ? 1.8  : 1.5;
+      const sizeScale   = isMobile ? 0.65 : isTablet ? 0.82 : 1.0;
+      const jitterXFact = isMobile ? 0.35 : isTablet ? 0.45 : 0.55;
+      const jitterYFact = isMobile ? 0.50 : isTablet ? 0.60 : 0.75;
+      const pxPerSec    = isMobile ? 12   : isTablet ? 14   : 16;
+
+      const panelW = Math.round(W * panelMult);
 
       const track = document.createElement('div');
       track.className = 'marquee-track';
       track.style.width = (panelW * 2) + 'px';
       globe.appendChild(track);
 
-      // Scatter via a randomized grid + heavy jitter -> looks random, no big gaps.
-      const n = CODES.length;
+      // Scatter via a randomized grid + jitter -> looks random, no big gaps.
+      const n = displayCodes.length;
       const padY = 18;
       const usableH = Math.max(60, H - padY * 2);
       const aspect = panelW / usableH;
@@ -192,21 +211,21 @@
       const cellW = panelW / cols;
       const cellH = usableH / rows;
 
-      const order = CODES.slice().sort(() => Math.random() - 0.5);
+      const order = displayCodes.slice().sort(() => Math.random() - 0.5);
 
       order.forEach((codeObj, i) => {
         const col = i % cols;
         const row = Math.floor(i / cols);
 
-        const jitterX = (Math.random() - 0.5) * cellW * 0.55;
-        const jitterY = (Math.random() - 0.5) * cellH * 0.75;
+        const jitterX = (Math.random() - 0.5) * cellW * jitterXFact;
+        const jitterY = (Math.random() - 0.5) * cellH * jitterYFact;
         let x = col * cellW + cellW / 2 + jitterX;
         let y = padY + row * cellH + cellH / 2 + jitterY;
         x = Math.min(Math.max(x, 4), panelW - 4);
         y = Math.min(Math.max(y, padY), H - padY);
 
         // Real (focusable) token in the first panel...
-        const token = makeToken(codeObj, false);
+        const token = makeToken(codeObj, false, sizeScale);
         token.style.left = x.toFixed(1) + 'px';
         token.style.top = y.toFixed(1) + 'px';
         track.appendChild(token);
@@ -220,8 +239,7 @@
         track.appendChild(clone);
       });
 
-      // Very slow drift. Duration = time to travel one panel width.
-      const pxPerSec = 16;                 // very slow
+      // Drift speed: slower on mobile for readability.
       const duration = Math.max(60, panelW / pxPerSec);
       track.style.animationDuration = duration.toFixed(0) + 's';
     }
@@ -566,6 +584,82 @@
     });
   }
 
+  // ---------- MOBILE NAV (hamburger) ----------
+  function initMobileNav() {
+    var nav = document.querySelector('.top-nav');
+    var navList = nav ? nav.querySelector('.nav-links') : null;
+    if (!nav || !navList) return;
+
+    var btn = document.createElement('button');
+    btn.className = 'hamburger';
+    btn.setAttribute('aria-label', 'Open menu');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<span></span><span></span><span></span>';
+    // Insert before nav-links so logo stays first in the row
+    nav.insertBefore(btn, navList);
+
+    var resetMore = function () {};
+
+    function setOpen(open) {
+      nav.classList.toggle('nav-open', open);
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      if (!open) resetMore();
+    }
+
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      setOpen(!nav.classList.contains('nav-open'));
+    });
+    document.addEventListener('click', function (e) {
+      if (!nav.contains(e.target) && nav.classList.contains('nav-open')) setOpen(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('nav-open')) setOpen(false);
+    });
+
+    // [MORE] accordion: tap [MORE] → reveals DEV/PRINT/HW/VEND inline
+    var moreLinkEl = navList.querySelector('a[data-key="more"]');
+    if (moreLinkEl) {
+      var moreLi = moreLinkEl.parentElement;
+      var inPgs = window.location.pathname.toLowerCase().indexOf('/pages/') !== -1;
+      var pfx2 = inPgs ? '' : 'pages/';
+
+      var MORE_MOBILE = [
+        { href: pfx2 + 'devops.html',   label: '[DEV]' },
+        { href: pfx2 + 'printing.html', label: '[PRINT]' },
+        { href: pfx2 + 'hardware.html', label: '[HW]' },
+        { href: pfx2 + 'vendor.html',   label: '[VEND]' }
+      ];
+
+      var subList = document.createElement('ul');
+      subList.className = 'mobile-more-sub';
+      MORE_MOBILE.forEach(function (item) {
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.href = item.href;
+        a.textContent = item.label;
+        li.appendChild(a);
+        subList.appendChild(li);
+      });
+      moreLi.appendChild(subList);
+
+      resetMore = function () {
+        subList.classList.remove('open');
+        moreLinkEl.textContent = '[MORE]';
+      };
+
+      moreLinkEl.addEventListener('click', function (e) {
+        if (nav.classList.contains('nav-open')) {
+          e.preventDefault();
+          var opening = !subList.classList.contains('open');
+          subList.classList.toggle('open', opening);
+          moreLinkEl.textContent = opening ? '[MORE -]' : '[MORE]';
+        }
+      });
+    }
+  }
+
   // ---------- INIT ----------
   function init() {
     initMatrix();
@@ -575,6 +669,7 @@
     initModal();
     initSearch();
     initNavDropdowns();
+    initMobileNav();
   }
 
   if (document.readyState === 'loading') {
