@@ -1,4 +1,4 @@
-/* MAINFRAME.ENC main.js
+﻿/* MAINFRAME.ENC main.js
  * - Matrix rain background
  * - Infinite horizontal marquee of error codes (hover to pause + enlarge, click)
  * - Typewriter tagline
@@ -57,7 +57,7 @@
   function initTypewriter() {
     const el = document.getElementById('typewriter');
     if (!el) return;
-    const text = 'Decoding the mainframe, one error at a time';
+    const text = 'Find. Understand. Fix.';
     if (prefersReducedMotion) { el.textContent = text; return; }
     let i = 0;
     function type() {
@@ -94,7 +94,7 @@
     // DB2 high
     '-803','-805','-811','-818','-904','-911','-913','-922','+100','-180',
     '-204','-206','-407','-551','-150','-501','-502','-530','-545','-802',
-    // Non-DB2 high — the abends every mainframe dev fears
+    // Non-DB2 high â€” the abends every mainframe dev fears
     'S0C4','S0C7','S806','S322','ASRA','ICH408I','S913'
   ]);
   const MEDIUM_IMPORTANCE = new Set([
@@ -103,7 +103,7 @@
     '-402','-404','-405','-406','-408','-412','-503','-504','-530','-532',
     '-533','-552','-553','-601','-612','-805','-900','-905','-912','-918',
     '-924','-925','-926','-927','+304','+222','-150','-440','-540',
-    // Non-DB2 medium — common abends and important messages
+    // Non-DB2 medium â€” common abends and important messages
     'S0C1','S0C6','S0CB','AICA','AEY9','APCT','IEC130I','IEC161I',
     'IDC3009I','VSAM-8','IEC031D37','IEC031B37','GIM27801E','EQQE037E',
     'CEE3204S','CEE3207S','IGYDS0017','ICH415I','EZA1735I'
@@ -557,7 +557,7 @@
         });
 
         li.appendChild(moreUl);
-        return; // done — skip regular dropdown logic
+        return; // done â€” skip regular dropdown logic
       }
 
       // ---- Regular flat category dropdown ----
@@ -659,3 +659,4 @@
   // Expose for db2.html
   window.MAINFRAME = { openModal: openModal, searchCodes: searchCodes };
 })();
+
