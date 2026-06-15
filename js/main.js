@@ -279,9 +279,10 @@
     if (!overlay) return;
     lastFocusedBeforeModal = document.activeElement;
     const isNeg = codeObj.code.startsWith('-');
+    const isSqlcode = /^[+-]\d+$/.test(codeObj.code);
 
     const codeEl = document.getElementById('modal-code');
-    codeEl.textContent = 'SQLCODE ' + codeObj.code;
+    codeEl.textContent = (isSqlcode ? 'SQLCODE ' : '') + codeObj.code;
     codeEl.classList.toggle('neg', isNeg);
 
     document.getElementById('modal-title').textContent = codeObj.title;
@@ -299,17 +300,19 @@
     document.getElementById('modal-example').textContent = codeObj.example;
 
     const copyBtn = document.getElementById('modal-copy');
+    const copyLabel = isSqlcode ? '[COPY SQLCODE]' : '[COPY CODE]';
     copyBtn.classList.remove('copied');
-    copyBtn.textContent = '[COPY SQLCODE]';
+    copyBtn.textContent = copyLabel;
     copyBtn.onclick = () => {
-      const txt = 'SQLCODE ' + codeObj.code + ' - ' + codeObj.title;
+      const prefix = isSqlcode ? 'SQLCODE ' : '';
+      const txt = prefix + codeObj.code + ' - ' + codeObj.title;
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(txt).then(() => {
           copyBtn.classList.add('copied');
           copyBtn.textContent = '[COPIED!]';
           setTimeout(() => {
             copyBtn.classList.remove('copied');
-            copyBtn.textContent = '[COPY SQLCODE]';
+            copyBtn.textContent = copyLabel;
           }, 1500);
         });
       }
