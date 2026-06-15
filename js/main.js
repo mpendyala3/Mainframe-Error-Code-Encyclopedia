@@ -587,80 +587,54 @@
     });
   }
 
-  // ---------- MOBILE NAV (hamburger) ----------
+  // ---------- LOGO LINK ----------
+  function initLogoLink() {
+    var logo = document.querySelector('.nav-logo');
+    if (!logo || logo.closest('a')) return; // already wrapped
+    var inPages = window.location.pathname.toLowerCase().indexOf('/pages/') !== -1;
+    var href = inPages ? '../index.html' : './';
+    var a = document.createElement('a');
+    a.href = href;
+    a.className = 'nav-logo-link';
+    a.setAttribute('aria-label', 'Go to homepage');
+    logo.parentNode.insertBefore(a, logo);
+    a.appendChild(logo);
+  }
+
+  // ---------- MOBILE NAV (horizontal scroll strip) ----------
+  // On mobile screens, expand [MORE] into individual page links so all
+  // destinations are reachable in the single scrollable nav row.
   function initMobileNav() {
-    var nav = document.querySelector('.top-nav');
-    var navList = nav ? nav.querySelector('.nav-links') : null;
-    if (!nav || !navList) return;
-
-    var btn = document.createElement('button');
-    btn.className = 'hamburger';
-    btn.setAttribute('aria-label', 'Open menu');
-    btn.setAttribute('aria-expanded', 'false');
-    btn.innerHTML = '<span></span><span></span><span></span>';
-    // Insert before nav-links so logo stays first in the row
-    nav.insertBefore(btn, navList);
-
-    var resetMore = function () {};
-
-    function setOpen(open) {
-      nav.classList.toggle('nav-open', open);
-      btn.setAttribute('aria-expanded', String(open));
-      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-      if (!open) resetMore();
-    }
-
-    btn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      setOpen(!nav.classList.contains('nav-open'));
-    });
-    document.addEventListener('click', function (e) {
-      if (!nav.contains(e.target) && nav.classList.contains('nav-open')) setOpen(false);
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && nav.classList.contains('nav-open')) setOpen(false);
-    });
-
-    // [MORE] accordion: tap [MORE] → reveals DEV/PRINT/HW/VEND inline
+    if (window.innerWidth > 1024) return;
+    var navList = document.querySelector('.nav-links');
+    if (!navList) return;
     var moreLinkEl = navList.querySelector('a[data-key="more"]');
-    if (moreLinkEl) {
-      var moreLi = moreLinkEl.parentElement;
-      var inPgs = window.location.pathname.toLowerCase().indexOf('/pages/') !== -1;
-      var pfx2 = inPgs ? '' : 'pages/';
+    if (!moreLinkEl) return;
+    var moreLi = moreLinkEl.parentElement;
 
-      var MORE_MOBILE = [
-        { href: pfx2 + 'devops.html',   label: '[DEV]' },
-        { href: pfx2 + 'printing.html', label: '[PRINT]' },
-        { href: pfx2 + 'hardware.html', label: '[HW]' },
-        { href: pfx2 + 'vendor.html',   label: '[VEND]' }
-      ];
+    var inPgs = window.location.pathname.toLowerCase().indexOf('/pages/') !== -1;
+    var pfx = inPgs ? '' : 'pages/';
 
-      var subList = document.createElement('ul');
-      subList.className = 'mobile-more-sub';
-      MORE_MOBILE.forEach(function (item) {
-        var li = document.createElement('li');
-        var a = document.createElement('a');
-        a.href = item.href;
-        a.textContent = item.label;
-        li.appendChild(a);
-        subList.appendChild(li);
-      });
-      moreLi.appendChild(subList);
+    var MORE_PAGES = [
+      { href: pfx + 'devops.html',   label: '[DEV]',   key: 'devops' },
+      { href: pfx + 'printing.html', label: '[PRINT]', key: 'printing' },
+      { href: pfx + 'hardware.html', label: '[HW]',    key: 'hardware' },
+      { href: pfx + 'vendor.html',   label: '[VEND]',  key: 'vendor' }
+    ];
 
-      resetMore = function () {
-        subList.classList.remove('open');
-        moreLinkEl.textContent = '[MORE]';
-      };
+    MORE_PAGES.forEach(function (item) {
+      var li = document.createElement('li');
+      li.setAttribute('role', 'none');
+      var a = document.createElement('a');
+      a.href = item.href;
+      a.setAttribute('role', 'menuitem');
+      a.setAttribute('data-key', item.key);
+      a.textContent = item.label;
+      li.appendChild(a);
+      navList.insertBefore(li, moreLi);
+    });
 
-      moreLinkEl.addEventListener('click', function (e) {
-        if (nav.classList.contains('nav-open')) {
-          e.preventDefault();
-          var opening = !subList.classList.contains('open');
-          subList.classList.toggle('open', opening);
-          moreLinkEl.textContent = opening ? '[MORE -]' : '[MORE]';
-        }
-      });
-    }
+    moreLi.remove();
   }
 
   // ---------- INIT ----------
@@ -672,6 +646,7 @@
     initModal();
     initSearch();
     initNavDropdowns();
+    initLogoLink();
     initMobileNav();
   }
 

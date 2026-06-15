@@ -938,104 +938,87 @@ body, .top-nav, .hero, .modal, .about {
   letter-spacing: 1px;
 }
 
-/* ============ HAMBURGER BUTTON ============ */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: transparent;
-  border: 1px solid var(--glass-border);
-  padding: 8px 10px;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-.hamburger span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--green);
-  box-shadow: 0 0 4px var(--glow);
-  transition: transform 220ms ease, opacity 220ms ease;
-}
-.nav-open .hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.nav-open .hamburger span:nth-child(2) { opacity: 0; }
-.nav-open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-/* Mobile [MORE] accordion sub-items */
-.mobile-more-sub {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: none;
-}
-.mobile-more-sub.open { display: block; }
-.mobile-more-sub a {
-  display: block;
-  padding: 9px 16px 9px 32px;
-  font-size: 12px;
-  color: var(--green-dim);
+/* ============ LOGO LINK ============ */
+.nav-logo-link {
   text-decoration: none;
-  letter-spacing: 1px;
-  border-bottom: 1px solid rgba(0, 255, 65, 0.05);
-  background: rgba(0, 255, 65, 0.02);
-  transition: color 100ms ease, background 100ms ease;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
 }
-.mobile-more-sub a:hover, .mobile-more-sub a:focus-visible {
-  color: var(--green);
-  background: var(--glass);
-  outline: none;
+.nav-logo-link:hover .logo-text,
+.nav-logo-link:focus-visible .logo-text {
+  color: var(--white);
+  text-shadow: 0 0 10px var(--glow);
+}
+.nav-logo-link:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 /* ============ MEDIA QUERIES ============ */
 @media (max-width: 1024px) {
-  .hamburger { display: flex; }
-
+  /* Header row: logo + search on the same line */
   .top-nav {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     padding: 10px 16px;
-    gap: 8px;
+    gap: 8px 12px;
   }
-  .nav-logo { flex: 1 1 auto; }
+  .nav-logo, .nav-logo-link { flex: 0 0 auto; }
 
+  /* Search stays in header row, takes remaining space */
+  .nav-search {
+    display: flex;
+    flex: 1 1 0;
+    min-width: 0;
+    order: 5;
+  }
+  .nav-search input[type="search"] { min-width: 0; width: 100%; }
+
+  /* Nav strip: always-visible horizontal scroll row below the header */
   .nav-links {
-    display: none;
-    flex-direction: column;
+    display: flex;
+    flex: 0 0 100%;
     width: 100%;
-    order: 99;
-    gap: 0;
+    order: 10;
+    flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: flex-start;
-    padding: 4px 0;
+    gap: 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    scrollbar-width: none;
+    padding: 6px 0 8px;
     border-top: 1px solid var(--glass-border);
   }
-  .nav-search {
-    display: none;
-    width: 100%;
-    min-width: unset;
-    order: 100;
-    margin-top: 4px;
-    flex-wrap: wrap;
-  }
+  .nav-links::-webkit-scrollbar { display: none; }
 
-  .nav-open .nav-links { display: flex; }
-  .nav-open .nav-search { display: flex; }
-
-  .nav-links > li { width: 100%; }
+  /* Each nav item is a pill that doesn't shrink */
+  .nav-links > li { flex: 0 0 auto; }
   .nav-links > li > a {
-    display: block;
-    font-size: 13px;
-    padding: 11px 20px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1px solid rgba(0, 255, 65, 0.07);
+    display: inline-flex;
+    align-items: center;
+    font-size: 12px;
+    padding: 6px 12px;
+    white-space: nowrap;
+    border: 1px solid var(--glass-border);
+    background: var(--glass);
   }
 
-  /* Hide desktop hover dropdowns on mobile */
+  /* Hide desktop hover dropdowns — touch users tap the page link directly */
   .nav-dropdown, .nav-sub-dropdown { display: none; }
   .has-dropdown > a::after { content: none; }
+
+  /* Reduce glow: the triple/double text-shadows are too intense on mobile screens */
+  body, .top-nav, .hero, .modal, .about { text-shadow: none; }
+  .hero-title { text-shadow: 0 0 6px rgba(0, 255, 65, 0.35); }
+  .db2-page h1 { text-shadow: 0 0 5px rgba(0, 255, 65, 0.3); }
+  .stat-num { text-shadow: none; }
+  .logo-text { text-shadow: 0 0 4px rgba(0, 255, 65, 0.3); }
 
   .globe-container { width: 100%; height: 55vh; }
   .stat-num { font-size: 14px; }
