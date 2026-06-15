@@ -9,7 +9,7 @@
 (function () {
   'use strict';
 
-  const CODES = window.DB2_CODES || [];
+  const CODES = window.MF_CODES || window.DB2_CODES || [];
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // ---------- MATRIX RAIN ----------

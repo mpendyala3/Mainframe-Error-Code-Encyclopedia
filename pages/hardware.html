@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hardware, Virtualization and Disaster Recovery | Mainframe Error Code Encyclopedia</title>
+  <meta name="description" content="Machine check FICON DASD GDPS HyperSwap and z/VM error codes with cause and fix.">
+  <link rel="canonical" href="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/hardware.html">
+
+  <meta property="og:title" content="Hardware, Virtualization and Disaster Recovery | Mainframe Error Code Encyclopedia">
+  <meta property="og:description" content="Machine check FICON DASD GDPS HyperSwap and z/VM error codes with cause and fix.">
+  <meta property="og:url" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/hardware.html">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Press+Start+2P&display=swap">
+  <link rel="stylesheet" href="../css/main.css?v=6">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <canvas id="matrix-canvas" aria-hidden="true"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="crt-vignette" aria-hidden="true"></div>
+
+  <nav class="top-nav" aria-label="Primary">
+    <div class="nav-logo">
+      <span class="logo-square" aria-hidden="true">&#9632;</span>
+      <span class="logo-text">MAINFRAME.ENC</span>
+    </div>
+    <ul class="nav-links" role="menubar" data-active="hardware">
+      <li role="none"><a role="menuitem" href="../index.html">[HOME]</a></li>
+      <li role="none"><a role="menuitem" href="databases.html" data-key="databases">[DB]</a></li>
+      <li role="none"><a role="menuitem" href="batch.html" data-key="batch">[BATCH]</a></li>
+      <li role="none"><a role="menuitem" href="mvs.html" data-key="mvs">[MVS]</a></li>
+      <li role="none"><a role="menuitem" href="storage.html" data-key="storage">[STOR]</a></li>
+      <li role="none"><a role="menuitem" href="transactions.html" data-key="transactions">[TXN]</a></li>
+      <li role="none"><a role="menuitem" href="network.html" data-key="network">[NET]</a></li>
+      <li role="none"><a role="menuitem" href="security.html" data-key="security">[SEC]</a></li>
+      <li role="none"><a role="menuitem" href="tools.html" data-key="tools">[TSO]</a></li>
+      <li role="none"><a role="menuitem" href="languages.html" data-key="languages">[LANG]</a></li>
+      <li role="none"><a role="menuitem" href="install.html" data-key="install">[SMPE]</a></li>
+      <li role="none"><a role="menuitem" href="scheduling.html" data-key="scheduling">[SCHED]</a></li>
+      <li role="none"><a role="menuitem" href="devops.html" data-key="devops">[DEV]</a></li>
+      <li role="none"><a role="menuitem" href="printing.html" data-key="printing">[PRINT]</a></li>
+      <li role="none"><a role="menuitem" href="hardware.html" data-key="hardware">[HW]</a></li>
+      <li role="none"><a role="menuitem" href="vendor.html" data-key="vendor">[VEND]</a></li>
+    </ul>
+    <div class="nav-search" role="search">
+      <span class="prompt-prefix">&gt;</span>
+      <input id="search-input" type="search" placeholder="SEARCH CODE..." aria-label="Search codes" autocomplete="off">
+      <span class="cursor-blink" aria-hidden="true">&#9608;</span>
+      <button id="search-button" type="button" aria-label="Execute search">[EXEC]</button>
+      <div id="search-results" class="search-results" role="listbox" aria-label="Search suggestions"></div>
+    </div>
+  </nav>
+
+  <main id="main" class="db2-page">
+    <h1>&gt; HARDWARE VIRTUALIZATION AND DR</h1>
+    <p>Click any code for description, cause, fix, and example. Filter by category below.</p>
+
+    <div class="filter-bar glass" id="filter-bar"></div>
+    <div id="code-grid" class="code-grid" aria-live="polite"></div>
+  </main>
+
+  <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-code" aria-hidden="true">
+    <div class="modal glass" role="document">
+      <header class="modal-header">
+        <span id="modal-code" class="modal-code"></span>
+        <button id="modal-close" class="modal-close" aria-label="Close dialog">&times;</button>
+      </header>
+      <div class="modal-body">
+        <h2 id="modal-title" class="modal-title"></h2>
+        <div class="modal-meta">
+          <span id="modal-category" class="meta-tag"></span>
+          <span id="modal-severity" class="meta-tag"></span>
+        </div>
+        <section class="modal-section">
+          <h3>&#128203; DESCRIPTION</h3>
+          <p id="modal-description"></p>
+        </section>
+        <section class="modal-section">
+          <h3>&#128269; COMMON CAUSE</h3>
+          <p id="modal-cause"></p>
+        </section>
+        <section class="modal-section">
+          <h3>&#128736; HOW TO FIX</h3>
+          <p id="modal-fix"></p>
+        </section>
+        <section class="modal-section">
+          <h3>&#128161; EXAMPLE</h3>
+          <pre><code id="modal-example"></code></pre>
+        </section>
+      </div>
+      <footer class="modal-footer">
+        <button id="modal-copy" type="button" class="btn">[COPY CODE]</button>
+        <button id="modal-close-btn" type="button" class="btn">[CLOSE]</button>
+      </footer>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>&gt; MAINFRAME.ENC v1.0 &mdash; Decoding the mainframe, one error at a time.</p>
+  </footer>
+
+  <script src="../js/hardware-codes.js?v=6" defer></script>
+  <script src="../js/main.js?v=6" defer></script>
+  <script src="../js/category-page.js?v=6" defer></script>
+</body>
+</html>
