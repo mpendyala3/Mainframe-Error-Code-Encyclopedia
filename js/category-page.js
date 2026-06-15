@@ -98,6 +98,22 @@
         });
       }
       renderGrid(codes, currentCat);
+
+      // Auto-apply ?filter=CATEGORY from URL (set by nav dropdown links)
+      var params = new URLSearchParams(window.location.search);
+      var filterParam = params.get('filter');
+      if (filterParam && bar) {
+        var btn = bar.querySelector('[data-cat="' + filterParam + '"]');
+        if (btn) {
+          bar.querySelectorAll('.filter-btn').forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          currentCat = btn.dataset.cat;
+          renderGrid(codes, currentCat);
+          // Scroll the filtered grid into view
+          var grid = document.getElementById('code-grid');
+          if (grid) { setTimeout(function () { grid.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 80); }
+        }
+      }
     }
     start();
   }

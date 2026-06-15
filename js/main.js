@@ -454,6 +454,58 @@
     }
   }
 
+  // ---------- NAV DROPDOWNS ----------
+  function initNavDropdowns() {
+    var NAV_CATEGORIES = {
+      databases:    ['AUTHORIZATION','BIND','CONNECTION','CONSTRAINT','CURSOR','DATATYPE','DEADLOCK','OBJECT','RESOURCE','SUCCESS','SYNTAX','SYSTEM','WARNING'],
+      batch:        ['JCL','JES2','JES3','SYSTEM ABEND','USER ABEND'],
+      mvs:          ['ARM','CONSOLE','DFSMS','DIAGNOSTIC','I/O','LOGGER','STORAGE','SYSPLEX','SYSTEM','VSAM','WLM'],
+      storage:      ['DFSMS','I/O','IDCAMS','LE/VSAM','VSAM','VSAM RC'],
+      transactions: ['CICS','CICS ABEND','CICS WEB','MQ'],
+      network:      ['FTP','SOCKETS','TCP/IP','VTAM'],
+      security:     ['ACF2','GSKit','ICSF','RACF','RACF DIGTCERT','SECURITY ABEND','TOP SECRET'],
+      tools:        ['ISPF','OMVS','REXX','SDSF','TSO/E'],
+      languages:    ['BINDER','COBOL COMPILE','COBOL RUNTIME','HLASM','LE','LE ABEND','PL/I COMPILE'],
+      install:      ['SMP/E'],
+      scheduling:   ['CONTROL-M','MAINVIEW','NETVIEW','OMEGAMON','SA','TWS'],
+      devops:       ['ABEND-AID','APA','CHANGEMAN','DEBUG TOOL','ENDEVOR','FAULT ANALYZER','FILE-AID','HIPERSTATION','IDz','TOTAL TEST','XPEDITER'],
+      printing:     ['AFP','INFOPRINT','IP PrintWay','JES OUTPUT','PSF','PSF ABEND'],
+      hardware:     ['CHANNEL','DASD ARRAY','DASD UTIL','FICON','GDPS','GDPS/HyperSwap','HARDWARE','I/O','PR/SM','TAPE','z/VM'],
+      vendor:       ['AIRLINE/RES','BANKING','CUSTOM','ERP','EXIT','FRAMEWORK','INSURANCE','INTEGRATION','STORED PROC','USER ABEND']
+    };
+
+    document.querySelectorAll('.nav-links > li').forEach(function (li) {
+      var link = li.querySelector('a');
+      if (!link) return;
+      var href = link.getAttribute('href') || '';
+      // Extract page key: "pages/databases.html" or "databases.html" → "databases"
+      var pageKey = href.replace(/^.*\//, '').replace(/\.html.*$/, '');
+      var cats = NAV_CATEGORIES[pageKey];
+      if (!cats || !cats.length) return;
+
+      li.classList.add('has-dropdown');
+
+      var ul = document.createElement('ul');
+      ul.className = 'nav-dropdown';
+      ul.setAttribute('role', 'menu');
+      ul.setAttribute('aria-label', pageKey + ' categories');
+
+      cats.forEach(function (cat) {
+        var base = href.split('?')[0];
+        var li2 = document.createElement('li');
+        li2.setAttribute('role', 'none');
+        var a = document.createElement('a');
+        a.href = base + '?filter=' + encodeURIComponent(cat);
+        a.setAttribute('role', 'menuitem');
+        a.textContent = cat + ' ERROR CODES';
+        li2.appendChild(a);
+        ul.appendChild(li2);
+      });
+
+      li.appendChild(ul);
+    });
+  }
+
   // ---------- INIT ----------
   function init() {
     initMatrix();
@@ -462,6 +514,7 @@
     initGlobe();
     initModal();
     initSearch();
+    initNavDropdowns();
   }
 
   if (document.readyState === 'loading') {
