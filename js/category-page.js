@@ -11,8 +11,14 @@
     const list = document.querySelector('.nav-links[data-active]');
     if (!list) return;
     const activeKey = list.getAttribute('data-active');
+    const MORE_GROUP = new Set(['devops', 'printing', 'hardware', 'vendor']);
     list.querySelectorAll('a[data-key]').forEach(a => {
-      if (a.getAttribute('data-key') === activeKey) a.classList.add('active');
+      const key = a.getAttribute('data-key');
+      if (key === activeKey) {
+        a.classList.add('active');
+      } else if (key === 'more' && MORE_GROUP.has(activeKey)) {
+        a.classList.add('active');
+      }
     });
   }
 

@@ -250,6 +250,88 @@ body, .top-nav, .hero, .modal, .about {
   border-top: 1px solid rgba(0, 255, 65, 0.05);
 }
 
+/* ============ [MORE] NESTED FLY-OUT ============ */
+
+/* The [MORE] first-level dropdown must not clip sub-dropdowns */
+.more-dropdown {
+  overflow: visible;
+  max-height: none;
+}
+
+/* First-level items inside [MORE] that have sub-fly-outs */
+.has-sub-dropdown {
+  position: relative;
+}
+
+/* Right-arrow indicator on items that open a fly-out */
+.has-sub-dropdown > a::after {
+  content: ' ▶';
+  font-size: 8px;
+  float: right;
+  margin-left: 14px;
+}
+
+/* Sub-dropdown fly-out panel */
+.nav-sub-dropdown {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  min-width: 250px;
+  max-height: 380px;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.85), 0 0 20px rgba(0, 255, 65, 0.08);
+  list-style: none;
+  padding: 4px 0;
+  z-index: 1300;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-4px);
+  transition: opacity 160ms ease, transform 160ms ease;
+  scrollbar-width: thin;
+  scrollbar-color: var(--glass-border) transparent;
+}
+
+.nav-sub-dropdown::-webkit-scrollbar { width: 4px; }
+.nav-sub-dropdown::-webkit-scrollbar-track { background: transparent; }
+.nav-sub-dropdown::-webkit-scrollbar-thumb { background: var(--glass-border); }
+
+/* Show fly-out on hover — no gap since sub-dropdown starts at left:100% of the li */
+.has-sub-dropdown:hover .nav-sub-dropdown,
+.has-sub-dropdown:focus-within .nav-sub-dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.nav-sub-dropdown li { list-style: none; }
+
+.nav-sub-dropdown a {
+  display: block;
+  padding: 7px 16px;
+  font-size: 10px;
+  color: var(--green-dim);
+  text-decoration: none;
+  white-space: nowrap;
+  letter-spacing: 1.2px;
+  transition: color 120ms ease, background 120ms ease;
+}
+
+.nav-sub-dropdown a:hover,
+.nav-sub-dropdown a:focus-visible {
+  color: var(--green);
+  background: var(--glass);
+  text-shadow: 0 0 8px var(--glow);
+  outline: none;
+}
+
+.nav-sub-dropdown li + li a {
+  border-top: 1px solid rgba(0, 255, 65, 0.05);
+}
+
 .nav-links a.disabled {
   color: var(--green-dim);
   opacity: 0.5;

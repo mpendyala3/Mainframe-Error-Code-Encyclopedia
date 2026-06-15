@@ -474,12 +474,72 @@
       vendor:       ['AIRLINE/RES','BANKING','CUSTOM','ERP','EXIT','FRAMEWORK','INSURANCE','INTEGRATION','STORED PROC','USER ABEND']
     };
 
+    // Pages grouped under the [MORE] nav item
+    var MORE_GROUP = ['devops', 'printing', 'hardware', 'vendor'];
+    var MORE_LABELS = { devops: '[DEV]', printing: '[PRINT]', hardware: '[HW]', vendor: '[VEND]' };
+
+    // Determine path prefix based on whether we are in /pages/ or root
+    var inPages = window.location.pathname.toLowerCase().indexOf('/pages/') !== -1;
+    var pfx = inPages ? '' : 'pages/';
+
     document.querySelectorAll('.nav-links > li').forEach(function (li) {
       var link = li.querySelector('a');
       if (!link) return;
       var href = link.getAttribute('href') || '';
-      // Extract page key: "pages/databases.html" or "databases.html" → "databases"
-      var pageKey = href.replace(/^.*\//, '').replace(/\.html.*$/, '');
+      // Prefer data-key attribute; fall back to parsing href
+      var dataKey = link.getAttribute('data-key') || '';
+      var pageKey = dataKey || href.replace(/^.*\//, '').replace(/\.html.*$/, '');
+
+      // ---- [MORE] nested dropdown ----
+      if (pageKey === 'more') {
+        li.classList.add('has-dropdown');
+        // Prevent page jump when clicking [MORE] label directly
+        link.addEventListener('click', function (e) { e.preventDefault(); });
+
+        var moreUl = document.createElement('ul');
+        moreUl.className = 'nav-dropdown more-dropdown';
+        moreUl.setAttribute('role', 'menu');
+        moreUl.setAttribute('aria-label', 'More categories');
+
+        MORE_GROUP.forEach(function (key) {
+          var pagePath = pfx + key + '.html';
+          var cats = NAV_CATEGORIES[key] || [];
+
+          var li2 = document.createElement('li');
+          li2.setAttribute('role', 'none');
+          if (cats.length) li2.classList.add('has-sub-dropdown');
+
+          var a2 = document.createElement('a');
+          a2.href = pagePath;
+          a2.setAttribute('role', 'menuitem');
+          a2.textContent = MORE_LABELS[key];
+          li2.appendChild(a2);
+
+          if (cats.length) {
+            var subUl = document.createElement('ul');
+            subUl.className = 'nav-sub-dropdown';
+            subUl.setAttribute('role', 'menu');
+
+            cats.forEach(function (cat) {
+              var li3 = document.createElement('li');
+              li3.setAttribute('role', 'none');
+              var a3 = document.createElement('a');
+              a3.href = pagePath + '?filter=' + encodeURIComponent(cat);
+              a3.setAttribute('role', 'menuitem');
+              a3.textContent = cat + ' ERROR CODES';
+              li3.appendChild(a3);
+              subUl.appendChild(li3);
+            });
+            li2.appendChild(subUl);
+          }
+          moreUl.appendChild(li2);
+        });
+
+        li.appendChild(moreUl);
+        return; // done — skip regular dropdown logic
+      }
+
+      // ---- Regular flat category dropdown ----
       var cats = NAV_CATEGORIES[pageKey];
       if (!cats || !cats.length) return;
 
