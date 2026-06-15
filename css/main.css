@@ -229,7 +229,7 @@ body, .top-nav, .hero, .modal, .about {
 .nav-dropdown a {
   display: block;
   padding: 7px 16px;
-  font-size: 10px;
+  font-size: 13px;
   color: var(--green-dim);
   text-decoration: none;
   white-space: nowrap;
@@ -312,7 +312,7 @@ body, .top-nav, .hero, .modal, .about {
 .nav-sub-dropdown a {
   display: block;
   padding: 7px 16px;
-  font-size: 10px;
+  font-size: 13px;
   color: var(--green-dim);
   text-decoration: none;
   white-space: nowrap;
