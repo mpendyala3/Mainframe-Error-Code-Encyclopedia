@@ -363,45 +363,26 @@ body, .top-nav, .hero, .modal, .about {
   overflow: hidden;
 }
 
-/* Vertical stack of horizontal marquee rows */
+/* Single full-area field that holds one scrolling track */
 .globe {
   position: relative;
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  gap: 4px;
+  overflow: hidden;
 }
 
-.marquee-row {
-  position: relative;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  overflow: visible;
-  flex: 1 1 auto;
-}
-
+/* One wide track of randomly-scattered codes, scrolls as a whole.
+   Width is set in JS to 2x the panel; translateX(-50% -> 0) drifts
+   everything left-to-right and loops seamlessly. */
 .marquee-track {
-  display: inline-flex;
-  align-items: center;
-  flex-wrap: nowrap;
-  white-space: nowrap;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
   will-change: transform;
-  animation-name: marqueeLeft;
+  animation-name: marqueeRight;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-}
-
-.marquee-track.reverse {
-  animation-name: marqueeRight;
-}
-
-/* Two identical halves -> translating by -50% loops seamlessly */
-@keyframes marqueeLeft {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
 }
 
 @keyframes marqueeRight {
@@ -409,15 +390,14 @@ body, .top-nav, .hero, .modal, .about {
   to   { transform: translateX(0); }
 }
 
-/* Pause the row the user is pointing at so codes are easy to click */
-.marquee-row:hover .marquee-track {
+/* Stop the whole field while the pointer is over the area */
+.globe-container:hover .marquee-track,
+.globe-container:focus-within .marquee-track {
   animation-play-state: paused;
 }
 
 .code-token {
-  display: inline-block;
-  flex: 0 0 auto;
-  margin: 0 14px;
+  position: absolute;
   font-family: 'Share Tech Mono', monospace;
   cursor: pointer;
   transition: transform 180ms cubic-bezier(.34,1.56,.64,1),
@@ -428,14 +408,15 @@ body, .top-nav, .hero, .modal, .about {
   user-select: none;
   color: var(--green);
   text-shadow: 0 0 4px var(--glow);
-  position: relative;
+  transform: translate(-50%, -50%);
+  will-change: transform;
 }
 
 .code-token.dim { color: var(--green-dim); opacity: 0.7; }
 .code-token.neg { color: var(--red); text-shadow: 0 0 4px var(--red-glow); }
 
 .code-token:hover, .code-token:focus {
-  transform: scale(1.7);
+  transform: translate(-50%, -50%) scale(1.8);
   font-weight: bold;
   color: var(--green);
   text-shadow: 0 0 16px var(--green), 0 0 32px var(--green), 0 0 48px var(--green);

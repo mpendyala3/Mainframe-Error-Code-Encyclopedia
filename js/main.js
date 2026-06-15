@@ -149,7 +149,7 @@
     return token;
   }
 
-  // Continuous horizontal marquee: stack of rows, each scrolls infinitely.
+  // One randomly-scattered field of codes that drifts left-to-right as a whole.
   function initGlobe() {
     const globe = document.getElementById('globe');
     const container = document.getElementById('globe-container');
@@ -162,52 +162,57 @@
       const H = rect.height;
       if (W < 10 || H < 10) { setTimeout(build, 100); return; }
 
-      // One row roughly every ~52px of height
-      const rowCount = Math.max(4, Math.min(16, Math.floor(H / 52)));
+      // One "panel" is a bit wider than the viewport so codes spread out and the
+      // loop period is long. The track holds two identical panels side by side.
+      const panelW = Math.round(W * 1.5);
 
-      // Shuffle so importance/sign aren't clustered, then deal into rows
+      const track = document.createElement('div');
+      track.className = 'marquee-track';
+      track.style.width = (panelW * 2) + 'px';
+      globe.appendChild(track);
+
+      // Scatter via a randomized grid + heavy jitter -> looks random, no big gaps.
+      const n = CODES.length;
+      const padY = 18;
+      const usableH = Math.max(60, H - padY * 2);
+      const aspect = panelW / usableH;
+      const cols = Math.max(6, Math.round(Math.sqrt(n * aspect)));
+      const rows = Math.ceil(n / cols);
+      const cellW = panelW / cols;
+      const cellH = usableH / rows;
+
       const order = CODES.slice().sort(() => Math.random() - 0.5);
-      const buckets = Array.from({ length: rowCount }, () => []);
-      order.forEach((c, i) => buckets[i % rowCount].push(c));
 
-      buckets.forEach((bucket, r) => {
-        if (!bucket.length) return;
+      order.forEach((codeObj, i) => {
+        const col = i % cols;
+        const row = Math.floor(i / cols);
 
-        const row = document.createElement('div');
-        row.className = 'marquee-row';
-        const track = document.createElement('div');
-        track.className = 'marquee-track' + (r % 2 === 1 ? ' reverse' : '');
-        row.appendChild(track);
-        globe.appendChild(row);
+        const jitterX = (Math.random() - 0.5) * cellW * 1.1;
+        const jitterY = (Math.random() - 0.5) * cellH * 1.1;
+        let x = col * cellW + cellW / 2 + jitterX;
+        let y = padY + row * cellH + cellH / 2 + jitterY;
+        x = Math.min(Math.max(x, 4), panelW - 4);
+        y = Math.min(Math.max(y, padY), H - padY);
 
-        // Build one unit, measure it, repeat enough to span the viewport width.
-        bucket.forEach((c) => track.appendChild(makeToken(c, false)));
-        const unitW = track.scrollWidth || 1;
-        const repeats = Math.max(1, Math.ceil((W + 120) / unitW));
-        for (let k = 1; k < repeats; k++) {
-          // additional units within the first half are not focusable (visual fill)
-          bucket.forEach((c) => track.appendChild(makeToken(c, true)));
-        }
+        // Real (focusable) token in the first panel...
+        const token = makeToken(codeObj, false);
+        token.style.left = x.toFixed(1) + 'px';
+        token.style.top = y.toFixed(1) + 'px';
+        track.appendChild(token);
 
-        // The first half is now complete. Clone it node-for-node so the second
-        // half is pixel-identical -> translateX(-50%) loops seamlessly.
-        const firstHalf = Array.prototype.slice.call(track.children);
-        const halfWidth = track.scrollWidth;
-        firstHalf.forEach((el) => {
-          const clone = el.cloneNode(true);
-          clone.setAttribute('aria-hidden', 'true');
-          clone.setAttribute('tabindex', '-1');
-          attachTokenHandlers(clone, byCode[clone.dataset.code]);
-          track.appendChild(clone);
-        });
-
-        // Constant pixel speed, slight per-row variety
-        const pxPerSec = 46 + (r % 4) * 11;     // 46, 57, 68, 79
-        const duration = Math.max(14, halfWidth / pxPerSec);
-        track.style.animationDuration = duration.toFixed(1) + 's';
-        // Stagger start so rows don't line up
-        track.style.animationDelay = '-' + (r * 1.7).toFixed(1) + 's';
+        // ...and an identical clone shifted one panel right for the seamless loop.
+        const clone = token.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        clone.setAttribute('tabindex', '-1');
+        clone.style.left = (x + panelW).toFixed(1) + 'px';
+        attachTokenHandlers(clone, codeObj);
+        track.appendChild(clone);
       });
+
+      // Very slow drift. Duration = time to travel one panel width.
+      const pxPerSec = 16;                 // very slow
+      const duration = Math.max(60, panelW / pxPerSec);
+      track.style.animationDuration = duration.toFixed(0) + 's';
     }
 
     build();
