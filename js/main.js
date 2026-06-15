@@ -9,7 +9,8 @@
 (function () {
   'use strict';
 
-  const CODES = window.MF_CODES || window.DB2_CODES || [];
+  const CODES = window.MF_CODES ||
+    (window.DB2_CODES ? window.DB2_CODES.concat(window.HOME_EXTRA_CODES || []) : []);
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // Fast lookup: code string -> code object (used when cloning marquee tokens)
@@ -90,14 +91,22 @@
   // ---------- CODE CLOUD ----------
   // Common SQLCODEs every mainframe dev encounters
   const HIGH_IMPORTANCE = new Set([
+    // DB2 high
     '-803','-805','-811','-818','-904','-911','-913','-922','+100','-180',
-    '-204','-206','-407','-551','-150','-501','-502','-530','-545','-802'
+    '-204','-206','-407','-551','-150','-501','-502','-530','-545','-802',
+    // Non-DB2 high — the abends every mainframe dev fears
+    'S0C4','S0C7','S806','S322','ASRA','ICH408I','S913'
   ]);
   const MEDIUM_IMPORTANCE = new Set([
+    // DB2 medium
     '-101','-102','-104','-107','-117','-118','-181','-204','-304','-401',
     '-402','-404','-405','-406','-408','-412','-503','-504','-530','-532',
     '-533','-552','-553','-601','-612','-805','-900','-905','-912','-918',
-    '-924','-925','-926','-927','+304','+222','-150','-440','-540'
+    '-924','-925','-926','-927','+304','+222','-150','-440','-540',
+    // Non-DB2 medium — common abends and important messages
+    'S0C1','S0C6','S0CB','AICA','AEY9','APCT','IEC130I','IEC161I',
+    'IDC3009I','VSAM-8','IEC031D37','IEC031B37','GIM27801E','EQQE037E',
+    'CEE3204S','CEE3207S','IGYDS0017','ICH415I','EZA1735I'
   ]);
 
   function importanceFor(code) {
@@ -123,12 +132,14 @@
     token.textContent = codeObj.code;
     token.dataset.code = codeObj.code;
 
-    // Importance-based sizing with random jitter
+    // Importance-based sizing with random jitter.
+    // Longer codes (8+ chars) are capped at a smaller range to reduce horizontal overlap.
     const imp = importanceFor(codeObj.code);
+    const isLong = codeObj.code.length >= 8;
     let size;
-    if (imp === 'high') size = 22 + Math.random() * 8;       // 22-30
-    else if (imp === 'med') size = 16 + Math.random() * 5;   // 16-21
-    else size = 11 + Math.random() * 4;                       // 11-15
+    if (imp === 'high') size = isLong ? 16 + Math.random() * 4 : 22 + Math.random() * 8; // long 16-20, short 22-30
+    else if (imp === 'med') size = isLong ? 13 + Math.random() * 3 : 16 + Math.random() * 5; // long 13-16, short 16-21
+    else size = 11 + Math.random() * (isLong ? 2 : 4);       // long 11-13, short 11-15
     token.style.fontSize = size.toFixed(1) + 'px';
 
     // Color: high vivid, low can be dim, negatives bias to red
@@ -187,8 +198,8 @@
         const col = i % cols;
         const row = Math.floor(i / cols);
 
-        const jitterX = (Math.random() - 0.5) * cellW * 1.1;
-        const jitterY = (Math.random() - 0.5) * cellH * 1.1;
+        const jitterX = (Math.random() - 0.5) * cellW * 0.55;
+        const jitterY = (Math.random() - 0.5) * cellH * 0.75;
         let x = col * cellW + cellW / 2 + jitterX;
         let y = padY + row * cellH + cellH / 2 + jitterY;
         x = Math.min(Math.max(x, 4), panelW - 4);
