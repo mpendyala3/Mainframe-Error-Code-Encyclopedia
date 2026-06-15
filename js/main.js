@@ -1,6 +1,6 @@
 /* MAINFRAME.ENC main.js
  * - Matrix rain background
- * - Globe of error codes (elliptical layout, slow rotation, hover, click)
+ * - Infinite horizontal marquee of error codes (hover to pause + enlarge, click)
  * - Typewriter tagline
  * - Stat counters
  * - Search (debounced, normalized input)
@@ -11,6 +11,10 @@
 
   const CODES = window.MF_CODES || window.DB2_CODES || [];
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Fast lookup: code string -> code object (used when cloning marquee tokens)
+  const byCode = {};
+  CODES.forEach(function (c) { byCode[c.code] = c; });
 
   // ---------- MATRIX RAIN ----------
   function initMatrix() {
@@ -102,142 +106,121 @@
     return 'low';
   }
 
-  // Track tokens so the push-on-hover handler can iterate them quickly
-  const tokenRecords = [];
+  function attachTokenHandlers(token, codeObj) {
+    token.addEventListener('click', () => openModal(codeObj));
+    token.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(codeObj); }
+    });
+    token.addEventListener('mouseenter', () => showCodeTooltip(token, codeObj));
+    token.addEventListener('mouseleave', () => hideCodeTooltip(token));
+    token.addEventListener('focus', () => showCodeTooltip(token, codeObj));
+    token.addEventListener('blur', () => hideCodeTooltip(token));
+  }
 
+  function makeToken(codeObj, ariaHidden) {
+    const token = document.createElement('span');
+    token.className = 'code-token';
+    token.textContent = codeObj.code;
+    token.dataset.code = codeObj.code;
+
+    // Importance-based sizing with random jitter
+    const imp = importanceFor(codeObj.code);
+    let size;
+    if (imp === 'high') size = 22 + Math.random() * 8;       // 22-30
+    else if (imp === 'med') size = 16 + Math.random() * 5;   // 16-21
+    else size = 11 + Math.random() * 4;                       // 11-15
+    token.style.fontSize = size.toFixed(1) + 'px';
+
+    // Color: high vivid, low can be dim, negatives bias to red
+    const isNeg = codeObj.code.startsWith('-');
+    const cr = Math.random();
+    if (isNeg && (imp === 'high' ? cr < 0.55 : cr < 0.45)) token.classList.add('neg');
+    else if (imp === 'low' && cr < 0.35) token.classList.add('dim');
+
+    if (ariaHidden) {
+      token.setAttribute('aria-hidden', 'true');
+      token.setAttribute('tabindex', '-1');
+    } else {
+      token.setAttribute('role', 'button');
+      token.setAttribute('tabindex', '0');
+      token.setAttribute('aria-label', codeObj.code + ' ' + codeObj.title);
+    }
+    attachTokenHandlers(token, codeObj);
+    return token;
+  }
+
+  // Continuous horizontal marquee: stack of rows, each scrolls infinitely.
   function initGlobe() {
     const globe = document.getElementById('globe');
     const container = document.getElementById('globe-container');
     if (!globe || !container || CODES.length === 0) return;
 
-    function buildTokens() {
+    function build() {
       globe.innerHTML = '';
-      tokenRecords.length = 0;
-
       const rect = container.getBoundingClientRect();
       const W = rect.width;
       const H = rect.height;
-      if (W < 10 || H < 10) return;
+      if (W < 10 || H < 10) { setTimeout(build, 100); return; }
 
-      const padX = 20;
-      const padY = 16;
-      const usableW = Math.max(100, W - padX * 2);
-      const usableH = Math.max(100, H - padY * 2);
+      // One row roughly every ~52px of height
+      const rowCount = Math.max(4, Math.min(16, Math.floor(H / 52)));
 
-      const n = CODES.length;
-      // Dense grid-with-jitter so codes scatter without big gaps
-      const aspect = usableW / usableH;
-      const density = 1.45; // higher = packed tighter
-      const cols = Math.max(10, Math.round(Math.sqrt(n * aspect) * Math.sqrt(density)));
-      const rows = Math.ceil(n / cols);
-      const cellW = usableW / cols;
-      const cellH = usableH / rows;
-
-      // Shuffle codes so importance/sign aren't grid-aligned
+      // Shuffle so importance/sign aren't clustered, then deal into rows
       const order = CODES.slice().sort(() => Math.random() - 0.5);
+      const buckets = Array.from({ length: rowCount }, () => []);
+      order.forEach((c, i) => buckets[i % rowCount].push(c));
 
-      order.forEach((codeObj, i) => {
-        const col = i % cols;
-        const row = Math.floor(i / cols);
+      buckets.forEach((bucket, r) => {
+        if (!bucket.length) return;
 
-        // Random jitter within cell + per-row stagger
-        const rowOffset = (row % 2 === 0 ? 1 : -1) * cellW * 0.22;
-        const jitterX = (Math.random() - 0.5) * cellW * 0.9;
-        const jitterY = (Math.random() - 0.5) * cellH * 0.9;
-        const x = padX + col * cellW + cellW / 2 + jitterX + rowOffset;
-        const y = padY + row * cellH + cellH / 2 + jitterY;
+        const row = document.createElement('div');
+        row.className = 'marquee-row';
+        const track = document.createElement('div');
+        track.className = 'marquee-track' + (r % 2 === 1 ? ' reverse' : '');
+        row.appendChild(track);
+        globe.appendChild(row);
 
-        const cx = Math.min(Math.max(x, padX), W - padX);
-        const cy = Math.min(Math.max(y, padY), H - padY);
-
-        // Z depth for globe parallax - more depth near horizontal center
-        const horizFrac = (cx / W - 0.5) * 2; // -1..1
-        const depthBase = Math.cos(horizFrac * Math.PI * 0.5) * 220; // up to 220px forward at center
-        const depth = depthBase + (Math.random() - 0.5) * 120; // jitter for organic feel
-
-        const token = document.createElement('span');
-        token.className = 'code-token';
-        token.textContent = codeObj.code;
-        token.setAttribute('role', 'button');
-        token.setAttribute('tabindex', '0');
-        token.setAttribute('aria-label', codeObj.code + ' ' + codeObj.title);
-        token.dataset.code = codeObj.code;
-
-        const imp = importanceFor(codeObj.code);
-        let size;
-        if (imp === 'high') size = 22 + Math.random() * 8;       // 22-30
-        else if (imp === 'med') size = 16 + Math.random() * 5;   // 16-21
-        else size = 11 + Math.random() * 4;                       // 11-15
-        token.style.fontSize = size.toFixed(1) + 'px';
-
-        const isNeg = codeObj.code.startsWith('-');
-        const cr = Math.random();
-        if (isNeg && (imp === 'high' ? cr < 0.55 : cr < 0.45)) token.classList.add('neg');
-        else if (imp === 'low' && cr < 0.35) token.classList.add('dim');
-
-        token.style.left = cx + 'px';
-        token.style.top = cy + 'px';
-        token.style.setProperty('--depth', depth.toFixed(1) + 'px');
-
-        token.addEventListener('click', () => openModal(codeObj));
-        token.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(codeObj); }
-        });
-        token.addEventListener('mouseenter', () => {
-          showCodeTooltip(token, codeObj);
-          activateToken(token);
-        });
-        token.addEventListener('mouseleave', () => {
-          hideCodeTooltip(token);
-          deactivateAll();
-        });
-        token.addEventListener('focus', () => { showCodeTooltip(token, codeObj); activateToken(token); });
-        token.addEventListener('blur', () => { hideCodeTooltip(token); deactivateAll(); });
-
-        globe.appendChild(token);
-        tokenRecords.push({ el: token, x: cx, y: cy, baseSize: size });
-      });
-    }
-
-    function activateToken(activeEl) {
-      const active = tokenRecords.find(r => r.el === activeEl);
-      if (!active) return;
-      activeEl.classList.add('is-active');
-      const newSize = active.baseSize * 1.75;
-      activeEl.style.fontSize = newSize.toFixed(1) + 'px';
-
-      const pushRadius = 200;
-      const pushStrength = 55;
-      tokenRecords.forEach(r => {
-        if (r.el === activeEl) return;
-        const dx = r.x - active.x;
-        const dy = r.y - active.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < pushRadius && dist > 0.5) {
-          const k = Math.pow((pushRadius - dist) / pushRadius, 2);
-          const ox = (dx / dist) * pushStrength * k;
-          const oy = (dy / dist) * pushStrength * k;
-          r.el.style.setProperty('--ox', ox.toFixed(1) + 'px');
-          r.el.style.setProperty('--oy', oy.toFixed(1) + 'px');
+        // Build one unit, measure it, repeat enough to span the viewport width.
+        bucket.forEach((c) => track.appendChild(makeToken(c, false)));
+        const unitW = track.scrollWidth || 1;
+        const repeats = Math.max(1, Math.ceil((W + 120) / unitW));
+        for (let k = 1; k < repeats; k++) {
+          // additional units within the first half are not focusable (visual fill)
+          bucket.forEach((c) => track.appendChild(makeToken(c, true)));
         }
+
+        // The first half is now complete. Clone it node-for-node so the second
+        // half is pixel-identical -> translateX(-50%) loops seamlessly.
+        const firstHalf = Array.prototype.slice.call(track.children);
+        const halfWidth = track.scrollWidth;
+        firstHalf.forEach((el) => {
+          const clone = el.cloneNode(true);
+          clone.setAttribute('aria-hidden', 'true');
+          clone.setAttribute('tabindex', '-1');
+          attachTokenHandlers(clone, byCode[clone.dataset.code]);
+          track.appendChild(clone);
+        });
+
+        // Constant pixel speed, slight per-row variety
+        const pxPerSec = 46 + (r % 4) * 11;     // 46, 57, 68, 79
+        const duration = Math.max(14, halfWidth / pxPerSec);
+        track.style.animationDuration = duration.toFixed(1) + 's';
+        // Stagger start so rows don't line up
+        track.style.animationDelay = '-' + (r * 1.7).toFixed(1) + 's';
       });
     }
 
-    function deactivateAll() {
-      tokenRecords.forEach(r => {
-        r.el.classList.remove('is-active');
-        r.el.style.fontSize = r.baseSize.toFixed(1) + 'px';
-        r.el.style.setProperty('--ox', '0px');
-        r.el.style.setProperty('--oy', '0px');
-      });
-    }
+    build();
 
-    buildTokens();
+    // Re-measure once web fonts finish loading (widths change)
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(build).catch(function () {});
+    }
 
     let resizeT;
     window.addEventListener('resize', () => {
       clearTimeout(resizeT);
-      resizeT = setTimeout(buildTokens, 200);
+      resizeT = setTimeout(build, 250);
     });
   }
 

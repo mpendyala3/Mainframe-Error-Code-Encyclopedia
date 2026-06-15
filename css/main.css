@@ -60,6 +60,8 @@ body, .top-nav, .hero, .modal, .about {
   }
   #matrix-canvas { display: none; }
   .scanlines { display: none; }
+  /* Keep marquee codes in their starting position instead of jumping to the end */
+  .marquee-track { animation: none !important; transform: none !important; }
 }
 
 /* ============ CRT EFFECTS ============ */
@@ -359,34 +361,66 @@ body, .top-nav, .hero, .modal, .about {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  perspective: 1400px;
-  perspective-origin: 50% 50%;
 }
 
+/* Vertical stack of horizontal marquee rows */
 .globe {
   position: relative;
   width: 100%;
   height: 100%;
-  transform-style: preserve-3d;
-  animation: globeSpin 90s linear infinite;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 4px;
 }
 
-@keyframes globeSpin {
-  from { transform: rotateY(0deg); }
-  to { transform: rotateY(-360deg); }
+.marquee-row {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow: visible;
+  flex: 1 1 auto;
 }
 
-.globe-container:hover .globe,
-.globe:focus-within {
+.marquee-track {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  will-change: transform;
+  animation-name: marqueeLeft;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.marquee-track.reverse {
+  animation-name: marqueeRight;
+}
+
+/* Two identical halves -> translating by -50% loops seamlessly */
+@keyframes marqueeLeft {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes marqueeRight {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+/* Pause the row the user is pointing at so codes are easy to click */
+.marquee-row:hover .marquee-track {
   animation-play-state: paused;
 }
 
 .code-token {
-  position: absolute;
+  display: inline-block;
+  flex: 0 0 auto;
+  margin: 0 14px;
   font-family: 'Share Tech Mono', monospace;
   cursor: pointer;
-  transition: transform 260ms cubic-bezier(.34,1.56,.64,1),
-              font-size 220ms cubic-bezier(.34,1.56,.64,1),
+  transition: transform 180ms cubic-bezier(.34,1.56,.64,1),
               color 180ms ease,
               text-shadow 180ms ease,
               font-weight 180ms ease;
@@ -394,15 +428,14 @@ body, .top-nav, .hero, .modal, .about {
   user-select: none;
   color: var(--green);
   text-shadow: 0 0 4px var(--glow);
-  transform: translate(-50%, -50%) translate3d(var(--ox, 0px), var(--oy, 0px), var(--depth, 0px));
-  will-change: transform, font-size;
-  backface-visibility: visible;
+  position: relative;
 }
 
 .code-token.dim { color: var(--green-dim); opacity: 0.7; }
 .code-token.neg { color: var(--red); text-shadow: 0 0 4px var(--red-glow); }
 
-.code-token:hover, .code-token.is-active {
+.code-token:hover, .code-token:focus {
+  transform: scale(1.7);
   font-weight: bold;
   color: var(--green);
   text-shadow: 0 0 16px var(--green), 0 0 32px var(--green), 0 0 48px var(--green);
@@ -411,14 +444,14 @@ body, .top-nav, .hero, .modal, .about {
   outline: none;
 }
 
-.code-token.neg:hover, .code-token.neg.is-active {
+.code-token.neg:hover, .code-token.neg:focus {
   color: var(--red);
   text-shadow: 0 0 16px var(--red), 0 0 32px var(--red), 0 0 48px var(--red);
 }
 
 .code-tooltip {
   position: absolute;
-  bottom: calc(100% + 8px);
+  top: calc(100% + 6px);
   left: 50%;
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.95);
@@ -429,7 +462,7 @@ body, .top-nav, .hero, .modal, .about {
   white-space: nowrap;
   pointer-events: none;
   box-shadow: 0 0 12px var(--glow);
-  z-index: 200;
+  z-index: 600;
 }
 
 /* ============ STATS ============ */
