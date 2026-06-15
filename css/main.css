@@ -271,11 +271,13 @@ body, .top-nav, .hero, .modal, .about {
   margin-left: 14px;
 }
 
-/* Sub-dropdown fly-out panel */
+/* Sub-dropdown fly-out panel — opens to the LEFT so it never overflows
+   the right edge of the viewport (since [MORE] sits at the far right). */
 .nav-sub-dropdown {
   position: absolute;
   top: 0;
-  left: 100%;
+  right: 100%;
+  left: auto;
   min-width: 250px;
   max-height: 380px;
   overflow-y: auto;
@@ -289,7 +291,7 @@ body, .top-nav, .hero, .modal, .about {
   z-index: 1300;
   opacity: 0;
   pointer-events: none;
-  transform: translateX(-4px);
+  transform: translateX(4px);
   transition: opacity 160ms ease, transform 160ms ease;
   scrollbar-width: thin;
   scrollbar-color: var(--glass-border) transparent;
