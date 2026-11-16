@@ -1,0 +1,47 @@
+# Mainframe Error Code Encyclopedia
+
+> A free reference of 473 IBM z/OS mainframe error codes (system and user abends, DB2 SQLCODEs, JCL/JES, VSAM, CICS, MQ, RACF, Language Environment, SMP/E and more). Every entry gives an explanation, the likely cause, the programmer response and an example. Independent project, not affiliated with IBM; entries are summaries, not vendor documentation.
+
+Each code has a stable page at https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/<slug>.html. DB2 codes use sqlcode-805 (negative) and sqlcode-plus-100 (positive); other slugs are the code in lower case with punctuation replaced by hyphens (s0c7, ich408i, vsam-23).
+
+## Data
+
+- [All entries as JSON](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/assets/codes.json): fields c=code, t=title, k=class, s=severity (E/W/I), p=category key, u=slug, d=explanation, a=cause, f=fix, x=example
+- [Sitemap](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/sitemap.xml)
+
+## Categories
+
+- [Databases](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/databases.html): 257 entries. DB2 for z/OS SQLCODEs, from +100 to -950. Negative codes are errors, positive codes are warnings.
+- [Job Control and Batch](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/batch.html): 21 entries. System and user abends, JCL errors and JES2/JES3 messages from the batch window.
+- [Operating System and MVS](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/mvs.html): 15 entries. Core z/OS system service messages: supervisor, console, sysplex, logger, WLM and storage management.
+- [Storage and Data Sets](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/storage.html): 15 entries. VSAM, IDCAMS, DFSMS, catalog and out-of-space errors.
+- [Transaction Processing and Messaging](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/transactions.html): 15 entries. CICS transaction abends, DFH messages and IBM MQ reason codes.
+- [Networking and Communications](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/network.html): 15 entries. TCP/IP, VTAM, FTP and sockets messages from z/OS Communications Server.
+- [Security and Cryptography](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/security.html): 14 entries. RACF, ACF2, Top Secret, ICSF and System SSL errors, plus the security abends.
+- [Interactive Tools and Scripting](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/tools.html): 16 entries. TSO/E, ISPF, SDSF, REXX and z/OS UNIX messages.
+- [Languages, Compilers and Runtimes](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/languages.html): 15 entries. COBOL, PL/I, HLASM, the binder and Language Environment.
+- [Installation and Software Maintenance](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/install.html): 15 entries. SMP/E messages from RECEIVE, APPLY and ACCEPT processing.
+- [Scheduling, Monitoring and Automation](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/scheduling.html): 15 entries. Workload Scheduler, System Automation, NetView, Control-M and the monitors.
+- [DevOps, Testing and Debugging](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/devops.html): 15 entries. Source management, debugging and testing tools.
+- [Printing and Output Management](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/printing.html): 15 entries. PSF, Infoprint Server, IP PrintWay, AFP and JES output.
+- [Hardware, Virtualization and Disaster Recovery](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/hardware.html): 15 entries. I/O supervisor, channel, DASD, tape, GDPS and z/VM.
+- [Vendor, Business and Custom Applications](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/vendor.html): 15 entries. User abends and the conventions used by packaged and in-house applications.
+
+## Most looked-up codes
+
+- [S0C7 DATA EXCEPTION](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/s0c7.html)
+- [S0C4 PROTECTION EXCEPTION](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/s0c4.html)
+- [S806 MODULE NOT FOUND](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/s806.html)
+- [S322 TIME LIMIT EXCEEDED](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/s322.html)
+- [S913 RACF SECURITY VIOLATION](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/s913.html)
+- [SQLCODE -805 DBRM OR PACKAGE NOT FOUND IN PLAN](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/sqlcode-805.html)
+- [SQLCODE -811 MORE THAN ONE ROW RETURNED BY SCALAR SUBQUERY](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/sqlcode-811.html)
+- [SQLCODE -818 TIMESTAMP MISMATCH BETWEEN LOAD MODULE AND DBRM](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/sqlcode-818.html)
+- [SQLCODE -904 UNAVAILABLE RESOURCE](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/sqlcode-904.html)
+- [SQLCODE -911 DEADLOCK OR TIMEOUT — ROLLBACK PERFORMED](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/sqlcode-911.html)
+- [SQLCODE +100 ROW NOT FOUND](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/sqlcode-plus-100.html)
+- [ASRA PROGRAM CHECK IN APPLICATION](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/asra.html)
+- [AEY9 INVALID PROGRAM CALL](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/aey9.html)
+- [ICH408I INSUFFICIENT ACCESS AUTHORITY](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/ich408i.html)
+- [IEC161I VSAM OPEN ERROR](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/iec161i.html)
+- [VSAM-23 RECORD NOT FOUND](https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/vsam-23.html)

@@ -1,119 +1,91 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-root="../" data-v="60bd8c4f">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Storage and Data Sets | Mainframe Error Code Encyclopedia</title>
-  <meta name="description" content="VSAM IDCAMS DFSMS catalog and file I/O errors with cause and fix examples.">
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Storage and Data Sets: 15 error codes explained | Mainframe Error Code Encyclopedia</title>
+  <meta name="description" content="VSAM return codes, IDCAMS messages, DFSMS errors and out-of-space abends (B37, D37, E37) explained with the likely cause, the fix and an example.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/storage.html">
-
-  <meta property="og:title" content="Storage and Data Sets | Mainframe Error Code Encyclopedia">
-  <meta property="og:description" content="VSAM IDCAMS DFSMS catalog and file I/O errors with cause and fix examples.">
-  <meta property="og:url" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/storage.html">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbfaf3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#060a08" media="(prefers-color-scheme: dark)">
+  <meta property="og:site_name" content="Mainframe Error Code Encyclopedia">
   <meta property="og:type" content="website">
-
+  <meta property="og:title" content="Storage and Data Sets">
+  <meta property="og:description" content="VSAM return codes, IDCAMS messages, DFSMS errors and out-of-space abends (B37, D37, E37) explained with the likely cause, the fix and an example.">
+  <meta property="og:url" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/storage.html">
+  <meta property="og:image" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mainframe Error Code Encyclopedia: abend codes, SQLCODEs and z/OS messages explained">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Press+Start+2P&display=swap">
-  <link rel="stylesheet" href="../css/main.css?v=19">
+  <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/ibm-plex-mono-latin-400-normal.woff2" crossorigin>
+  <link rel="stylesheet" href="../css/main.css?v=60bd8c4f">
+  <script src="../js/theme.js?v=60bd8c4f"></script>
+  <script src="../js/app.js?v=60bd8c4f" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/"},{"@type":"ListItem","position":2,"name":"Storage and Data Sets","item":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/storage.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Storage and Data Sets","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/storage.html","description":"VSAM return codes, IDCAMS messages, DFSMS errors and out-of-space abends (B37, D37, E37) explained with the likely cause, the fix and an example.","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Mainframe Error Code Encyclopedia","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/"},"mainEntity":{"@type":"ItemList","numberOfItems":15,"itemListElement":[{"@type":"ListItem","position":1,"name":"IDC3009I VSAM CATALOG RETURN CODE","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/idc3009i.html"},{"@type":"ListItem","position":2,"name":"IDC0001I FUNCTION COMPLETED WITH MAXIMUM CONDITION CODE","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/idc0001i.html"},{"@type":"ListItem","position":3,"name":"IDC3308I DUPLICATE RECORD","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/idc3308i.html"},{"@type":"ListItem","position":4,"name":"IDC3014I VSAM I/O RETURN CODE","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/idc3014i.html"},{"@type":"ListItem","position":5,"name":"VSAM-4 END OF FILE","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/vsam-4.html"},{"@type":"ListItem","position":6,"name":"VSAM-8 DUPLICATE KEY","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/vsam-8.html"},{"@type":"ListItem","position":7,"name":"VSAM-23 RECORD NOT FOUND","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/vsam-23.html"},{"@type":"ListItem","position":8,"name":"VSAM-92 LOGIC ERROR","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/vsam-92.html"},{"@type":"ListItem","position":9,"name":"IGD17040I DATA SET ALREADY EXISTS","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/igd17040i.html"},{"@type":"ListItem","position":10,"name":"IGD17501I ATTEMPT TO ALLOCATE FAILED","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/igd17501i.html"},{"@type":"ListItem","position":11,"name":"EDC5061I OPEN ERROR ON VSAM FILE","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/edc5061i.html"},{"@type":"ListItem","position":12,"name":"IEC031I INPUT DATA SET INCORRECTLY SPECIFIED","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/iec031i.html"},{"@type":"ListItem","position":13,"name":"IEC031D37 ABEND D37 — NO SECONDARY SPACE","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/iec031d37.html"},{"@type":"ListItem","position":14,"name":"IEC031E37 ABEND E37 — MAX EXTENTS REACHED","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/iec031e37.html"},{"@type":"ListItem","position":15,"name":"IEC031B37 ABEND B37 — VOLUME OUT OF SPACE","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/iec031b37.html"}]}}</script>
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <canvas id="matrix-canvas" aria-hidden="true"></canvas>
-  <div class="scanlines" aria-hidden="true"></div>
-  <div class="crt-vignette" aria-hidden="true"></div>
-
-  <nav class="top-nav" aria-label="Primary">
-    <div class="nav-logo">
-      <span class="logo-square" aria-hidden="true">&#9632;</span>
-      <span class="logo-text">MAINFRAME.ENC</span>
-    </div>
-    <ul class="nav-links" role="menubar" data-active="storage">
-      <li role="none"><a role="menuitem" href="../index.html">[HOME]</a></li>
-      <li role="none"><a role="menuitem" href="databases.html" data-key="databases">[DB]</a></li>
-      <li role="none"><a role="menuitem" href="batch.html" data-key="batch">[BATCH]</a></li>
-      <li role="none"><a role="menuitem" href="mvs.html" data-key="mvs">[MVS]</a></li>
-      <li role="none"><a role="menuitem" href="storage.html" data-key="storage">[STOR]</a></li>
-      <li role="none"><a role="menuitem" href="transactions.html" data-key="transactions">[TXN]</a></li>
-      <li role="none"><a role="menuitem" href="network.html" data-key="network">[NET]</a></li>
-      <li role="none"><a role="menuitem" href="security.html" data-key="security">[SEC]</a></li>
-      <li role="none"><a role="menuitem" href="tools.html" data-key="tools">[TSO]</a></li>
-      <li role="none"><a role="menuitem" href="languages.html" data-key="languages">[LANG]</a></li>
-      <li role="none"><a role="menuitem" href="install.html" data-key="install">[SMPE]</a></li>
-      <li role="none"><a role="menuitem" href="scheduling.html" data-key="scheduling">[SCHED]</a></li>
-      <li role="none"><a role="menuitem" href="#" data-key="more">[MORE]</a></li>
-    </ul>
-    <div class="nav-search" role="search">
-      <span class="prompt-prefix">&gt;</span>
-      <input id="search-input" type="search" placeholder="SEARCH ERRORCODE..." aria-label="Search error codes" autocomplete="off">
-      <span class="cursor-blink" aria-hidden="true">&#9608;</span>
-      <button id="search-button" type="button" aria-label="Execute search">[EXEC]</button>
-      <div id="search-results" class="search-results" role="listbox" aria-label="Search suggestions"></div>
-    </div>
-  </nav>
-
-  <main id="main" class="db2-page">
-    <h1>&gt; STORAGE AND DATA SETS</h1>
-    <p>Click any code for description, cause, fix, and example. Filter by category below.</p>
-
-    <div class="filter-bar glass" id="filter-bar"></div>
-    <div id="code-grid" class="code-grid" aria-live="polite"></div>
-  </main>
-
-  <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-code" aria-hidden="true">
-    <div class="modal glass" role="document">
-      <header class="modal-header">
-        <span id="modal-code" class="modal-code"></span>
-        <button id="modal-close" class="modal-close" aria-label="Close dialog">&times;</button>
-      </header>
-      <div class="modal-body">
-        <h2 id="modal-title" class="modal-title"></h2>
-        <div class="modal-meta">
-          <span id="modal-category" class="meta-tag"></span>
-          <span id="modal-severity" class="meta-tag"></span>
-        </div>
-        <section class="modal-section">
-          <h3>&#128203; DESCRIPTION</h3>
-          <p id="modal-description"></p>
-        </section>
-        <section class="modal-section">
-          <h3>&#128269; COMMON CAUSE</h3>
-          <p id="modal-cause"></p>
-        </section>
-        <section class="modal-section">
-          <h3>&#128736; HOW TO FIX</h3>
-          <p id="modal-fix"></p>
-        </section>
-        <section class="modal-section">
-          <h3>&#128161; EXAMPLE</h3>
-          <pre><code id="modal-example"></code></pre>
-        </section>
-      </div>
-      <footer class="modal-footer">
-        <button id="modal-copy" type="button" class="btn">[COPY CODE]</button>
-        <button id="modal-close-btn" type="button" class="btn">[CLOSE]</button>
-      </footer>
-    </div>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="top-row">
+    <a class="brand" href="../" aria-label="Mainframe Error Code Encyclopedia, home"><span class="brand-mark" aria-hidden="true"></span>MAINFRAME<b>.ENC</b></a>
+    <form class="cmd cmd-top" id="cmd" role="search" action="../" method="get">
+      <label for="q">COMMAND&nbsp;===&gt;</label>
+      <input id="q" name="q" type="search" role="combobox" aria-label="Search error codes" aria-autocomplete="list" aria-expanded="false" aria-controls="q-list" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="S0C7, -805, IEC161I, deadlock">
+      <kbd class="cmd-key" aria-hidden="true">/</kbd>
+      <div class="cmd-list" id="q-list" role="listbox" aria-label="Matching codes" hidden></div>
+      <p class="cmd-status sr" id="q-status" role="status"></p>
+    </form>
+    <button class="theme-btn" type="button" id="theme-btn" aria-label="Switch between paper and 3270 theme">THEME</button>
   </div>
-
-  <footer class="site-footer">
-    <p>&gt; MAINFRAME.ENC v1.0 &mdash; Find. Understand. Fix..</p>
-  </footer>
-
-  <script src="../js/storage-codes.js?v=19" defer></script>
-  <script src="../js/main.js?v=19" defer></script>
-  <script src="../js/category-page.js?v=19" defer></script>
+  <nav class="cats" aria-label="Categories"><ul><li><a href="../pages/databases.html" title="Databases">DB</a></li><li><a href="../pages/batch.html" title="Job Control and Batch">BATCH</a></li><li><a href="../pages/mvs.html" title="Operating System and MVS">MVS</a></li><li><a href="../pages/storage.html" aria-current="page" title="Storage and Data Sets">STOR</a></li><li><a href="../pages/transactions.html" title="Transaction Processing and Messaging">TXN</a></li><li><a href="../pages/network.html" title="Networking and Communications">NET</a></li><li><a href="../pages/security.html" title="Security and Cryptography">SEC</a></li><li><a href="../pages/tools.html" title="Interactive Tools and Scripting">TSO</a></li><li><a href="../pages/languages.html" title="Languages, Compilers and Runtimes">LANG</a></li><li><a href="../pages/install.html" title="Installation and Software Maintenance">SMPE</a></li><li><a href="../pages/scheduling.html" title="Scheduling, Monitoring and Automation">SCHED</a></li><li><a href="../pages/devops.html" title="DevOps, Testing and Debugging">DEV</a></li><li><a href="../pages/printing.html" title="Printing and Output Management">PRINT</a></li><li><a href="../pages/hardware.html" title="Hardware, Virtualization and Disaster Recovery">HW</a></li><li><a href="../pages/vendor.html" title="Vendor, Business and Custom Applications">VEND</a></li></ul></nav>
+</header>
+<main id="main" class="sheet">
+  <section class="cat-head">
+    <p class="dsn"><a href="../">MAINFRAME.ENC</a>.STOR</p>
+    <svg class="banner banner-cat" viewBox="0 0 23 7" preserveAspectRatio="xMinYMid meet" aria-hidden="true" focusable="false"><path d="M1 0h.86v.86h-.86zM2 0h.86v.86h-.86zM3 0h.86v.86h-.86zM4 0h.86v.86h-.86zM0 1h.86v.86h-.86zM0 2h.86v.86h-.86zM1 3h.86v.86h-.86zM2 3h.86v.86h-.86zM3 3h.86v.86h-.86zM4 4h.86v.86h-.86zM4 5h.86v.86h-.86zM0 6h.86v.86h-.86zM1 6h.86v.86h-.86zM2 6h.86v.86h-.86zM3 6h.86v.86h-.86zM6 0h.86v.86h-.86zM7 0h.86v.86h-.86zM8 0h.86v.86h-.86zM9 0h.86v.86h-.86zM10 0h.86v.86h-.86zM8 1h.86v.86h-.86zM8 2h.86v.86h-.86zM8 3h.86v.86h-.86zM8 4h.86v.86h-.86zM8 5h.86v.86h-.86zM8 6h.86v.86h-.86zM13 0h.86v.86h-.86zM14 0h.86v.86h-.86zM15 0h.86v.86h-.86zM12 1h.86v.86h-.86zM16 1h.86v.86h-.86zM12 2h.86v.86h-.86zM16 2h.86v.86h-.86zM12 3h.86v.86h-.86zM16 3h.86v.86h-.86zM12 4h.86v.86h-.86zM16 4h.86v.86h-.86zM12 5h.86v.86h-.86zM16 5h.86v.86h-.86zM13 6h.86v.86h-.86zM14 6h.86v.86h-.86zM15 6h.86v.86h-.86zM18 0h.86v.86h-.86zM19 0h.86v.86h-.86zM20 0h.86v.86h-.86zM21 0h.86v.86h-.86zM18 1h.86v.86h-.86zM22 1h.86v.86h-.86zM18 2h.86v.86h-.86zM22 2h.86v.86h-.86zM18 3h.86v.86h-.86zM19 3h.86v.86h-.86zM20 3h.86v.86h-.86zM21 3h.86v.86h-.86zM18 4h.86v.86h-.86zM20 4h.86v.86h-.86zM18 5h.86v.86h-.86zM21 5h.86v.86h-.86zM18 6h.86v.86h-.86zM22 6h.86v.86h-.86z"/></svg>
+    <h1>Storage and Data Sets</h1>
+    <p class="lede">VSAM, IDCAMS, DFSMS, catalog and out-of-space errors. Pick a code for the explanation, likely cause, fix and an example.</p>
+  </section>
+  <section aria-label="Entries">
+    <div class="filters" role="group" aria-label="Filter by class">
+      <button class="chip" type="button" data-cat="" aria-pressed="true">ALL <span>15</span></button><button class="chip" type="button" data-cat="DFSMS" aria-pressed="false">DFSMS <span>2</span></button><button class="chip" type="button" data-cat="I/O" aria-pressed="false">I/O <span>4</span></button><button class="chip" type="button" data-cat="IDCAMS" aria-pressed="false">IDCAMS <span>3</span></button><button class="chip" type="button" data-cat="LE/VSAM" aria-pressed="false">LE/VSAM <span>1</span></button><button class="chip" type="button" data-cat="VSAM" aria-pressed="false">VSAM <span>1</span></button><button class="chip" type="button" data-cat="VSAM RC" aria-pressed="false">VSAM RC <span>4</span></button>
+    </div>
+    <p class="count" id="count" role="status">15 entries</p>
+    <div class="listing-head" aria-hidden="true"><span>CODE</span><span>SEV</span><span>CLASS</span><span>TITLE</span></div>
+    <ol class="listing" id="listing">
+      <li data-cat="IDCAMS"><a href="../codes/idc3009i.html" data-slug="idc3009i"><span class="c-code">IDC3009I</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">IDCAMS</span><span class="c-title">VSAM CATALOG RETURN CODE</span></a></li>
+      <li data-cat="IDCAMS"><a href="../codes/idc0001i.html" data-slug="idc0001i"><span class="c-code">IDC0001I</span><span class="c-sev sev-i" title="INFO">I<span class="sr"> info</span></span><span class="c-class">IDCAMS</span><span class="c-title">FUNCTION COMPLETED WITH MAXIMUM CONDITION CODE</span></a></li>
+      <li data-cat="IDCAMS"><a href="../codes/idc3308i.html" data-slug="idc3308i"><span class="c-code">IDC3308I</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">IDCAMS</span><span class="c-title">DUPLICATE RECORD</span></a></li>
+      <li data-cat="VSAM"><a href="../codes/idc3014i.html" data-slug="idc3014i"><span class="c-code">IDC3014I</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">VSAM</span><span class="c-title">VSAM I/O RETURN CODE</span></a></li>
+      <li data-cat="VSAM RC"><a href="../codes/vsam-4.html" data-slug="vsam-4"><span class="c-code">VSAM-4</span><span class="c-sev sev-i" title="INFO">I<span class="sr"> info</span></span><span class="c-class">VSAM RC</span><span class="c-title">END OF FILE</span></a></li>
+      <li data-cat="VSAM RC"><a href="../codes/vsam-8.html" data-slug="vsam-8"><span class="c-code">VSAM-8</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">VSAM RC</span><span class="c-title">DUPLICATE KEY</span></a></li>
+      <li data-cat="VSAM RC"><a href="../codes/vsam-23.html" data-slug="vsam-23"><span class="c-code">VSAM-23</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">VSAM RC</span><span class="c-title">RECORD NOT FOUND</span></a></li>
+      <li data-cat="VSAM RC"><a href="../codes/vsam-92.html" data-slug="vsam-92"><span class="c-code">VSAM-92</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">VSAM RC</span><span class="c-title">LOGIC ERROR</span></a></li>
+      <li data-cat="DFSMS"><a href="../codes/igd17040i.html" data-slug="igd17040i"><span class="c-code">IGD17040I</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">DFSMS</span><span class="c-title">DATA SET ALREADY EXISTS</span></a></li>
+      <li data-cat="DFSMS"><a href="../codes/igd17501i.html" data-slug="igd17501i"><span class="c-code">IGD17501I</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">DFSMS</span><span class="c-title">ATTEMPT TO ALLOCATE FAILED</span></a></li>
+      <li data-cat="LE/VSAM"><a href="../codes/edc5061i.html" data-slug="edc5061i"><span class="c-code">EDC5061I</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">LE/VSAM</span><span class="c-title">OPEN ERROR ON VSAM FILE</span></a></li>
+      <li data-cat="I/O"><a href="../codes/iec031i.html" data-slug="iec031i"><span class="c-code">IEC031I</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">I/O</span><span class="c-title">INPUT DATA SET INCORRECTLY SPECIFIED</span></a></li>
+      <li data-cat="I/O"><a href="../codes/iec031d37.html" data-slug="iec031d37"><span class="c-code">IEC031D37</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">I/O</span><span class="c-title">ABEND D37 — NO SECONDARY SPACE</span></a></li>
+      <li data-cat="I/O"><a href="../codes/iec031e37.html" data-slug="iec031e37"><span class="c-code">IEC031E37</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">I/O</span><span class="c-title">ABEND E37 — MAX EXTENTS REACHED</span></a></li>
+      <li data-cat="I/O"><a href="../codes/iec031b37.html" data-slug="iec031b37"><span class="c-code">IEC031B37</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">I/O</span><span class="c-title">ABEND B37 — VOLUME OUT OF SPACE</span></a></li>
+    </ol>
+    <p class="note">SEV: <span class="sev-e">E</span> error, <span class="sev-w">W</span> warning, <span class="sev-i">I</span> information.</p>
+  </section>
+</main>
+<footer class="foot">
+  <ul class="pf" aria-label="Keyboard shortcuts">
+    <li><kbd>/</kbd> Search</li><li><kbd>&uarr;</kbd><kbd>&darr;</kbd> Pick a result</li><li><kbd>Enter</kbd> Open</li><li><kbd>J</kbd><kbd>K</kbd> Move through a listing</li><li><kbd>&larr;</kbd><kbd>&rarr;</kbd> Previous / next entry</li><li><kbd>Esc</kbd> Close</li><li><kbd>T</kbd> Theme</li>
+  </ul>
+  <p>Mainframe Error Code Encyclopedia &middot; 473 entries in 15 categories &middot; Find. Understand. Fix.</p>
+  <p class="fine">An independent reference, not affiliated with or endorsed by IBM or any other vendor. Product names are trademarks of their owners. Entries are summaries: check the vendor documentation for your release before acting on a production system.</p>
+</footer>
+<dialog class="entry-dialog" id="entry-dialog" aria-labelledby="dlg-code"><div id="entry-slot"></div></dialog>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-

@@ -1,119 +1,97 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-root="../" data-v="60bd8c4f">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Job Control and Batch | Mainframe Error Code Encyclopedia</title>
-  <meta name="description" content="JCL syntax errors JES2 JES3 messages system abends S0C7 S806 S322 with cause and fix.">
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Job Control and Batch: 21 error codes explained | Mainframe Error Code Encyclopedia</title>
+  <meta name="description" content="System and user abend codes (S0C4, S0C7, S806, S322, S913), JCL errors and JES2/JES3 messages, each with the likely cause, the fix and an example.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/batch.html">
-
-  <meta property="og:title" content="Job Control and Batch | Mainframe Error Code Encyclopedia">
-  <meta property="og:description" content="JCL syntax errors JES2 JES3 messages system abends S0C7 S806 S322 with cause and fix.">
-  <meta property="og:url" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/batch.html">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbfaf3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#060a08" media="(prefers-color-scheme: dark)">
+  <meta property="og:site_name" content="Mainframe Error Code Encyclopedia">
   <meta property="og:type" content="website">
-
+  <meta property="og:title" content="Job Control and Batch">
+  <meta property="og:description" content="System and user abend codes (S0C4, S0C7, S806, S322, S913), JCL errors and JES2/JES3 messages, each with the likely cause, the fix and an example.">
+  <meta property="og:url" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/batch.html">
+  <meta property="og:image" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mainframe Error Code Encyclopedia: abend codes, SQLCODEs and z/OS messages explained">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Press+Start+2P&display=swap">
-  <link rel="stylesheet" href="../css/main.css?v=19">
+  <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/ibm-plex-mono-latin-400-normal.woff2" crossorigin>
+  <link rel="stylesheet" href="../css/main.css?v=60bd8c4f">
+  <script src="../js/theme.js?v=60bd8c4f"></script>
+  <script src="../js/app.js?v=60bd8c4f" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/"},{"@type":"ListItem","position":2,"name":"Job Control and Batch","item":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/batch.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Job Control and Batch","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/batch.html","description":"System and user abend codes (S0C4, S0C7, S806, S322, S913), JCL errors and JES2/JES3 messages, each with the likely cause, the fix and an example.","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Mainframe Error Code Encyclopedia","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/"},"mainEntity":{"@type":"ItemList","numberOfItems":21,"itemListElement":[{"@type":"ListItem","position":1,"name":"S0C1 OPERATION EXCEPTION","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/s0c1.html"},{"@type":"ListItem","position":2,"name":"S0C4 PROTECTION EXCEPTION","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/s0c4.html"},{"@type":"ListItem","position":3,"name":"S0C7 DATA EXCEPTION","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/s0c7.html"},{"@type":"ListItem","position":4,"name":"S0C6 SPECIFICATION EXCEPTION","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/s0c6.html"},{"@type":"ListItem","position":5,"name":"S0CB DECIMAL DIVIDE EXCEPTION","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/s0cb.html"},{"@type":"ListItem","position":6,"name":"S806 MODULE NOT FOUND","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/s806.html"},{"@type":"ListItem","position":7,"name":"S813 OPEN ERROR — DSNAME MISMATCH","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/s813.html"},{"@type":"ListItem","position":8,"name":"S322 TIME LIMIT EXCEEDED","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/s322.html"},{"@type":"ListItem","position":9,"name":"S722 OUTPUT LIMIT EXCEEDED","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/s722.html"},{"@type":"ListItem","position":10,"name":"S837 OUT OF SECONDARY SPACE","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/s837.html"},{"@type":"ListItem","position":11,"name":"S913 RACF SECURITY VIOLATION","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/s913.html"},{"@type":"ListItem","position":12,"name":"U4038 LE ABNORMAL TERMINATION","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/u4038.html"},{"@type":"ListItem","position":13,"name":"U0016 USER ABEND 16","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/u0016.html"},{"@type":"ListItem","position":14,"name":"IEF212I DATA SET NOT FOUND","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/ief212i.html"},{"@type":"ListItem","position":15,"name":"IEF285I DATA SET STATUS","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/ief285i.html"},{"@type":"ListItem","position":16,"name":"IEF453I JCL ERROR","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/ief453i.html"},{"@type":"ListItem","position":17,"name":"IEF642I INVALID KEYWORD VALUE","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/ief642i.html"},{"@type":"ListItem","position":18,"name":"$HASP373 JOB STARTED","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/hasp373.html"},{"@type":"ListItem","position":19,"name":"$HASP395 JOB ENDED","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/hasp395.html"},{"@type":"ListItem","position":20,"name":"$HASP050 JES2 RESOURCE SHORTAGE","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/hasp050.html"},{"@type":"ListItem","position":21,"name":"IAT4801 JES3 INVALID JCL","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/iat4801.html"}]}}</script>
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <canvas id="matrix-canvas" aria-hidden="true"></canvas>
-  <div class="scanlines" aria-hidden="true"></div>
-  <div class="crt-vignette" aria-hidden="true"></div>
-
-  <nav class="top-nav" aria-label="Primary">
-    <div class="nav-logo">
-      <span class="logo-square" aria-hidden="true">&#9632;</span>
-      <span class="logo-text">MAINFRAME.ENC</span>
-    </div>
-    <ul class="nav-links" role="menubar" data-active="batch">
-      <li role="none"><a role="menuitem" href="../index.html">[HOME]</a></li>
-      <li role="none"><a role="menuitem" href="databases.html" data-key="databases">[DB]</a></li>
-      <li role="none"><a role="menuitem" href="batch.html" data-key="batch">[BATCH]</a></li>
-      <li role="none"><a role="menuitem" href="mvs.html" data-key="mvs">[MVS]</a></li>
-      <li role="none"><a role="menuitem" href="storage.html" data-key="storage">[STOR]</a></li>
-      <li role="none"><a role="menuitem" href="transactions.html" data-key="transactions">[TXN]</a></li>
-      <li role="none"><a role="menuitem" href="network.html" data-key="network">[NET]</a></li>
-      <li role="none"><a role="menuitem" href="security.html" data-key="security">[SEC]</a></li>
-      <li role="none"><a role="menuitem" href="tools.html" data-key="tools">[TSO]</a></li>
-      <li role="none"><a role="menuitem" href="languages.html" data-key="languages">[LANG]</a></li>
-      <li role="none"><a role="menuitem" href="install.html" data-key="install">[SMPE]</a></li>
-      <li role="none"><a role="menuitem" href="scheduling.html" data-key="scheduling">[SCHED]</a></li>
-      <li role="none"><a role="menuitem" href="#" data-key="more">[MORE]</a></li>
-    </ul>
-    <div class="nav-search" role="search">
-      <span class="prompt-prefix">&gt;</span>
-      <input id="search-input" type="search" placeholder="SEARCH ERRORCODE..." aria-label="Search error codes" autocomplete="off">
-      <span class="cursor-blink" aria-hidden="true">&#9608;</span>
-      <button id="search-button" type="button" aria-label="Execute search">[EXEC]</button>
-      <div id="search-results" class="search-results" role="listbox" aria-label="Search suggestions"></div>
-    </div>
-  </nav>
-
-  <main id="main" class="db2-page">
-    <h1>&gt; JOB CONTROL AND BATCH</h1>
-    <p>Click any code for description, cause, fix, and example. Filter by category below.</p>
-
-    <div class="filter-bar glass" id="filter-bar"></div>
-    <div id="code-grid" class="code-grid" aria-live="polite"></div>
-  </main>
-
-  <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-code" aria-hidden="true">
-    <div class="modal glass" role="document">
-      <header class="modal-header">
-        <span id="modal-code" class="modal-code"></span>
-        <button id="modal-close" class="modal-close" aria-label="Close dialog">&times;</button>
-      </header>
-      <div class="modal-body">
-        <h2 id="modal-title" class="modal-title"></h2>
-        <div class="modal-meta">
-          <span id="modal-category" class="meta-tag"></span>
-          <span id="modal-severity" class="meta-tag"></span>
-        </div>
-        <section class="modal-section">
-          <h3>&#128203; DESCRIPTION</h3>
-          <p id="modal-description"></p>
-        </section>
-        <section class="modal-section">
-          <h3>&#128269; COMMON CAUSE</h3>
-          <p id="modal-cause"></p>
-        </section>
-        <section class="modal-section">
-          <h3>&#128736; HOW TO FIX</h3>
-          <p id="modal-fix"></p>
-        </section>
-        <section class="modal-section">
-          <h3>&#128161; EXAMPLE</h3>
-          <pre><code id="modal-example"></code></pre>
-        </section>
-      </div>
-      <footer class="modal-footer">
-        <button id="modal-copy" type="button" class="btn">[COPY CODE]</button>
-        <button id="modal-close-btn" type="button" class="btn">[CLOSE]</button>
-      </footer>
-    </div>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="top-row">
+    <a class="brand" href="../" aria-label="Mainframe Error Code Encyclopedia, home"><span class="brand-mark" aria-hidden="true"></span>MAINFRAME<b>.ENC</b></a>
+    <form class="cmd cmd-top" id="cmd" role="search" action="../" method="get">
+      <label for="q">COMMAND&nbsp;===&gt;</label>
+      <input id="q" name="q" type="search" role="combobox" aria-label="Search error codes" aria-autocomplete="list" aria-expanded="false" aria-controls="q-list" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="S0C7, -805, IEC161I, deadlock">
+      <kbd class="cmd-key" aria-hidden="true">/</kbd>
+      <div class="cmd-list" id="q-list" role="listbox" aria-label="Matching codes" hidden></div>
+      <p class="cmd-status sr" id="q-status" role="status"></p>
+    </form>
+    <button class="theme-btn" type="button" id="theme-btn" aria-label="Switch between paper and 3270 theme">THEME</button>
   </div>
-
-  <footer class="site-footer">
-    <p>&gt; MAINFRAME.ENC v1.0 &mdash; Find. Understand. Fix..</p>
-  </footer>
-
-  <script src="../js/batch-codes.js?v=19" defer></script>
-  <script src="../js/main.js?v=19" defer></script>
-  <script src="../js/category-page.js?v=19" defer></script>
+  <nav class="cats" aria-label="Categories"><ul><li><a href="../pages/databases.html" title="Databases">DB</a></li><li><a href="../pages/batch.html" aria-current="page" title="Job Control and Batch">BATCH</a></li><li><a href="../pages/mvs.html" title="Operating System and MVS">MVS</a></li><li><a href="../pages/storage.html" title="Storage and Data Sets">STOR</a></li><li><a href="../pages/transactions.html" title="Transaction Processing and Messaging">TXN</a></li><li><a href="../pages/network.html" title="Networking and Communications">NET</a></li><li><a href="../pages/security.html" title="Security and Cryptography">SEC</a></li><li><a href="../pages/tools.html" title="Interactive Tools and Scripting">TSO</a></li><li><a href="../pages/languages.html" title="Languages, Compilers and Runtimes">LANG</a></li><li><a href="../pages/install.html" title="Installation and Software Maintenance">SMPE</a></li><li><a href="../pages/scheduling.html" title="Scheduling, Monitoring and Automation">SCHED</a></li><li><a href="../pages/devops.html" title="DevOps, Testing and Debugging">DEV</a></li><li><a href="../pages/printing.html" title="Printing and Output Management">PRINT</a></li><li><a href="../pages/hardware.html" title="Hardware, Virtualization and Disaster Recovery">HW</a></li><li><a href="../pages/vendor.html" title="Vendor, Business and Custom Applications">VEND</a></li></ul></nav>
+</header>
+<main id="main" class="sheet">
+  <section class="cat-head">
+    <p class="dsn"><a href="../">MAINFRAME.ENC</a>.BATCH</p>
+    <svg class="banner banner-cat" viewBox="0 0 29 7" preserveAspectRatio="xMinYMid meet" aria-hidden="true" focusable="false"><path d="M0 0h.86v.86h-.86zM1 0h.86v.86h-.86zM2 0h.86v.86h-.86zM3 0h.86v.86h-.86zM0 1h.86v.86h-.86zM4 1h.86v.86h-.86zM0 2h.86v.86h-.86zM4 2h.86v.86h-.86zM0 3h.86v.86h-.86zM1 3h.86v.86h-.86zM2 3h.86v.86h-.86zM3 3h.86v.86h-.86zM0 4h.86v.86h-.86zM4 4h.86v.86h-.86zM0 5h.86v.86h-.86zM4 5h.86v.86h-.86zM0 6h.86v.86h-.86zM1 6h.86v.86h-.86zM2 6h.86v.86h-.86zM3 6h.86v.86h-.86zM7 0h.86v.86h-.86zM8 0h.86v.86h-.86zM9 0h.86v.86h-.86zM6 1h.86v.86h-.86zM10 1h.86v.86h-.86zM6 2h.86v.86h-.86zM10 2h.86v.86h-.86zM6 3h.86v.86h-.86zM7 3h.86v.86h-.86zM8 3h.86v.86h-.86zM9 3h.86v.86h-.86zM10 3h.86v.86h-.86zM6 4h.86v.86h-.86zM10 4h.86v.86h-.86zM6 5h.86v.86h-.86zM10 5h.86v.86h-.86zM6 6h.86v.86h-.86zM10 6h.86v.86h-.86zM12 0h.86v.86h-.86zM13 0h.86v.86h-.86zM14 0h.86v.86h-.86zM15 0h.86v.86h-.86zM16 0h.86v.86h-.86zM14 1h.86v.86h-.86zM14 2h.86v.86h-.86zM14 3h.86v.86h-.86zM14 4h.86v.86h-.86zM14 5h.86v.86h-.86zM14 6h.86v.86h-.86zM19 0h.86v.86h-.86zM20 0h.86v.86h-.86zM21 0h.86v.86h-.86zM18 1h.86v.86h-.86zM22 1h.86v.86h-.86zM18 2h.86v.86h-.86zM18 3h.86v.86h-.86zM18 4h.86v.86h-.86zM18 5h.86v.86h-.86zM22 5h.86v.86h-.86zM19 6h.86v.86h-.86zM20 6h.86v.86h-.86zM21 6h.86v.86h-.86zM24 0h.86v.86h-.86zM28 0h.86v.86h-.86zM24 1h.86v.86h-.86zM28 1h.86v.86h-.86zM24 2h.86v.86h-.86zM28 2h.86v.86h-.86zM24 3h.86v.86h-.86zM25 3h.86v.86h-.86zM26 3h.86v.86h-.86zM27 3h.86v.86h-.86zM28 3h.86v.86h-.86zM24 4h.86v.86h-.86zM28 4h.86v.86h-.86zM24 5h.86v.86h-.86zM28 5h.86v.86h-.86zM24 6h.86v.86h-.86zM28 6h.86v.86h-.86z"/></svg>
+    <h1>Job Control and Batch</h1>
+    <p class="lede">System and user abends, JCL errors and JES2/JES3 messages from the batch window. Pick a code for the explanation, likely cause, fix and an example.</p>
+  </section>
+  <section aria-label="Entries">
+    <div class="filters" role="group" aria-label="Filter by class">
+      <button class="chip" type="button" data-cat="" aria-pressed="true">ALL <span>21</span></button><button class="chip" type="button" data-cat="JCL" aria-pressed="false">JCL <span>4</span></button><button class="chip" type="button" data-cat="JES2" aria-pressed="false">JES2 <span>3</span></button><button class="chip" type="button" data-cat="JES3" aria-pressed="false">JES3 <span>1</span></button><button class="chip" type="button" data-cat="SYSTEM ABEND" aria-pressed="false">SYSTEM ABEND <span>11</span></button><button class="chip" type="button" data-cat="USER ABEND" aria-pressed="false">USER ABEND <span>2</span></button>
+    </div>
+    <p class="count" id="count" role="status">21 entries</p>
+    <div class="listing-head" aria-hidden="true"><span>CODE</span><span>SEV</span><span>CLASS</span><span>TITLE</span></div>
+    <ol class="listing" id="listing">
+      <li data-cat="SYSTEM ABEND"><a href="../codes/s0c1.html" data-slug="s0c1"><span class="c-code">S0C1</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">SYSTEM ABEND</span><span class="c-title">OPERATION EXCEPTION</span></a></li>
+      <li data-cat="SYSTEM ABEND"><a href="../codes/s0c4.html" data-slug="s0c4"><span class="c-code">S0C4</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">SYSTEM ABEND</span><span class="c-title">PROTECTION EXCEPTION</span></a></li>
+      <li data-cat="SYSTEM ABEND"><a href="../codes/s0c7.html" data-slug="s0c7"><span class="c-code">S0C7</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">SYSTEM ABEND</span><span class="c-title">DATA EXCEPTION</span></a></li>
+      <li data-cat="SYSTEM ABEND"><a href="../codes/s0c6.html" data-slug="s0c6"><span class="c-code">S0C6</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">SYSTEM ABEND</span><span class="c-title">SPECIFICATION EXCEPTION</span></a></li>
+      <li data-cat="SYSTEM ABEND"><a href="../codes/s0cb.html" data-slug="s0cb"><span class="c-code">S0CB</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">SYSTEM ABEND</span><span class="c-title">DECIMAL DIVIDE EXCEPTION</span></a></li>
+      <li data-cat="SYSTEM ABEND"><a href="../codes/s806.html" data-slug="s806"><span class="c-code">S806</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">SYSTEM ABEND</span><span class="c-title">MODULE NOT FOUND</span></a></li>
+      <li data-cat="SYSTEM ABEND"><a href="../codes/s813.html" data-slug="s813"><span class="c-code">S813</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">SYSTEM ABEND</span><span class="c-title">OPEN ERROR — DSNAME MISMATCH</span></a></li>
+      <li data-cat="SYSTEM ABEND"><a href="../codes/s322.html" data-slug="s322"><span class="c-code">S322</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">SYSTEM ABEND</span><span class="c-title">TIME LIMIT EXCEEDED</span></a></li>
+      <li data-cat="SYSTEM ABEND"><a href="../codes/s722.html" data-slug="s722"><span class="c-code">S722</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">SYSTEM ABEND</span><span class="c-title">OUTPUT LIMIT EXCEEDED</span></a></li>
+      <li data-cat="SYSTEM ABEND"><a href="../codes/s837.html" data-slug="s837"><span class="c-code">S837</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">SYSTEM ABEND</span><span class="c-title">OUT OF SECONDARY SPACE</span></a></li>
+      <li data-cat="SYSTEM ABEND"><a href="../codes/s913.html" data-slug="s913"><span class="c-code">S913</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">SYSTEM ABEND</span><span class="c-title">RACF SECURITY VIOLATION</span></a></li>
+      <li data-cat="USER ABEND"><a href="../codes/u4038.html" data-slug="u4038"><span class="c-code">U4038</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">USER ABEND</span><span class="c-title">LE ABNORMAL TERMINATION</span></a></li>
+      <li data-cat="USER ABEND"><a href="../codes/u0016.html" data-slug="u0016"><span class="c-code">U0016</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">USER ABEND</span><span class="c-title">USER ABEND 16</span></a></li>
+      <li data-cat="JCL"><a href="../codes/ief212i.html" data-slug="ief212i"><span class="c-code">IEF212I</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">JCL</span><span class="c-title">DATA SET NOT FOUND</span></a></li>
+      <li data-cat="JCL"><a href="../codes/ief285i.html" data-slug="ief285i"><span class="c-code">IEF285I</span><span class="c-sev sev-i" title="INFO">I<span class="sr"> info</span></span><span class="c-class">JCL</span><span class="c-title">DATA SET STATUS</span></a></li>
+      <li data-cat="JCL"><a href="../codes/ief453i.html" data-slug="ief453i"><span class="c-code">IEF453I</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">JCL</span><span class="c-title">JCL ERROR</span></a></li>
+      <li data-cat="JCL"><a href="../codes/ief642i.html" data-slug="ief642i"><span class="c-code">IEF642I</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">JCL</span><span class="c-title">INVALID KEYWORD VALUE</span></a></li>
+      <li data-cat="JES2"><a href="../codes/hasp373.html" data-slug="hasp373"><span class="c-code">$HASP373</span><span class="c-sev sev-i" title="INFO">I<span class="sr"> info</span></span><span class="c-class">JES2</span><span class="c-title">JOB STARTED</span></a></li>
+      <li data-cat="JES2"><a href="../codes/hasp395.html" data-slug="hasp395"><span class="c-code">$HASP395</span><span class="c-sev sev-i" title="INFO">I<span class="sr"> info</span></span><span class="c-class">JES2</span><span class="c-title">JOB ENDED</span></a></li>
+      <li data-cat="JES2"><a href="../codes/hasp050.html" data-slug="hasp050"><span class="c-code">$HASP050</span><span class="c-sev sev-w" title="WARNING">W<span class="sr"> warning</span></span><span class="c-class">JES2</span><span class="c-title">JES2 RESOURCE SHORTAGE</span></a></li>
+      <li data-cat="JES3"><a href="../codes/iat4801.html" data-slug="iat4801"><span class="c-code">IAT4801</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">JES3</span><span class="c-title">JES3 INVALID JCL</span></a></li>
+    </ol>
+    <p class="note">SEV: <span class="sev-e">E</span> error, <span class="sev-w">W</span> warning, <span class="sev-i">I</span> information.</p>
+  </section>
+</main>
+<footer class="foot">
+  <ul class="pf" aria-label="Keyboard shortcuts">
+    <li><kbd>/</kbd> Search</li><li><kbd>&uarr;</kbd><kbd>&darr;</kbd> Pick a result</li><li><kbd>Enter</kbd> Open</li><li><kbd>J</kbd><kbd>K</kbd> Move through a listing</li><li><kbd>&larr;</kbd><kbd>&rarr;</kbd> Previous / next entry</li><li><kbd>Esc</kbd> Close</li><li><kbd>T</kbd> Theme</li>
+  </ul>
+  <p>Mainframe Error Code Encyclopedia &middot; 473 entries in 15 categories &middot; Find. Understand. Fix.</p>
+  <p class="fine">An independent reference, not affiliated with or endorsed by IBM or any other vendor. Product names are trademarks of their owners. Entries are summaries: check the vendor documentation for your release before acting on a production system.</p>
+</footer>
+<dialog class="entry-dialog" id="entry-dialog" aria-labelledby="dlg-code"><div id="entry-slot"></div></dialog>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" data-root="../" data-v="60bd8c4f">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SQLCODE +222: FETCH AGAINST A HOLE | cause and fix</title>
+  <meta name="description" content="Trying to fetch a row from a scrollable cursor where the row has been deleted (an update or delete hole). Cause: Another transaction deleted or updated the…">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/sqlcode-plus-222.html">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbfaf3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#060a08" media="(prefers-color-scheme: dark)">
+  <meta property="og:site_name" content="Mainframe Error Code Encyclopedia">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="SQLCODE +222: FETCH AGAINST A HOLE">
+  <meta property="og:description" content="Trying to fetch a row from a scrollable cursor where the row has been deleted (an update or delete hole). Cause: Another transaction deleted or updated the…">
+  <meta property="og:url" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/sqlcode-plus-222.html">
+  <meta property="og:image" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mainframe Error Code Encyclopedia: abend codes, SQLCODEs and z/OS messages explained">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/ibm-plex-mono-latin-400-normal.woff2" crossorigin>
+  <link rel="stylesheet" href="../css/main.css?v=60bd8c4f">
+  <script src="../js/theme.js?v=60bd8c4f"></script>
+  <script src="../js/app.js?v=60bd8c4f" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/"},{"@type":"ListItem","position":2,"name":"Databases","item":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/databases.html"},{"@type":"ListItem","position":3,"name":"SQLCODE +222","item":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/sqlcode-plus-222.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"SQLCODE +222: FETCH AGAINST A HOLE","description":"Trying to fetch a row from a scrollable cursor where the row has been deleted (an update or delete hole).","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/sqlcode-plus-222.html","mainEntityOfPage":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/sqlcode-plus-222.html","inLanguage":"en","articleSection":"Databases","about":["SQLCODE +222","CURSOR","IBM z/OS"],"isPartOf":{"@type":"WebSite","name":"Mainframe Error Code Encyclopedia","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/"},"publisher":{"@type":"Organization","name":"Mainframe Error Code Encyclopedia","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/"}}</script>
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="top-row">
+    <a class="brand" href="../" aria-label="Mainframe Error Code Encyclopedia, home"><span class="brand-mark" aria-hidden="true"></span>MAINFRAME<b>.ENC</b></a>
+    <form class="cmd cmd-top" id="cmd" role="search" action="../" method="get">
+      <label for="q">COMMAND&nbsp;===&gt;</label>
+      <input id="q" name="q" type="search" role="combobox" aria-label="Search error codes" aria-autocomplete="list" aria-expanded="false" aria-controls="q-list" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="S0C7, -805, IEC161I, deadlock">
+      <kbd class="cmd-key" aria-hidden="true">/</kbd>
+      <div class="cmd-list" id="q-list" role="listbox" aria-label="Matching codes" hidden></div>
+      <p class="cmd-status sr" id="q-status" role="status"></p>
+    </form>
+    <button class="theme-btn" type="button" id="theme-btn" aria-label="Switch between paper and 3270 theme">THEME</button>
+  </div>
+  <nav class="cats" aria-label="Categories"><ul><li><a href="../pages/databases.html" aria-current="page" title="Databases">DB</a></li><li><a href="../pages/batch.html" title="Job Control and Batch">BATCH</a></li><li><a href="../pages/mvs.html" title="Operating System and MVS">MVS</a></li><li><a href="../pages/storage.html" title="Storage and Data Sets">STOR</a></li><li><a href="../pages/transactions.html" title="Transaction Processing and Messaging">TXN</a></li><li><a href="../pages/network.html" title="Networking and Communications">NET</a></li><li><a href="../pages/security.html" title="Security and Cryptography">SEC</a></li><li><a href="../pages/tools.html" title="Interactive Tools and Scripting">TSO</a></li><li><a href="../pages/languages.html" title="Languages, Compilers and Runtimes">LANG</a></li><li><a href="../pages/install.html" title="Installation and Software Maintenance">SMPE</a></li><li><a href="../pages/scheduling.html" title="Scheduling, Monitoring and Automation">SCHED</a></li><li><a href="../pages/devops.html" title="DevOps, Testing and Debugging">DEV</a></li><li><a href="../pages/printing.html" title="Printing and Output Management">PRINT</a></li><li><a href="../pages/hardware.html" title="Hardware, Virtualization and Disaster Recovery">HW</a></li><li><a href="../pages/vendor.html" title="Vendor, Business and Custom Applications">VEND</a></li></ul></nav>
+</header>
+<main id="main" class="sheet">
+  <article class="entry is-w">
+    <p class="dsn"><a href="../">MAINFRAME.ENC</a>.<a href="../pages/databases.html">DB</a>(+222)</p>
+    <svg class="banner banner-code" viewBox="0 0 23 7" preserveAspectRatio="xMinYMid meet" aria-hidden="true" focusable="false"><path d="M2 1h.86v.86h-.86zM2 2h.86v.86h-.86zM0 3h.86v.86h-.86zM1 3h.86v.86h-.86zM2 3h.86v.86h-.86zM3 3h.86v.86h-.86zM4 3h.86v.86h-.86zM2 4h.86v.86h-.86zM2 5h.86v.86h-.86zM7 0h.86v.86h-.86zM8 0h.86v.86h-.86zM9 0h.86v.86h-.86zM6 1h.86v.86h-.86zM10 1h.86v.86h-.86zM10 2h.86v.86h-.86zM9 3h.86v.86h-.86zM8 4h.86v.86h-.86zM7 5h.86v.86h-.86zM6 6h.86v.86h-.86zM7 6h.86v.86h-.86zM8 6h.86v.86h-.86zM9 6h.86v.86h-.86zM10 6h.86v.86h-.86zM13 0h.86v.86h-.86zM14 0h.86v.86h-.86zM15 0h.86v.86h-.86zM12 1h.86v.86h-.86zM16 1h.86v.86h-.86zM16 2h.86v.86h-.86zM15 3h.86v.86h-.86zM14 4h.86v.86h-.86zM13 5h.86v.86h-.86zM12 6h.86v.86h-.86zM13 6h.86v.86h-.86zM14 6h.86v.86h-.86zM15 6h.86v.86h-.86zM16 6h.86v.86h-.86zM19 0h.86v.86h-.86zM20 0h.86v.86h-.86zM21 0h.86v.86h-.86zM18 1h.86v.86h-.86zM22 1h.86v.86h-.86zM22 2h.86v.86h-.86zM21 3h.86v.86h-.86zM20 4h.86v.86h-.86zM19 5h.86v.86h-.86zM18 6h.86v.86h-.86zM19 6h.86v.86h-.86zM20 6h.86v.86h-.86zM21 6h.86v.86h-.86zM22 6h.86v.86h-.86z"/></svg>
+    <h1><span class="entry-code sr">SQLCODE +222</span> <span class="entry-title">FETCH AGAINST A HOLE</span></h1>
+    <ul class="tags"><li class="tag-sev">W &middot; WARNING</li><li>CURSOR</li><li><a href="../pages/databases.html">Databases</a></li></ul>
+    <dl class="msg">
+      <dt>Explanation</dt><dd>Trying to fetch a row from a scrollable cursor where the row has been deleted (an update or delete hole).</dd>
+      <dt>Likely cause</dt><dd>Another transaction deleted or updated the underlying row of a SENSITIVE STATIC scrollable cursor.</dd>
+      <dt>Programmer response</dt><dd>Skip to the next row, or re-execute the query to refresh the result table.</dd>
+      <dt>Example</dt><dd><pre tabindex="0"><code>EXEC SQL FETCH RELATIVE +1 FROM C1 INTO :V END-EXEC.</code></pre></dd>
+    </dl>
+    <p class="actions"><button class="btn" type="button" data-copy="SQLCODE +222 - FETCH AGAINST A HOLE">Copy code</button><button class="btn" type="button" data-copy="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/sqlcode-plus-222.html">Copy link</button></p>
+  </article>
+  <nav class="pager" aria-label="Neighbouring entries">
+    <a rel="prev" href="sqlcode-plus-100.html"><span>&larr; Previous</span>+100</a>
+    <a class="up" href="../pages/databases.html"><span>All of</span>DB</a>
+    <a rel="next" href="sqlcode-plus-304.html"><span>Next &rarr;</span>+304</a>
+  </nav>
+  <section class="block" aria-labelledby="rel-title">
+    <h2 id="rel-title" class="rule">RELATED <span>more CURSOR entries</span></h2>
+    <ol class="listing compact">
+      <li data-cat="CURSOR"><a href="../codes/sqlcode-143.html" data-slug="sqlcode-143"><span class="c-code">-143</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">CURSOR</span><span class="c-title">NOT VALID FETCH ORIENTATION</span></a></li>
+      <li data-cat="CURSOR"><a href="../codes/sqlcode-145.html" data-slug="sqlcode-145"><span class="c-code">-145</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">CURSOR</span><span class="c-title">INVALID UPDATE FOR A POSITIONED CURSOR</span></a></li>
+      <li data-cat="CURSOR"><a href="../codes/sqlcode-501.html" data-slug="sqlcode-501"><span class="c-code">-501</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">CURSOR</span><span class="c-title">CURSOR NOT OPEN ON FETCH OR CLOSE</span></a></li>
+      <li data-cat="CURSOR"><a href="../codes/sqlcode-502.html" data-slug="sqlcode-502"><span class="c-code">-502</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">CURSOR</span><span class="c-title">OPENED CURSOR IS ALREADY OPEN</span></a></li>
+      <li data-cat="CURSOR"><a href="../codes/sqlcode-503.html" data-slug="sqlcode-503"><span class="c-code">-503</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">CURSOR</span><span class="c-title">COLUMN NOT UPDATABLE</span></a></li>
+      <li data-cat="CURSOR"><a href="../codes/sqlcode-504.html" data-slug="sqlcode-504"><span class="c-code">-504</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">CURSOR</span><span class="c-title">CURSOR NAME NOT DECLARED</span></a></li>
+      <li data-cat="CURSOR"><a href="../codes/sqlcode-507.html" data-slug="sqlcode-507"><span class="c-code">-507</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">CURSOR</span><span class="c-title">CURSOR NOT OPEN ON UPDATE/DELETE</span></a></li>
+      <li data-cat="CURSOR"><a href="../codes/sqlcode-508.html" data-slug="sqlcode-508"><span class="c-code">-508</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">CURSOR</span><span class="c-title">CURSOR NOT POSITIONED ON A ROW</span></a></li>
+      <li data-cat="CURSOR"><a href="../codes/sqlcode-509.html" data-slug="sqlcode-509"><span class="c-code">-509</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">CURSOR</span><span class="c-title">TABLE NAMED IS NOT THE TABLE OF CURSOR</span></a></li>
+      <li data-cat="CURSOR"><a href="../codes/sqlcode-510.html" data-slug="sqlcode-510"><span class="c-code">-510</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">CURSOR</span><span class="c-title">UPDATE/DELETE NOT ALLOWED ON THIS CURSOR</span></a></li>
+      <li data-cat="CURSOR"><a href="../codes/sqlcode-511.html" data-slug="sqlcode-511"><span class="c-code">-511</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">CURSOR</span><span class="c-title">FOR UPDATE CLAUSE NOT ALLOWED</span></a></li>
+      <li data-cat="CURSOR"><a href="../codes/sqlcode-514.html" data-slug="sqlcode-514"><span class="c-code">-514</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">CURSOR</span><span class="c-title">CURSOR IS NOT IN A PREPARED STATE</span></a></li>
+    </ol>
+  </section>
+</main>
+<footer class="foot">
+  <ul class="pf" aria-label="Keyboard shortcuts">
+    <li><kbd>/</kbd> Search</li><li><kbd>&uarr;</kbd><kbd>&darr;</kbd> Pick a result</li><li><kbd>Enter</kbd> Open</li><li><kbd>J</kbd><kbd>K</kbd> Move through a listing</li><li><kbd>&larr;</kbd><kbd>&rarr;</kbd> Previous / next entry</li><li><kbd>Esc</kbd> Close</li><li><kbd>T</kbd> Theme</li>
+  </ul>
+  <p>Mainframe Error Code Encyclopedia &middot; 473 entries in 15 categories &middot; Find. Understand. Fix.</p>
+  <p class="fine">An independent reference, not affiliated with or endorsed by IBM or any other vendor. Product names are trademarks of their owners. Entries are summaries: check the vendor documentation for your release before acting on a production system.</p>
+</footer>
+<dialog class="entry-dialog" id="entry-dialog" aria-labelledby="dlg-code"><div id="entry-slot"></div></dialog>
+</body>
+</html>

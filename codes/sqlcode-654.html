@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" data-root="../" data-v="60bd8c4f">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SQLCODE -654: TABLE SIZE EXCEEDS LIMIT | cause and fix</title>
+  <meta name="description" content="Table size exceeds maximum allowed. Cause: Table reached DSSIZE limit.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/sqlcode-654.html">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbfaf3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#060a08" media="(prefers-color-scheme: dark)">
+  <meta property="og:site_name" content="Mainframe Error Code Encyclopedia">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="SQLCODE -654: TABLE SIZE EXCEEDS LIMIT">
+  <meta property="og:description" content="Table size exceeds maximum allowed. Cause: Table reached DSSIZE limit.">
+  <meta property="og:url" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/sqlcode-654.html">
+  <meta property="og:image" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mainframe Error Code Encyclopedia: abend codes, SQLCODEs and z/OS messages explained">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/ibm-plex-mono-latin-400-normal.woff2" crossorigin>
+  <link rel="stylesheet" href="../css/main.css?v=60bd8c4f">
+  <script src="../js/theme.js?v=60bd8c4f"></script>
+  <script src="../js/app.js?v=60bd8c4f" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/"},{"@type":"ListItem","position":2,"name":"Databases","item":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/databases.html"},{"@type":"ListItem","position":3,"name":"SQLCODE -654","item":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/sqlcode-654.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"SQLCODE -654: TABLE SIZE EXCEEDS LIMIT","description":"Table size exceeds maximum allowed.","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/sqlcode-654.html","mainEntityOfPage":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/sqlcode-654.html","inLanguage":"en","articleSection":"Databases","about":["SQLCODE -654","RESOURCE","IBM z/OS"],"isPartOf":{"@type":"WebSite","name":"Mainframe Error Code Encyclopedia","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/"},"publisher":{"@type":"Organization","name":"Mainframe Error Code Encyclopedia","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/"}}</script>
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="top-row">
+    <a class="brand" href="../" aria-label="Mainframe Error Code Encyclopedia, home"><span class="brand-mark" aria-hidden="true"></span>MAINFRAME<b>.ENC</b></a>
+    <form class="cmd cmd-top" id="cmd" role="search" action="../" method="get">
+      <label for="q">COMMAND&nbsp;===&gt;</label>
+      <input id="q" name="q" type="search" role="combobox" aria-label="Search error codes" aria-autocomplete="list" aria-expanded="false" aria-controls="q-list" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="S0C7, -805, IEC161I, deadlock">
+      <kbd class="cmd-key" aria-hidden="true">/</kbd>
+      <div class="cmd-list" id="q-list" role="listbox" aria-label="Matching codes" hidden></div>
+      <p class="cmd-status sr" id="q-status" role="status"></p>
+    </form>
+    <button class="theme-btn" type="button" id="theme-btn" aria-label="Switch between paper and 3270 theme">THEME</button>
+  </div>
+  <nav class="cats" aria-label="Categories"><ul><li><a href="../pages/databases.html" aria-current="page" title="Databases">DB</a></li><li><a href="../pages/batch.html" title="Job Control and Batch">BATCH</a></li><li><a href="../pages/mvs.html" title="Operating System and MVS">MVS</a></li><li><a href="../pages/storage.html" title="Storage and Data Sets">STOR</a></li><li><a href="../pages/transactions.html" title="Transaction Processing and Messaging">TXN</a></li><li><a href="../pages/network.html" title="Networking and Communications">NET</a></li><li><a href="../pages/security.html" title="Security and Cryptography">SEC</a></li><li><a href="../pages/tools.html" title="Interactive Tools and Scripting">TSO</a></li><li><a href="../pages/languages.html" title="Languages, Compilers and Runtimes">LANG</a></li><li><a href="../pages/install.html" title="Installation and Software Maintenance">SMPE</a></li><li><a href="../pages/scheduling.html" title="Scheduling, Monitoring and Automation">SCHED</a></li><li><a href="../pages/devops.html" title="DevOps, Testing and Debugging">DEV</a></li><li><a href="../pages/printing.html" title="Printing and Output Management">PRINT</a></li><li><a href="../pages/hardware.html" title="Hardware, Virtualization and Disaster Recovery">HW</a></li><li><a href="../pages/vendor.html" title="Vendor, Business and Custom Applications">VEND</a></li></ul></nav>
+</header>
+<main id="main" class="sheet">
+  <article class="entry is-e">
+    <p class="dsn"><a href="../">MAINFRAME.ENC</a>.<a href="../pages/databases.html">DB</a>(-654)</p>
+    <svg class="banner banner-code" viewBox="0 0 23 7" preserveAspectRatio="xMinYMid meet" aria-hidden="true" focusable="false"><path d="M0 3h.86v.86h-.86zM1 3h.86v.86h-.86zM2 3h.86v.86h-.86zM3 3h.86v.86h-.86zM4 3h.86v.86h-.86zM7 0h.86v.86h-.86zM8 0h.86v.86h-.86zM9 0h.86v.86h-.86zM6 1h.86v.86h-.86zM6 2h.86v.86h-.86zM6 3h.86v.86h-.86zM7 3h.86v.86h-.86zM8 3h.86v.86h-.86zM9 3h.86v.86h-.86zM6 4h.86v.86h-.86zM10 4h.86v.86h-.86zM6 5h.86v.86h-.86zM10 5h.86v.86h-.86zM7 6h.86v.86h-.86zM8 6h.86v.86h-.86zM9 6h.86v.86h-.86zM12 0h.86v.86h-.86zM13 0h.86v.86h-.86zM14 0h.86v.86h-.86zM15 0h.86v.86h-.86zM16 0h.86v.86h-.86zM12 1h.86v.86h-.86zM12 2h.86v.86h-.86zM13 2h.86v.86h-.86zM14 2h.86v.86h-.86zM15 2h.86v.86h-.86zM16 3h.86v.86h-.86zM16 4h.86v.86h-.86zM12 5h.86v.86h-.86zM16 5h.86v.86h-.86zM13 6h.86v.86h-.86zM14 6h.86v.86h-.86zM15 6h.86v.86h-.86zM21 0h.86v.86h-.86zM20 1h.86v.86h-.86zM21 1h.86v.86h-.86zM19 2h.86v.86h-.86zM21 2h.86v.86h-.86zM18 3h.86v.86h-.86zM21 3h.86v.86h-.86zM18 4h.86v.86h-.86zM19 4h.86v.86h-.86zM20 4h.86v.86h-.86zM21 4h.86v.86h-.86zM22 4h.86v.86h-.86zM21 5h.86v.86h-.86zM21 6h.86v.86h-.86z"/></svg>
+    <h1><span class="entry-code sr">SQLCODE -654</span> <span class="entry-title">TABLE SIZE EXCEEDS LIMIT</span></h1>
+    <ul class="tags"><li class="tag-sev">E &middot; ERROR</li><li>RESOURCE</li><li><a href="../pages/databases.html">Databases</a></li></ul>
+    <dl class="msg">
+      <dt>Explanation</dt><dd>Table size exceeds maximum allowed.</dd>
+      <dt>Likely cause</dt><dd>Table reached DSSIZE limit.</dd>
+      <dt>Programmer response</dt><dd>Repartition or use larger DSSIZE.</dd>
+      <dt>Example</dt><dd><pre tabindex="0"><code>INSERT INTO HUGE_TABLE VALUES (...);  /* reached limit */</code></pre></dd>
+    </dl>
+    <p class="actions"><button class="btn" type="button" data-copy="SQLCODE -654 - TABLE SIZE EXCEEDS LIMIT">Copy code</button><button class="btn" type="button" data-copy="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/sqlcode-654.html">Copy link</button></p>
+  </article>
+  <nav class="pager" aria-label="Neighbouring entries">
+    <a rel="prev" href="sqlcode-653.html"><span>&larr; Previous</span>-653</a>
+    <a class="up" href="../pages/databases.html"><span>All of</span>DB</a>
+    <a rel="next" href="sqlcode-655.html"><span>Next &rarr;</span>-655</a>
+  </nav>
+  <section class="block" aria-labelledby="rel-title">
+    <h2 id="rel-title" class="rule">RELATED <span>more RESOURCE entries</span></h2>
+    <ol class="listing compact">
+      <li data-cat="RESOURCE"><a href="../codes/sqlcode-101.html" data-slug="sqlcode-101"><span class="c-code">-101</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">RESOURCE</span><span class="c-title">STATEMENT TOO LONG OR TOO COMPLEX</span></a></li>
+      <li data-cat="RESOURCE"><a href="../codes/sqlcode-129.html" data-slug="sqlcode-129"><span class="c-code">-129</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">RESOURCE</span><span class="c-title">STATEMENT CONTAINS TOO MANY TABLE NAMES</span></a></li>
+      <li data-cat="RESOURCE"><a href="../codes/sqlcode-136.html" data-slug="sqlcode-136"><span class="c-code">-136</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">RESOURCE</span><span class="c-title">SORT FAILED, SORT KEY TOO LONG</span></a></li>
+      <li data-cat="RESOURCE"><a href="../codes/sqlcode-162.html" data-slug="sqlcode-162"><span class="c-code">-162</span><span class="c-sev sev-w" title="WARNING">W<span class="sr"> warning</span></span><span class="c-class">RESOURCE</span><span class="c-title">TABLE SPACE PLACED IN CHECK PENDING</span></a></li>
+      <li data-cat="RESOURCE"><a href="../codes/sqlcode-586.html" data-slug="sqlcode-586"><span class="c-code">-586</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">RESOURCE</span><span class="c-title">CURRENT PATH TOO LONG</span></a></li>
+      <li data-cat="RESOURCE"><a href="../codes/sqlcode-602.html" data-slug="sqlcode-602"><span class="c-code">-602</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">RESOURCE</span><span class="c-title">TOO MANY COLUMNS IN INDEX KEY</span></a></li>
+      <li data-cat="RESOURCE"><a href="../codes/sqlcode-615.html" data-slug="sqlcode-615"><span class="c-code">-615</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">RESOURCE</span><span class="c-title">RESOURCE IN USE — CANNOT ALTER OR DROP</span></a></li>
+      <li data-cat="RESOURCE"><a href="../codes/sqlcode-627.html" data-slug="sqlcode-627"><span class="c-code">-627</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">RESOURCE</span><span class="c-title">ALTER NOT ALLOWED — DEFAULT STORAGE</span></a></li>
+      <li data-cat="RESOURCE"><a href="../codes/sqlcode-640.html" data-slug="sqlcode-640"><span class="c-code">-640</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">RESOURCE</span><span class="c-title">LOCKSIZE ROW CANNOT BE SPECIFIED</span></a></li>
+      <li data-cat="RESOURCE"><a href="../codes/sqlcode-642.html" data-slug="sqlcode-642"><span class="c-code">-642</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">RESOURCE</span><span class="c-title">TOO MANY COLUMNS IN A UNIQUE CONSTRAINT</span></a></li>
+      <li data-cat="RESOURCE"><a href="../codes/sqlcode-643.html" data-slug="sqlcode-643"><span class="c-code">-643</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">RESOURCE</span><span class="c-title">CHECK CONSTRAINT TEXT TOO LONG</span></a></li>
+      <li data-cat="RESOURCE"><a href="../codes/sqlcode-647.html" data-slug="sqlcode-647"><span class="c-code">-647</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">RESOURCE</span><span class="c-title">BUFFERPOOL DOES NOT EXIST OR IS NOT ACTIVATED</span></a></li>
+    </ol>
+  </section>
+</main>
+<footer class="foot">
+  <ul class="pf" aria-label="Keyboard shortcuts">
+    <li><kbd>/</kbd> Search</li><li><kbd>&uarr;</kbd><kbd>&darr;</kbd> Pick a result</li><li><kbd>Enter</kbd> Open</li><li><kbd>J</kbd><kbd>K</kbd> Move through a listing</li><li><kbd>&larr;</kbd><kbd>&rarr;</kbd> Previous / next entry</li><li><kbd>Esc</kbd> Close</li><li><kbd>T</kbd> Theme</li>
+  </ul>
+  <p>Mainframe Error Code Encyclopedia &middot; 473 entries in 15 categories &middot; Find. Understand. Fix.</p>
+  <p class="fine">An independent reference, not affiliated with or endorsed by IBM or any other vendor. Product names are trademarks of their owners. Entries are summaries: check the vendor documentation for your release before acting on a production system.</p>
+</footer>
+<dialog class="entry-dialog" id="entry-dialog" aria-labelledby="dlg-code"><div id="entry-slot"></div></dialog>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-root="../" data-v="60bd8c4f">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AOF036E: AUTOMATION TABLE ERROR | cause and fix</title>
+  <meta name="description" content="Automation table entry referenced an undefined command or condition. Cause: Typo in automation table, missing exit command, or invalid condition.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/aof036e.html">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbfaf3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#060a08" media="(prefers-color-scheme: dark)">
+  <meta property="og:site_name" content="Mainframe Error Code Encyclopedia">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AOF036E: AUTOMATION TABLE ERROR">
+  <meta property="og:description" content="Automation table entry referenced an undefined command or condition. Cause: Typo in automation table, missing exit command, or invalid condition.">
+  <meta property="og:url" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/aof036e.html">
+  <meta property="og:image" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mainframe Error Code Encyclopedia: abend codes, SQLCODEs and z/OS messages explained">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/ibm-plex-mono-latin-400-normal.woff2" crossorigin>
+  <link rel="stylesheet" href="../css/main.css?v=60bd8c4f">
+  <script src="../js/theme.js?v=60bd8c4f"></script>
+  <script src="../js/app.js?v=60bd8c4f" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/"},{"@type":"ListItem","position":2,"name":"Scheduling, Monitoring and Automation","item":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/scheduling.html"},{"@type":"ListItem","position":3,"name":"AOF036E","item":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/aof036e.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"AOF036E: AUTOMATION TABLE ERROR","description":"Automation table entry referenced an undefined command or condition.","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/aof036e.html","mainEntityOfPage":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/aof036e.html","inLanguage":"en","articleSection":"Scheduling, Monitoring and Automation","about":["AOF036E","SA","IBM z/OS"],"isPartOf":{"@type":"WebSite","name":"Mainframe Error Code Encyclopedia","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/"},"publisher":{"@type":"Organization","name":"Mainframe Error Code Encyclopedia","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/"}}</script>
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="top-row">
+    <a class="brand" href="../" aria-label="Mainframe Error Code Encyclopedia, home"><span class="brand-mark" aria-hidden="true"></span>MAINFRAME<b>.ENC</b></a>
+    <form class="cmd cmd-top" id="cmd" role="search" action="../" method="get">
+      <label for="q">COMMAND&nbsp;===&gt;</label>
+      <input id="q" name="q" type="search" role="combobox" aria-label="Search error codes" aria-autocomplete="list" aria-expanded="false" aria-controls="q-list" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="S0C7, -805, IEC161I, deadlock">
+      <kbd class="cmd-key" aria-hidden="true">/</kbd>
+      <div class="cmd-list" id="q-list" role="listbox" aria-label="Matching codes" hidden></div>
+      <p class="cmd-status sr" id="q-status" role="status"></p>
+    </form>
+    <button class="theme-btn" type="button" id="theme-btn" aria-label="Switch between paper and 3270 theme">THEME</button>
+  </div>
+  <nav class="cats" aria-label="Categories"><ul><li><a href="../pages/databases.html" title="Databases">DB</a></li><li><a href="../pages/batch.html" title="Job Control and Batch">BATCH</a></li><li><a href="../pages/mvs.html" title="Operating System and MVS">MVS</a></li><li><a href="../pages/storage.html" title="Storage and Data Sets">STOR</a></li><li><a href="../pages/transactions.html" title="Transaction Processing and Messaging">TXN</a></li><li><a href="../pages/network.html" title="Networking and Communications">NET</a></li><li><a href="../pages/security.html" title="Security and Cryptography">SEC</a></li><li><a href="../pages/tools.html" title="Interactive Tools and Scripting">TSO</a></li><li><a href="../pages/languages.html" title="Languages, Compilers and Runtimes">LANG</a></li><li><a href="../pages/install.html" title="Installation and Software Maintenance">SMPE</a></li><li><a href="../pages/scheduling.html" aria-current="page" title="Scheduling, Monitoring and Automation">SCHED</a></li><li><a href="../pages/devops.html" title="DevOps, Testing and Debugging">DEV</a></li><li><a href="../pages/printing.html" title="Printing and Output Management">PRINT</a></li><li><a href="../pages/hardware.html" title="Hardware, Virtualization and Disaster Recovery">HW</a></li><li><a href="../pages/vendor.html" title="Vendor, Business and Custom Applications">VEND</a></li></ul></nav>
+</header>
+<main id="main" class="sheet">
+  <article class="entry is-e">
+    <p class="dsn"><a href="../">MAINFRAME.ENC</a>.<a href="../pages/scheduling.html">SCHED</a>(AOF036E)</p>
+    <svg class="banner banner-code" viewBox="0 0 41 7" preserveAspectRatio="xMinYMid meet" aria-hidden="true" focusable="false"><path d="M1 0h.86v.86h-.86zM2 0h.86v.86h-.86zM3 0h.86v.86h-.86zM0 1h.86v.86h-.86zM4 1h.86v.86h-.86zM0 2h.86v.86h-.86zM4 2h.86v.86h-.86zM0 3h.86v.86h-.86zM1 3h.86v.86h-.86zM2 3h.86v.86h-.86zM3 3h.86v.86h-.86zM4 3h.86v.86h-.86zM0 4h.86v.86h-.86zM4 4h.86v.86h-.86zM0 5h.86v.86h-.86zM4 5h.86v.86h-.86zM0 6h.86v.86h-.86zM4 6h.86v.86h-.86zM7 0h.86v.86h-.86zM8 0h.86v.86h-.86zM9 0h.86v.86h-.86zM6 1h.86v.86h-.86zM10 1h.86v.86h-.86zM6 2h.86v.86h-.86zM10 2h.86v.86h-.86zM6 3h.86v.86h-.86zM10 3h.86v.86h-.86zM6 4h.86v.86h-.86zM10 4h.86v.86h-.86zM6 5h.86v.86h-.86zM10 5h.86v.86h-.86zM7 6h.86v.86h-.86zM8 6h.86v.86h-.86zM9 6h.86v.86h-.86zM12 0h.86v.86h-.86zM13 0h.86v.86h-.86zM14 0h.86v.86h-.86zM15 0h.86v.86h-.86zM16 0h.86v.86h-.86zM12 1h.86v.86h-.86zM12 2h.86v.86h-.86zM12 3h.86v.86h-.86zM13 3h.86v.86h-.86zM14 3h.86v.86h-.86zM15 3h.86v.86h-.86zM12 4h.86v.86h-.86zM12 5h.86v.86h-.86zM12 6h.86v.86h-.86zM19 0h.86v.86h-.86zM20 0h.86v.86h-.86zM21 0h.86v.86h-.86zM18 1h.86v.86h-.86zM22 1h.86v.86h-.86zM18 2h.86v.86h-.86zM21 2h.86v.86h-.86zM22 2h.86v.86h-.86zM18 3h.86v.86h-.86zM20 3h.86v.86h-.86zM22 3h.86v.86h-.86zM18 4h.86v.86h-.86zM19 4h.86v.86h-.86zM22 4h.86v.86h-.86zM18 5h.86v.86h-.86zM22 5h.86v.86h-.86zM19 6h.86v.86h-.86zM20 6h.86v.86h-.86zM21 6h.86v.86h-.86zM24 0h.86v.86h-.86zM25 0h.86v.86h-.86zM26 0h.86v.86h-.86zM27 0h.86v.86h-.86zM28 1h.86v.86h-.86zM28 2h.86v.86h-.86zM25 3h.86v.86h-.86zM26 3h.86v.86h-.86zM27 3h.86v.86h-.86zM28 4h.86v.86h-.86zM28 5h.86v.86h-.86zM24 6h.86v.86h-.86zM25 6h.86v.86h-.86zM26 6h.86v.86h-.86zM27 6h.86v.86h-.86zM31 0h.86v.86h-.86zM32 0h.86v.86h-.86zM33 0h.86v.86h-.86zM30 1h.86v.86h-.86zM30 2h.86v.86h-.86zM30 3h.86v.86h-.86zM31 3h.86v.86h-.86zM32 3h.86v.86h-.86zM33 3h.86v.86h-.86zM30 4h.86v.86h-.86zM34 4h.86v.86h-.86zM30 5h.86v.86h-.86zM34 5h.86v.86h-.86zM31 6h.86v.86h-.86zM32 6h.86v.86h-.86zM33 6h.86v.86h-.86zM36 0h.86v.86h-.86zM37 0h.86v.86h-.86zM38 0h.86v.86h-.86zM39 0h.86v.86h-.86zM40 0h.86v.86h-.86zM36 1h.86v.86h-.86zM36 2h.86v.86h-.86zM36 3h.86v.86h-.86zM37 3h.86v.86h-.86zM38 3h.86v.86h-.86zM39 3h.86v.86h-.86zM36 4h.86v.86h-.86zM36 5h.86v.86h-.86zM36 6h.86v.86h-.86zM37 6h.86v.86h-.86zM38 6h.86v.86h-.86zM39 6h.86v.86h-.86zM40 6h.86v.86h-.86z"/></svg>
+    <h1><span class="entry-code sr">AOF036E</span> <span class="entry-title">AUTOMATION TABLE ERROR</span></h1>
+    <ul class="tags"><li class="tag-sev">E &middot; ERROR</li><li>SA</li><li><a href="../pages/scheduling.html">Scheduling, Monitoring and Automation</a></li></ul>
+    <dl class="msg">
+      <dt>Explanation</dt><dd>Automation table entry referenced an undefined command or condition.</dd>
+      <dt>Likely cause</dt><dd>Typo in automation table, missing exit command, or invalid condition.</dd>
+      <dt>Programmer response</dt><dd>Reload automation table after correcting; check INGSEND log.</dd>
+      <dt>Example</dt><dd><pre tabindex="0"><code>AOF036E AUTOMATION FOR MSG IEF450I FAILED — CMD MYCMD NOT DEFINED</code></pre></dd>
+    </dl>
+    <p class="actions"><button class="btn" type="button" data-copy="AOF036E - AUTOMATION TABLE ERROR">Copy code</button><button class="btn" type="button" data-copy="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/aof036e.html">Copy link</button></p>
+  </article>
+  <nav class="pager" aria-label="Neighbouring entries">
+    <a rel="prev" href="aofa001e.html"><span>&larr; Previous</span>AOFA001E</a>
+    <a class="up" href="../pages/scheduling.html"><span>All of</span>SCHED</a>
+    <a rel="next" href="ingy001e.html"><span>Next &rarr;</span>INGY001E</a>
+  </nav>
+  <section class="block" aria-labelledby="rel-title">
+    <h2 id="rel-title" class="rule">RELATED <span>more SA entries</span></h2>
+    <ol class="listing compact">
+      <li data-cat="SA"><a href="../codes/aofa001e.html" data-slug="aofa001e"><span class="c-code">AOFA001E</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">SA</span><span class="c-title">AUTOMATION COMMAND FAILED</span></a></li>
+      <li data-cat="SA"><a href="../codes/ingy001e.html" data-slug="ingy001e"><span class="c-code">INGY001E</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">SA</span><span class="c-title">AUTOMATION POLICY ERROR</span></a></li>
+    </ol>
+  </section>
+</main>
+<footer class="foot">
+  <ul class="pf" aria-label="Keyboard shortcuts">
+    <li><kbd>/</kbd> Search</li><li><kbd>&uarr;</kbd><kbd>&darr;</kbd> Pick a result</li><li><kbd>Enter</kbd> Open</li><li><kbd>J</kbd><kbd>K</kbd> Move through a listing</li><li><kbd>&larr;</kbd><kbd>&rarr;</kbd> Previous / next entry</li><li><kbd>Esc</kbd> Close</li><li><kbd>T</kbd> Theme</li>
+  </ul>
+  <p>Mainframe Error Code Encyclopedia &middot; 473 entries in 15 categories &middot; Find. Understand. Fix.</p>
+  <p class="fine">An independent reference, not affiliated with or endorsed by IBM or any other vendor. Product names are trademarks of their owners. Entries are summaries: check the vendor documentation for your release before acting on a production system.</p>
+</footer>
+<dialog class="entry-dialog" id="entry-dialog" aria-labelledby="dlg-code"><div id="entry-slot"></div></dialog>
+</body>
+</html>

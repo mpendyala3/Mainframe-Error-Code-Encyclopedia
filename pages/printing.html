@@ -1,119 +1,91 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-root="../" data-v="60bd8c4f">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Printing and Output Management | Mainframe Error Code Encyclopedia</title>
-  <meta name="description" content="PSF Infoprint Server IP PrintWay JES output and AFP error codes with cause and fix.">
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Printing and Output Management: 15 error codes explained | Mainframe Error Code Encyclopedia</title>
+  <meta name="description" content="PSF, Infoprint Server, IP PrintWay, JES output and AFP messages with the likely cause, the fix and an example.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/printing.html">
-
-  <meta property="og:title" content="Printing and Output Management | Mainframe Error Code Encyclopedia">
-  <meta property="og:description" content="PSF Infoprint Server IP PrintWay JES output and AFP error codes with cause and fix.">
-  <meta property="og:url" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/printing.html">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbfaf3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#060a08" media="(prefers-color-scheme: dark)">
+  <meta property="og:site_name" content="Mainframe Error Code Encyclopedia">
   <meta property="og:type" content="website">
-
+  <meta property="og:title" content="Printing and Output Management">
+  <meta property="og:description" content="PSF, Infoprint Server, IP PrintWay, JES output and AFP messages with the likely cause, the fix and an example.">
+  <meta property="og:url" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/printing.html">
+  <meta property="og:image" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mainframe Error Code Encyclopedia: abend codes, SQLCODEs and z/OS messages explained">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Press+Start+2P&display=swap">
-  <link rel="stylesheet" href="../css/main.css?v=19">
+  <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/ibm-plex-mono-latin-400-normal.woff2" crossorigin>
+  <link rel="stylesheet" href="../css/main.css?v=60bd8c4f">
+  <script src="../js/theme.js?v=60bd8c4f"></script>
+  <script src="../js/app.js?v=60bd8c4f" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/"},{"@type":"ListItem","position":2,"name":"Printing and Output Management","item":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/printing.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Printing and Output Management","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/printing.html","description":"PSF, Infoprint Server, IP PrintWay, JES output and AFP messages with the likely cause, the fix and an example.","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Mainframe Error Code Encyclopedia","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/"},"mainEntity":{"@type":"ItemList","numberOfItems":15,"itemListElement":[{"@type":"ListItem","position":1,"name":"APS810I PSF PRINTER ERROR","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/aps810i.html"},{"@type":"ListItem","position":2,"name":"APS599I PSF RESOURCE NOT FOUND","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/aps599i.html"},{"@type":"ListItem","position":3,"name":"APS101I PSF STARTED","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/aps101i.html"},{"@type":"ListItem","position":4,"name":"APS003I PSF DATASET ERROR","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/aps003i.html"},{"@type":"ListItem","position":5,"name":"AOP1234E INFOPRINT SERVER ERROR","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/aop1234e.html"},{"@type":"ListItem","position":6,"name":"AOP020I INFOPRINT JOB FAILED","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/aop020i.html"},{"@type":"ListItem","position":7,"name":"AOPnnnnW INFOPRINT WARNING","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/aopnnnnw.html"},{"@type":"ListItem","position":8,"name":"PSF U0100 PSF ABEND","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/psf-u0100.html"},{"@type":"ListItem","position":9,"name":"IP PrintWay ANFM PRINTWAY TRANSMISSION ERROR","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/ip-printway-anfm.html"},{"@type":"ListItem","position":10,"name":"JESPOOL EXCEEDED SYSOUT SPOOL LIMIT","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/jespool-exceeded.html"},{"@type":"ListItem","position":11,"name":"PSF FONT WARN FONT NOT AVAILABLE","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/psf-font-warn.html"},{"@type":"ListItem","position":12,"name":"AFP DATA STREAM AFP STRUCTURED FIELD ERROR","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/afp-data-stream.html"},{"@type":"ListItem","position":13,"name":"IEC080I SYSOUT CLOSE ERROR","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/iec080i.html"},{"@type":"ListItem","position":14,"name":"APS010I PSF JOB COMPLETE","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/aps010i.html"},{"@type":"ListItem","position":15,"name":"APSGEN001 PSF GENERATOR ERROR","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/apsgen001.html"}]}}</script>
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <canvas id="matrix-canvas" aria-hidden="true"></canvas>
-  <div class="scanlines" aria-hidden="true"></div>
-  <div class="crt-vignette" aria-hidden="true"></div>
-
-  <nav class="top-nav" aria-label="Primary">
-    <div class="nav-logo">
-      <span class="logo-square" aria-hidden="true">&#9632;</span>
-      <span class="logo-text">MAINFRAME.ENC</span>
-    </div>
-    <ul class="nav-links" role="menubar" data-active="printing">
-      <li role="none"><a role="menuitem" href="../index.html">[HOME]</a></li>
-      <li role="none"><a role="menuitem" href="databases.html" data-key="databases">[DB]</a></li>
-      <li role="none"><a role="menuitem" href="batch.html" data-key="batch">[BATCH]</a></li>
-      <li role="none"><a role="menuitem" href="mvs.html" data-key="mvs">[MVS]</a></li>
-      <li role="none"><a role="menuitem" href="storage.html" data-key="storage">[STOR]</a></li>
-      <li role="none"><a role="menuitem" href="transactions.html" data-key="transactions">[TXN]</a></li>
-      <li role="none"><a role="menuitem" href="network.html" data-key="network">[NET]</a></li>
-      <li role="none"><a role="menuitem" href="security.html" data-key="security">[SEC]</a></li>
-      <li role="none"><a role="menuitem" href="tools.html" data-key="tools">[TSO]</a></li>
-      <li role="none"><a role="menuitem" href="languages.html" data-key="languages">[LANG]</a></li>
-      <li role="none"><a role="menuitem" href="install.html" data-key="install">[SMPE]</a></li>
-      <li role="none"><a role="menuitem" href="scheduling.html" data-key="scheduling">[SCHED]</a></li>
-      <li role="none"><a role="menuitem" href="#" data-key="more">[MORE]</a></li>
-    </ul>
-    <div class="nav-search" role="search">
-      <span class="prompt-prefix">&gt;</span>
-      <input id="search-input" type="search" placeholder="SEARCH ERRORCODE..." aria-label="Search error codes" autocomplete="off">
-      <span class="cursor-blink" aria-hidden="true">&#9608;</span>
-      <button id="search-button" type="button" aria-label="Execute search">[EXEC]</button>
-      <div id="search-results" class="search-results" role="listbox" aria-label="Search suggestions"></div>
-    </div>
-  </nav>
-
-  <main id="main" class="db2-page">
-    <h1>&gt; PRINTING AND OUTPUT MANAGEMENT</h1>
-    <p>Click any code for description, cause, fix, and example. Filter by category below.</p>
-
-    <div class="filter-bar glass" id="filter-bar"></div>
-    <div id="code-grid" class="code-grid" aria-live="polite"></div>
-  </main>
-
-  <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-code" aria-hidden="true">
-    <div class="modal glass" role="document">
-      <header class="modal-header">
-        <span id="modal-code" class="modal-code"></span>
-        <button id="modal-close" class="modal-close" aria-label="Close dialog">&times;</button>
-      </header>
-      <div class="modal-body">
-        <h2 id="modal-title" class="modal-title"></h2>
-        <div class="modal-meta">
-          <span id="modal-category" class="meta-tag"></span>
-          <span id="modal-severity" class="meta-tag"></span>
-        </div>
-        <section class="modal-section">
-          <h3>&#128203; DESCRIPTION</h3>
-          <p id="modal-description"></p>
-        </section>
-        <section class="modal-section">
-          <h3>&#128269; COMMON CAUSE</h3>
-          <p id="modal-cause"></p>
-        </section>
-        <section class="modal-section">
-          <h3>&#128736; HOW TO FIX</h3>
-          <p id="modal-fix"></p>
-        </section>
-        <section class="modal-section">
-          <h3>&#128161; EXAMPLE</h3>
-          <pre><code id="modal-example"></code></pre>
-        </section>
-      </div>
-      <footer class="modal-footer">
-        <button id="modal-copy" type="button" class="btn">[COPY CODE]</button>
-        <button id="modal-close-btn" type="button" class="btn">[CLOSE]</button>
-      </footer>
-    </div>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="top-row">
+    <a class="brand" href="../" aria-label="Mainframe Error Code Encyclopedia, home"><span class="brand-mark" aria-hidden="true"></span>MAINFRAME<b>.ENC</b></a>
+    <form class="cmd cmd-top" id="cmd" role="search" action="../" method="get">
+      <label for="q">COMMAND&nbsp;===&gt;</label>
+      <input id="q" name="q" type="search" role="combobox" aria-label="Search error codes" aria-autocomplete="list" aria-expanded="false" aria-controls="q-list" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="S0C7, -805, IEC161I, deadlock">
+      <kbd class="cmd-key" aria-hidden="true">/</kbd>
+      <div class="cmd-list" id="q-list" role="listbox" aria-label="Matching codes" hidden></div>
+      <p class="cmd-status sr" id="q-status" role="status"></p>
+    </form>
+    <button class="theme-btn" type="button" id="theme-btn" aria-label="Switch between paper and 3270 theme">THEME</button>
   </div>
-
-  <footer class="site-footer">
-    <p>&gt; MAINFRAME.ENC v1.0 &mdash; Find. Understand. Fix..</p>
-  </footer>
-
-  <script src="../js/printing-codes.js?v=19" defer></script>
-  <script src="../js/main.js?v=19" defer></script>
-  <script src="../js/category-page.js?v=19" defer></script>
+  <nav class="cats" aria-label="Categories"><ul><li><a href="../pages/databases.html" title="Databases">DB</a></li><li><a href="../pages/batch.html" title="Job Control and Batch">BATCH</a></li><li><a href="../pages/mvs.html" title="Operating System and MVS">MVS</a></li><li><a href="../pages/storage.html" title="Storage and Data Sets">STOR</a></li><li><a href="../pages/transactions.html" title="Transaction Processing and Messaging">TXN</a></li><li><a href="../pages/network.html" title="Networking and Communications">NET</a></li><li><a href="../pages/security.html" title="Security and Cryptography">SEC</a></li><li><a href="../pages/tools.html" title="Interactive Tools and Scripting">TSO</a></li><li><a href="../pages/languages.html" title="Languages, Compilers and Runtimes">LANG</a></li><li><a href="../pages/install.html" title="Installation and Software Maintenance">SMPE</a></li><li><a href="../pages/scheduling.html" title="Scheduling, Monitoring and Automation">SCHED</a></li><li><a href="../pages/devops.html" title="DevOps, Testing and Debugging">DEV</a></li><li><a href="../pages/printing.html" aria-current="page" title="Printing and Output Management">PRINT</a></li><li><a href="../pages/hardware.html" title="Hardware, Virtualization and Disaster Recovery">HW</a></li><li><a href="../pages/vendor.html" title="Vendor, Business and Custom Applications">VEND</a></li></ul></nav>
+</header>
+<main id="main" class="sheet">
+  <section class="cat-head">
+    <p class="dsn"><a href="../">MAINFRAME.ENC</a>.PRINT</p>
+    <svg class="banner banner-cat" viewBox="0 0 29 7" preserveAspectRatio="xMinYMid meet" aria-hidden="true" focusable="false"><path d="M0 0h.86v.86h-.86zM1 0h.86v.86h-.86zM2 0h.86v.86h-.86zM3 0h.86v.86h-.86zM0 1h.86v.86h-.86zM4 1h.86v.86h-.86zM0 2h.86v.86h-.86zM4 2h.86v.86h-.86zM0 3h.86v.86h-.86zM1 3h.86v.86h-.86zM2 3h.86v.86h-.86zM3 3h.86v.86h-.86zM0 4h.86v.86h-.86zM0 5h.86v.86h-.86zM0 6h.86v.86h-.86zM6 0h.86v.86h-.86zM7 0h.86v.86h-.86zM8 0h.86v.86h-.86zM9 0h.86v.86h-.86zM6 1h.86v.86h-.86zM10 1h.86v.86h-.86zM6 2h.86v.86h-.86zM10 2h.86v.86h-.86zM6 3h.86v.86h-.86zM7 3h.86v.86h-.86zM8 3h.86v.86h-.86zM9 3h.86v.86h-.86zM6 4h.86v.86h-.86zM8 4h.86v.86h-.86zM6 5h.86v.86h-.86zM9 5h.86v.86h-.86zM6 6h.86v.86h-.86zM10 6h.86v.86h-.86zM12 0h.86v.86h-.86zM13 0h.86v.86h-.86zM14 0h.86v.86h-.86zM15 0h.86v.86h-.86zM16 0h.86v.86h-.86zM14 1h.86v.86h-.86zM14 2h.86v.86h-.86zM14 3h.86v.86h-.86zM14 4h.86v.86h-.86zM14 5h.86v.86h-.86zM12 6h.86v.86h-.86zM13 6h.86v.86h-.86zM14 6h.86v.86h-.86zM15 6h.86v.86h-.86zM16 6h.86v.86h-.86zM18 0h.86v.86h-.86zM22 0h.86v.86h-.86zM18 1h.86v.86h-.86zM19 1h.86v.86h-.86zM22 1h.86v.86h-.86zM18 2h.86v.86h-.86zM20 2h.86v.86h-.86zM22 2h.86v.86h-.86zM18 3h.86v.86h-.86zM21 3h.86v.86h-.86zM22 3h.86v.86h-.86zM18 4h.86v.86h-.86zM22 4h.86v.86h-.86zM18 5h.86v.86h-.86zM22 5h.86v.86h-.86zM18 6h.86v.86h-.86zM22 6h.86v.86h-.86zM24 0h.86v.86h-.86zM25 0h.86v.86h-.86zM26 0h.86v.86h-.86zM27 0h.86v.86h-.86zM28 0h.86v.86h-.86zM26 1h.86v.86h-.86zM26 2h.86v.86h-.86zM26 3h.86v.86h-.86zM26 4h.86v.86h-.86zM26 5h.86v.86h-.86zM26 6h.86v.86h-.86z"/></svg>
+    <h1>Printing and Output Management</h1>
+    <p class="lede">PSF, Infoprint Server, IP PrintWay, AFP and JES output. Pick a code for the explanation, likely cause, fix and an example.</p>
+  </section>
+  <section aria-label="Entries">
+    <div class="filters" role="group" aria-label="Filter by class">
+      <button class="chip" type="button" data-cat="" aria-pressed="true">ALL <span>15</span></button><button class="chip" type="button" data-cat="AFP" aria-pressed="false">AFP <span>1</span></button><button class="chip" type="button" data-cat="INFOPRINT" aria-pressed="false">INFOPRINT <span>3</span></button><button class="chip" type="button" data-cat="IP PrintWay" aria-pressed="false">IP PrintWay <span>1</span></button><button class="chip" type="button" data-cat="JES OUTPUT" aria-pressed="false">JES OUTPUT <span>2</span></button><button class="chip" type="button" data-cat="PSF" aria-pressed="false">PSF <span>7</span></button><button class="chip" type="button" data-cat="PSF ABEND" aria-pressed="false">PSF ABEND <span>1</span></button>
+    </div>
+    <p class="count" id="count" role="status">15 entries</p>
+    <div class="listing-head wide" aria-hidden="true"><span>CODE</span><span>SEV</span><span>CLASS</span><span>TITLE</span></div>
+    <ol class="listing wide" id="listing">
+      <li data-cat="PSF"><a href="../codes/aps810i.html" data-slug="aps810i"><span class="c-code">APS810I</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">PSF</span><span class="c-title">PSF PRINTER ERROR</span></a></li>
+      <li data-cat="PSF"><a href="../codes/aps599i.html" data-slug="aps599i"><span class="c-code">APS599I</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">PSF</span><span class="c-title">PSF RESOURCE NOT FOUND</span></a></li>
+      <li data-cat="PSF"><a href="../codes/aps101i.html" data-slug="aps101i"><span class="c-code">APS101I</span><span class="c-sev sev-i" title="INFO">I<span class="sr"> info</span></span><span class="c-class">PSF</span><span class="c-title">PSF STARTED</span></a></li>
+      <li data-cat="PSF"><a href="../codes/aps003i.html" data-slug="aps003i"><span class="c-code">APS003I</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">PSF</span><span class="c-title">PSF DATASET ERROR</span></a></li>
+      <li data-cat="INFOPRINT"><a href="../codes/aop1234e.html" data-slug="aop1234e"><span class="c-code">AOP1234E</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">INFOPRINT</span><span class="c-title">INFOPRINT SERVER ERROR</span></a></li>
+      <li data-cat="INFOPRINT"><a href="../codes/aop020i.html" data-slug="aop020i"><span class="c-code">AOP020I</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">INFOPRINT</span><span class="c-title">INFOPRINT JOB FAILED</span></a></li>
+      <li data-cat="INFOPRINT"><a href="../codes/aopnnnnw.html" data-slug="aopnnnnw"><span class="c-code">AOPnnnnW</span><span class="c-sev sev-w" title="WARNING">W<span class="sr"> warning</span></span><span class="c-class">INFOPRINT</span><span class="c-title">INFOPRINT WARNING</span></a></li>
+      <li data-cat="PSF ABEND"><a href="../codes/psf-u0100.html" data-slug="psf-u0100"><span class="c-code">PSF U0100</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">PSF ABEND</span><span class="c-title">PSF ABEND</span></a></li>
+      <li data-cat="IP PrintWay"><a href="../codes/ip-printway-anfm.html" data-slug="ip-printway-anfm"><span class="c-code">IP PrintWay ANFM</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">IP PrintWay</span><span class="c-title">PRINTWAY TRANSMISSION ERROR</span></a></li>
+      <li data-cat="JES OUTPUT"><a href="../codes/jespool-exceeded.html" data-slug="jespool-exceeded"><span class="c-code">JESPOOL EXCEEDED</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">JES OUTPUT</span><span class="c-title">SYSOUT SPOOL LIMIT</span></a></li>
+      <li data-cat="PSF"><a href="../codes/psf-font-warn.html" data-slug="psf-font-warn"><span class="c-code">PSF FONT WARN</span><span class="c-sev sev-w" title="WARNING">W<span class="sr"> warning</span></span><span class="c-class">PSF</span><span class="c-title">FONT NOT AVAILABLE</span></a></li>
+      <li data-cat="AFP"><a href="../codes/afp-data-stream.html" data-slug="afp-data-stream"><span class="c-code">AFP DATA STREAM</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">AFP</span><span class="c-title">AFP STRUCTURED FIELD ERROR</span></a></li>
+      <li data-cat="JES OUTPUT"><a href="../codes/iec080i.html" data-slug="iec080i"><span class="c-code">IEC080I</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">JES OUTPUT</span><span class="c-title">SYSOUT CLOSE ERROR</span></a></li>
+      <li data-cat="PSF"><a href="../codes/aps010i.html" data-slug="aps010i"><span class="c-code">APS010I</span><span class="c-sev sev-i" title="INFO">I<span class="sr"> info</span></span><span class="c-class">PSF</span><span class="c-title">PSF JOB COMPLETE</span></a></li>
+      <li data-cat="PSF"><a href="../codes/apsgen001.html" data-slug="apsgen001"><span class="c-code">APSGEN001</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">PSF</span><span class="c-title">PSF GENERATOR ERROR</span></a></li>
+    </ol>
+    <p class="note">SEV: <span class="sev-e">E</span> error, <span class="sev-w">W</span> warning, <span class="sev-i">I</span> information.</p>
+  </section>
+</main>
+<footer class="foot">
+  <ul class="pf" aria-label="Keyboard shortcuts">
+    <li><kbd>/</kbd> Search</li><li><kbd>&uarr;</kbd><kbd>&darr;</kbd> Pick a result</li><li><kbd>Enter</kbd> Open</li><li><kbd>J</kbd><kbd>K</kbd> Move through a listing</li><li><kbd>&larr;</kbd><kbd>&rarr;</kbd> Previous / next entry</li><li><kbd>Esc</kbd> Close</li><li><kbd>T</kbd> Theme</li>
+  </ul>
+  <p>Mainframe Error Code Encyclopedia &middot; 473 entries in 15 categories &middot; Find. Understand. Fix.</p>
+  <p class="fine">An independent reference, not affiliated with or endorsed by IBM or any other vendor. Product names are trademarks of their owners. Entries are summaries: check the vendor documentation for your release before acting on a production system.</p>
+</footer>
+<dialog class="entry-dialog" id="entry-dialog" aria-labelledby="dlg-code"><div id="entry-slot"></div></dialog>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-

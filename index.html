@@ -1,216 +1,123 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-root="" data-v="60bd8c4f">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-  <title>Mainframe Error Code Encyclopedia | DB2 SQL Codes Explained</title>
-  <meta name="description" content="Searchable encyclopedia of DB2 SQLCODEs and z/OS mainframe errors. Causes, fixes, and COBOL examples for SQLCODE -803, -805, -811, -818, -911 and 240+ more.">
-  <meta name="keywords" content="DB2 SQL codes, mainframe errors, SQLCODE, IBM DB2, z/OS, SQLCODE -803, SQLCODE -911, COBOL, mainframe encyclopedia, mainframe developer">
-  <meta name="author" content="Mainframe Error Code Encyclopedia">
-  <meta name="robots" content="index, follow">
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mainframe Error Code Encyclopedia: abend codes, SQLCODEs and z/OS messages explained</title>
+  <meta name="description" content="Look up 473 mainframe error codes: system abends (S0C4, S0C7, S806), DB2 SQLCODEs (-805, -811, -911), CICS, VSAM, JCL and z/OS messages, each with cause, fix and example.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/">
-
-  <meta property="og:title" content="Mainframe Error Code Encyclopedia | DB2 SQL Codes Explained">
-  <meta property="og:description" content="A liquid-glass terminal encyclopedia of DB2 SQLCODEs. Search, click, and decode mainframe errors with causes, fixes, and examples.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbfaf3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#060a08" media="(prefers-color-scheme: dark)">
+  <meta property="og:site_name" content="Mainframe Error Code Encyclopedia">
   <meta property="og:type" content="website">
+  <meta property="og:title" content="Mainframe Error Code Encyclopedia">
+  <meta property="og:description" content="Look up 473 mainframe error codes: system abends (S0C4, S0C7, S806), DB2 SQLCODEs (-805, -811, -911), CICS, VSAM, JCL and z/OS messages, each with cause, fix and example.">
   <meta property="og:url" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/">
   <meta property="og:image" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/assets/og-image.png">
-  <meta property="og:site_name" content="Mainframe Error Code Encyclopedia">
-
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mainframe Error Code Encyclopedia: abend codes, SQLCODEs and z/OS messages explained">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Mainframe Error Code Encyclopedia">
-  <meta name="twitter:description" content="Search and decode DB2 SQLCODEs and z/OS mainframe errors. 240+ codes with causes, fixes, and examples.">
-  <meta name="twitter:image" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/assets/og-image.png">
-
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="alternate icon" href="assets/favicon.ico">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Press+Start+2P&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Press+Start+2P&display=swap">
-  <link rel="stylesheet" href="css/main.css?v=19">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Mainframe Error Code Encyclopedia",
-    "url": "https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/",
-    "description": "Searchable encyclopedia of DB2 SQLCODEs and z/OS mainframe errors.",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/?q={search_term_string}"
-      },
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/" },
-      { "@type": "ListItem", "position": 2, "name": "Databases", "item": "https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/databases.html" }
-    ]
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      { "@type": "Question", "name": "What does SQLCODE -803 mean?",
-        "acceptedAnswer": { "@type": "Answer", "text": "SQLCODE -803 is a unique index violation. An INSERT or UPDATE attempted to create a duplicate of an existing key in a UNIQUE INDEX or PRIMARY KEY." } },
-      { "@type": "Question", "name": "What does SQLCODE -805 mean?",
-        "acceptedAnswer": { "@type": "Answer", "text": "SQLCODE -805 means the DBRM or package was not found in the plan. Bind the package and ensure it is in the plan's PKLIST." } },
-      { "@type": "Question", "name": "What does SQLCODE -811 mean?",
-        "acceptedAnswer": { "@type": "Answer", "text": "SQLCODE -811 occurs when a SELECT INTO returns more than one row. Use a cursor to fetch multiple rows or narrow the WHERE clause." } },
-      { "@type": "Question", "name": "What does SQLCODE -818 mean?",
-        "acceptedAnswer": { "@type": "Answer", "text": "SQLCODE -818 is a precompile/bind timestamp mismatch between the load module and DBRM. Recompile and rebind together." } },
-      { "@type": "Question", "name": "What does SQLCODE -904 mean?",
-        "acceptedAnswer": { "@type": "Answer", "text": "SQLCODE -904 indicates an unavailable resource. Check the reason code for the specific tablespace or index status (COPY-pending, LPL, etc.)." } },
-      { "@type": "Question", "name": "What does SQLCODE -911 mean?",
-        "acceptedAnswer": { "@type": "Answer", "text": "SQLCODE -911 means the unit of work was rolled back due to a deadlock or timeout. Restart the unit of work and commit more frequently." } },
-      { "@type": "Question", "name": "What does SQLCODE -922 mean?",
-        "acceptedAnswer": { "@type": "Answer", "text": "SQLCODE -922 is an authorization failure. The user ID, password, or RACF profile was rejected." } },
-      { "@type": "Question", "name": "What does SQLCODE -180 mean?",
-        "acceptedAnswer": { "@type": "Answer", "text": "SQLCODE -180 indicates a datetime value is in an invalid format. Use ISO 'YYYY-MM-DD' or a format matching CURRENT DATE FORMAT." } },
-      { "@type": "Question", "name": "What does SQLCODE +100 mean?",
-        "acceptedAnswer": { "@type": "Answer", "text": "SQLCODE +100 means no row was found that satisfied the search condition. It is a normal end-of-data condition for cursor loops." } },
-      { "@type": "Question", "name": "What does SQLCODE -551 mean?",
-        "acceptedAnswer": { "@type": "Answer", "text": "SQLCODE -551 means the authorization ID does not have the required privilege for the operation. GRANT the needed privilege or switch auth IDs." } }
-    ]
-  }
-  </script>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/ibm-plex-mono-latin-400-normal.woff2" crossorigin>
+  <link rel="stylesheet" href="css/main.css?v=60bd8c4f">
+  <script src="js/theme.js?v=60bd8c4f"></script>
+  <script src="js/app.js?v=60bd8c4f" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Mainframe Error Code Encyclopedia","alternateName":"MAINFRAME.ENC","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/","description":"Searchable reference of abend codes, DB2 SQLCODEs and z/OS messages.","inLanguage":"en","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does S0C7 mean?","acceptedAnswer":{"@type":"Answer","text":"A decimal arithmetic instruction encountered invalid packed-decimal or zoned-decimal data. Fix: Use NUMERIC test on COMP-3 inputs before arithmetic, or initialize fields to zero. Check the dump for failing instruction (AP, ZAP, CP, etc.) and the contents of the operands."}},{"@type":"Question","name":"What does S0C4 mean?","acceptedAnswer":{"@type":"Answer","text":"The program attempted to access storage it is not authorized to read or write. Fix: Look at the PSW and failing instruction in the IPCS dump. Trace the pointer back to where it was set."}},{"@type":"Question","name":"What does S806 mean?","acceptedAnswer":{"@type":"Answer","text":"The system could not find the requested load module in any library on the search order. Fix: Verify the load module exists with the correct name and that the JCL points to the right STEPLIB. Check link-edit JCL for the correct member name."}},{"@type":"Question","name":"What does SQLCODE -805 mean?","acceptedAnswer":{"@type":"Answer","text":"The DBRM or package name was not found in the plan. Fix: BIND PACKAGE for the program. Check CURRENT PACKAGESET and plan PKLIST. Verify collection ID matches."}},{"@type":"Question","name":"What does SQLCODE -811 mean?","acceptedAnswer":{"@type":"Answer","text":"The result of an embedded SELECT INTO or scalar subquery is more than one row. Fix: Use a cursor (DECLARE/OPEN/FETCH) for multi-row results. Or refine the WHERE clause with a unique key."}},{"@type":"Question","name":"What does SQLCODE -818 mean?","acceptedAnswer":{"@type":"Answer","text":"The precompiler-generated timestamp X in the load module is different from the bind timestamp Y in the DBRM. Fix: Precompile, compile, link, AND bind together. Always rebind after precompiling."}},{"@type":"Question","name":"What does SQLCODE -904 mean?","acceptedAnswer":{"@type":"Answer","text":"Unsuccessful execution caused by an unavailable resource. Fix: Check the reason code and resource name in the message. Run COPY, RECOVER, START DATABASE, or similar to recover."}},{"@type":"Question","name":"What does SQLCODE -911 mean?","acceptedAnswer":{"@type":"Answer","text":"The current unit of work was rolled back because of a deadlock or timeout. Fix: Application must restart the unit of work. Use LOCK TIMEOUT bind option. Reduce hold time by COMMITting more frequently."}},{"@type":"Question","name":"What does SQLCODE +100 mean?","acceptedAnswer":{"@type":"Answer","text":"No row was found that satisfies the search condition, or the result of a FETCH was past the last row of the cursor result table. Fix: Check WHERE clause logic. Treat +100 as a normal end-of-data condition for cursor loops. Always test SQLCODE = 100 after fetches."}},{"@type":"Question","name":"What does ASRA mean?","acceptedAnswer":{"@type":"Answer","text":"CICS detected a program check (S0Cx-style) in an application program. Fix: Read the CICS transaction dump for the actual program-check type (often S0C7) and trace it like a batch S0C7."}}]}</script>
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <!-- Matrix rain canvas -->
-  <canvas id="matrix-canvas" aria-hidden="true"></canvas>
-
-  <!-- Scanline overlay -->
-  <div class="scanlines" aria-hidden="true"></div>
-  <div class="crt-vignette" aria-hidden="true"></div>
-
-  <!-- Top navigation -->
-  <nav class="top-nav" aria-label="Primary">
-    <div class="nav-logo">
-      <span class="logo-square" aria-hidden="true">&#9632;</span>
-      <span class="logo-text">MAINFRAME.ENC</span>
-    </div>
-    <ul class="nav-links" role="menubar">
-      <li role="none"><a role="menuitem" href="index.html" class="active">[HOME]</a></li>
-      <li role="none"><a role="menuitem" href="pages/databases.html">[DB]</a></li>
-      <li role="none"><a role="menuitem" href="pages/batch.html">[BATCH]</a></li>
-      <li role="none"><a role="menuitem" href="pages/mvs.html">[MVS]</a></li>
-      <li role="none"><a role="menuitem" href="pages/storage.html">[STOR]</a></li>
-      <li role="none"><a role="menuitem" href="pages/transactions.html">[TXN]</a></li>
-      <li role="none"><a role="menuitem" href="pages/network.html">[NET]</a></li>
-      <li role="none"><a role="menuitem" href="pages/security.html">[SEC]</a></li>
-      <li role="none"><a role="menuitem" href="pages/tools.html">[TSO]</a></li>
-      <li role="none"><a role="menuitem" href="pages/languages.html">[LANG]</a></li>
-      <li role="none"><a role="menuitem" href="pages/install.html">[SMPE]</a></li>
-      <li role="none"><a role="menuitem" href="pages/scheduling.html">[SCHED]</a></li>
-      <li role="none"><a role="menuitem" href="#" data-key="more">[MORE]</a></li>
-    </ul>
-    <div class="nav-search" role="search">
-      <span class="prompt-prefix">&gt;</span>
-      <input id="search-input" type="search" placeholder="SEARCH ERRORCODE..." aria-label="Search error codes" autocomplete="off">
-      <span class="cursor-blink" aria-hidden="true">&#9608;</span>
-      <button id="search-button" type="button" aria-label="Execute search">[EXEC]</button>
-      <div id="search-results" class="search-results" role="listbox" aria-label="Search suggestions"></div>
-    </div>
-  </nav>
-
-  <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-header">
-        <h1 id="hero-title" class="hero-title">MAINFRAME ERROR CODE ENCYCLOPEDIA</h1>
-        <p class="hero-tagline">
-          <span class="prompt-prefix">&gt;</span>
-          <span id="typewriter" aria-live="polite"></span><span class="cursor-blink" aria-hidden="true">_</span>
-        </p>
-      </div>
-
-      <div id="globe-container" class="globe-container" aria-label="Interactive cloud of DB2 SQL codes">
-        <div id="globe" class="globe"></div>
-      </div>
-
-      <div class="stats" aria-label="Encyclopedia statistics">
-        <div class="stat-badge"><span class="stat-num" data-target="450">0</span><span class="stat-label">ERROR CODES</span></div>
-        <div class="stat-badge"><span class="stat-num" data-target="15">0</span><span class="stat-label">CATEGORIES</span></div>
-      </div>
-    </section>
-
-    <section id="about" class="about glass" aria-labelledby="about-title">
-      <h2 id="about-title">&gt; ABOUT</h2>
-      <p>The MAINFRAME ERROR CODE ENCYCLOPEDIA is a free, searchable reference for error codes encountered on IBM z/OS systems &mdash; spanning DB2, JCL and batch, MVS, storage and VSAM, CICS and MQ, networking, security, languages, SMP/E, scheduling, DevOps tooling, printing, hardware, and vendor applications. Each entry includes a plain-language description, common causes, step-by-step fixes, and a COBOL, JCL, or SQL example.</p>
-      <p>15 categories and growing. Built by mainframe developers for mainframe developers.</p>
-    </section>
-  </main>
-
-  <!-- Modal -->
-  <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-code" aria-hidden="true">
-    <div class="modal glass" role="document">
-      <header class="modal-header">
-        <span id="modal-code" class="modal-code"></span>
-        <button id="modal-close" class="modal-close" aria-label="Close dialog">&times;</button>
-      </header>
-      <div class="modal-body">
-        <h2 id="modal-title" class="modal-title"></h2>
-        <div class="modal-meta">
-          <span id="modal-category" class="meta-tag"></span>
-          <span id="modal-severity" class="meta-tag"></span>
-        </div>
-        <section class="modal-section">
-          <h3>&#128203; DESCRIPTION</h3>
-          <p id="modal-description"></p>
-        </section>
-        <section class="modal-section">
-          <h3>&#128269; COMMON CAUSE</h3>
-          <p id="modal-cause"></p>
-        </section>
-        <section class="modal-section">
-          <h3>&#128736; HOW TO FIX</h3>
-          <p id="modal-fix"></p>
-        </section>
-        <section class="modal-section">
-          <h3>&#128161; EXAMPLE</h3>
-          <pre><code id="modal-example"></code></pre>
-        </section>
-      </div>
-      <footer class="modal-footer">
-        <button id="modal-copy" type="button" class="btn">[COPY SQLCODE]</button>
-        <button id="modal-close-btn" type="button" class="btn">[CLOSE]</button>
-      </footer>
-    </div>
+<body class="home">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="top-row">
+    <a class="brand" href="./" aria-label="Mainframe Error Code Encyclopedia, home"><span class="brand-mark" aria-hidden="true"></span>MAINFRAME<b>.ENC</b></a>
+<span class="top-fill"></span>    <button class="theme-btn" type="button" id="theme-btn" aria-label="Switch between paper and 3270 theme">THEME</button>
   </div>
+  <nav class="cats" aria-label="Categories"><ul><li><a href="pages/databases.html" title="Databases">DB</a></li><li><a href="pages/batch.html" title="Job Control and Batch">BATCH</a></li><li><a href="pages/mvs.html" title="Operating System and MVS">MVS</a></li><li><a href="pages/storage.html" title="Storage and Data Sets">STOR</a></li><li><a href="pages/transactions.html" title="Transaction Processing and Messaging">TXN</a></li><li><a href="pages/network.html" title="Networking and Communications">NET</a></li><li><a href="pages/security.html" title="Security and Cryptography">SEC</a></li><li><a href="pages/tools.html" title="Interactive Tools and Scripting">TSO</a></li><li><a href="pages/languages.html" title="Languages, Compilers and Runtimes">LANG</a></li><li><a href="pages/install.html" title="Installation and Software Maintenance">SMPE</a></li><li><a href="pages/scheduling.html" title="Scheduling, Monitoring and Automation">SCHED</a></li><li><a href="pages/devops.html" title="DevOps, Testing and Debugging">DEV</a></li><li><a href="pages/printing.html" title="Printing and Output Management">PRINT</a></li><li><a href="pages/hardware.html" title="Hardware, Virtualization and Disaster Recovery">HW</a></li><li><a href="pages/vendor.html" title="Vendor, Business and Custom Applications">VEND</a></li></ul></nav>
+</header>
+<main id="main" class="sheet">
+  <section class="hero" aria-labelledby="hero-title">
+    <p class="jcl" aria-hidden="true">//MFENC    JOB (ABEND),'FIND. UNDERSTAND. FIX.',CLASS=A,MSGCLASS=X</p>
+    <svg class="banner banner-hero" viewBox="0 0 29 7" preserveAspectRatio="xMinYMid meet" aria-hidden="true" focusable="false"><path d="M1 0h.86v.86h-.86zM2 0h.86v.86h-.86zM3 0h.86v.86h-.86zM0 1h.86v.86h-.86zM4 1h.86v.86h-.86zM0 2h.86v.86h-.86zM4 2h.86v.86h-.86zM0 3h.86v.86h-.86zM1 3h.86v.86h-.86zM2 3h.86v.86h-.86zM3 3h.86v.86h-.86zM4 3h.86v.86h-.86zM0 4h.86v.86h-.86zM4 4h.86v.86h-.86zM0 5h.86v.86h-.86zM4 5h.86v.86h-.86zM0 6h.86v.86h-.86zM4 6h.86v.86h-.86zM6 0h.86v.86h-.86zM7 0h.86v.86h-.86zM8 0h.86v.86h-.86zM9 0h.86v.86h-.86zM6 1h.86v.86h-.86zM10 1h.86v.86h-.86zM6 2h.86v.86h-.86zM10 2h.86v.86h-.86zM6 3h.86v.86h-.86zM7 3h.86v.86h-.86zM8 3h.86v.86h-.86zM9 3h.86v.86h-.86zM6 4h.86v.86h-.86zM10 4h.86v.86h-.86zM6 5h.86v.86h-.86zM10 5h.86v.86h-.86zM6 6h.86v.86h-.86zM7 6h.86v.86h-.86zM8 6h.86v.86h-.86zM9 6h.86v.86h-.86zM12 0h.86v.86h-.86zM13 0h.86v.86h-.86zM14 0h.86v.86h-.86zM15 0h.86v.86h-.86zM16 0h.86v.86h-.86zM12 1h.86v.86h-.86zM12 2h.86v.86h-.86zM12 3h.86v.86h-.86zM13 3h.86v.86h-.86zM14 3h.86v.86h-.86zM15 3h.86v.86h-.86zM12 4h.86v.86h-.86zM12 5h.86v.86h-.86zM12 6h.86v.86h-.86zM13 6h.86v.86h-.86zM14 6h.86v.86h-.86zM15 6h.86v.86h-.86zM16 6h.86v.86h-.86zM18 0h.86v.86h-.86zM22 0h.86v.86h-.86zM18 1h.86v.86h-.86zM19 1h.86v.86h-.86zM22 1h.86v.86h-.86zM18 2h.86v.86h-.86zM20 2h.86v.86h-.86zM22 2h.86v.86h-.86zM18 3h.86v.86h-.86zM21 3h.86v.86h-.86zM22 3h.86v.86h-.86zM18 4h.86v.86h-.86zM22 4h.86v.86h-.86zM18 5h.86v.86h-.86zM22 5h.86v.86h-.86zM18 6h.86v.86h-.86zM22 6h.86v.86h-.86zM24 0h.86v.86h-.86zM25 0h.86v.86h-.86zM26 0h.86v.86h-.86zM27 0h.86v.86h-.86zM24 1h.86v.86h-.86zM28 1h.86v.86h-.86zM24 2h.86v.86h-.86zM28 2h.86v.86h-.86zM24 3h.86v.86h-.86zM28 3h.86v.86h-.86zM24 4h.86v.86h-.86zM28 4h.86v.86h-.86zM24 5h.86v.86h-.86zM28 5h.86v.86h-.86zM24 6h.86v.86h-.86zM25 6h.86v.86h-.86zM26 6h.86v.86h-.86zM27 6h.86v.86h-.86z"/></svg>
+    <h1 id="hero-title">Mainframe Error Code Encyclopedia</h1>
+    <p class="lede">473 abend codes, DB2 SQLCODEs and z/OS messages, each with what it means, the likely cause, the fix and an example. Type a code.</p>
+    <form class="cmd cmd-hero" id="cmd" role="search" action="./" method="get">
+      <label for="q">COMMAND&nbsp;===&gt;</label>
+      <input id="q" name="q" type="search" role="combobox" aria-label="Search error codes" aria-autocomplete="list" aria-expanded="false" aria-controls="q-list" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="S0C7, -805, IEC161I, deadlock">
+      <kbd class="cmd-key" aria-hidden="true">/</kbd>
+      <div class="cmd-list" id="q-list" role="listbox" aria-label="Matching codes" hidden></div>
+      <p class="cmd-status sr" id="q-status" role="status"></p>
+    </form>
+    <ul class="chips" aria-label="Most looked-up codes"><li><a class="chip" href="codes/s0c7.html" data-slug="s0c7" title="DATA EXCEPTION">S0C7</a></li><li><a class="chip" href="codes/s0c4.html" data-slug="s0c4" title="PROTECTION EXCEPTION">S0C4</a></li><li><a class="chip" href="codes/s806.html" data-slug="s806" title="MODULE NOT FOUND">S806</a></li><li><a class="chip" href="codes/s322.html" data-slug="s322" title="TIME LIMIT EXCEEDED">S322</a></li><li><a class="chip" href="codes/s913.html" data-slug="s913" title="RACF SECURITY VIOLATION">S913</a></li><li><a class="chip" href="codes/sqlcode-805.html" data-slug="sqlcode-805" title="DBRM OR PACKAGE NOT FOUND IN PLAN">-805</a></li><li><a class="chip" href="codes/sqlcode-811.html" data-slug="sqlcode-811" title="MORE THAN ONE ROW RETURNED BY SCALAR SUBQUERY">-811</a></li><li><a class="chip" href="codes/sqlcode-818.html" data-slug="sqlcode-818" title="TIMESTAMP MISMATCH BETWEEN LOAD MODULE AND DBRM">-818</a></li><li><a class="chip" href="codes/sqlcode-904.html" data-slug="sqlcode-904" title="UNAVAILABLE RESOURCE">-904</a></li><li><a class="chip" href="codes/sqlcode-911.html" data-slug="sqlcode-911" title="DEADLOCK OR TIMEOUT — ROLLBACK PERFORMED">-911</a></li><li><a class="chip" href="codes/sqlcode-plus-100.html" data-slug="sqlcode-plus-100" title="ROW NOT FOUND">+100</a></li><li><a class="chip" href="codes/asra.html" data-slug="asra" title="PROGRAM CHECK IN APPLICATION">ASRA</a></li><li><a class="chip" href="codes/aey9.html" data-slug="aey9" title="INVALID PROGRAM CALL">AEY9</a></li><li><a class="chip" href="codes/ich408i.html" data-slug="ich408i" title="INSUFFICIENT ACCESS AUTHORITY">ICH408I</a></li><li><a class="chip" href="codes/iec161i.html" data-slug="iec161i" title="VSAM OPEN ERROR">IEC161I</a></li><li><a class="chip" href="codes/vsam-23.html" data-slug="vsam-23" title="RECORD NOT FOUND">VSAM-23</a></li></ul>
+  </section>
 
-  <footer class="site-footer">
-    <p>&gt; MAINFRAME.ENC v1.0 &mdash; Find. Understand. Fix..</p>
-  </footer>
+  <section class="block" aria-labelledby="sysout-title">
+    <h2 id="sysout-title" class="rule">SYSOUT <span>what 02:14 looks like</span></h2>
+    <pre class="sysout" tabindex="0" aria-label="Sample job log of a batch job ending with abend S0C7"> 02.14.07 JOB04217  <a href="codes/iea995i.html" data-slug="iea995i">IEA995I</a> SYMPTOM DUMP OUTPUT
+                    SYSTEM COMPLETION CODE=0C7  REASON CODE=00000007
+                     TIME=02.14.07  SEQ=00412  CPU=0000  ASID=0031
+                     PSW AT TIME OF ERROR  078D1000   A0C0A2C6  ILC 6  INTC 07
+                       ACTIVE LOAD MODULE           NAME=PAYCALC
+ 02.14.07 JOB04217  IEF450I NIGHTPAY STEP020 - ABEND=<a href="codes/s0c7.html" data-slug="s0c7">S0C7</a> U0000
+ 02.14.08 JOB04217  <a href="codes/hasp395.html" data-slug="hasp395">$HASP395</a> NIGHTPAY ENDED - ABEND=S0C7
+</pre>
+    <p class="note">A made-up job log for illustration. Each underlined code opens its entry.</p>
+  </section>
 
-  <script src="js/db2-sql-codes.js?v=19" defer></script>
-  <script src="js/home-extra-codes.js?v=19" defer></script>
-  <script src="js/main.js?v=19" defer></script>
+  <section class="block" aria-labelledby="dir-title">
+    <h2 id="dir-title" class="rule">DSLIST <span>15 categories, 473 entries</span></h2>
+    <ul class="dir">
+      <li><a href="pages/databases.html"><span class="d-name">DB</span><span class="d-title">Databases</span><span class="d-sample">+100 &middot; +222 &middot; +304</span><span class="d-count">257<span class="sr"> entries</span></span></a></li>
+      <li><a href="pages/batch.html"><span class="d-name">BATCH</span><span class="d-title">Job Control and Batch</span><span class="d-sample">S0C1 &middot; S0C4 &middot; S0C7</span><span class="d-count">21<span class="sr"> entries</span></span></a></li>
+      <li><a href="pages/mvs.html"><span class="d-name">MVS</span><span class="d-title">Operating System and MVS</span><span class="d-sample">IEA995I &middot; IEA911E &middot; IEE039I</span><span class="d-count">15<span class="sr"> entries</span></span></a></li>
+      <li><a href="pages/storage.html"><span class="d-name">STOR</span><span class="d-title">Storage and Data Sets</span><span class="d-sample">IDC3009I &middot; IDC0001I &middot; IDC3308I</span><span class="d-count">15<span class="sr"> entries</span></span></a></li>
+      <li><a href="pages/transactions.html"><span class="d-name">TXN</span><span class="d-title">Transaction Processing and Messaging</span><span class="d-sample">ASRA &middot; AICA &middot; AEY9</span><span class="d-count">15<span class="sr"> entries</span></span></a></li>
+      <li><a href="pages/network.html"><span class="d-name">NET</span><span class="d-title">Networking and Communications</span><span class="d-sample">EZA1701 &middot; EZA1735I &middot; EZA2899I</span><span class="d-count">15<span class="sr"> entries</span></span></a></li>
+      <li><a href="pages/security.html"><span class="d-name">SEC</span><span class="d-title">Security and Cryptography</span><span class="d-sample">ICH408I &middot; ICH415I &middot; ICH70001I</span><span class="d-count">14<span class="sr"> entries</span></span></a></li>
+      <li><a href="pages/tools.html"><span class="d-name">TSO</span><span class="d-title">Interactive Tools and Scripting</span><span class="d-sample">IKJ56644I &middot; IKJ56228I &middot; IKJ56250I</span><span class="d-count">16<span class="sr"> entries</span></span></a></li>
+      <li><a href="pages/languages.html"><span class="d-name">LANG</span><span class="d-title">Languages, Compilers and Runtimes</span><span class="d-sample">IGYDS0017 &middot; IGYPS2121 &middot; IGZ0013S</span><span class="d-count">15<span class="sr"> entries</span></span></a></li>
+      <li><a href="pages/install.html"><span class="d-name">SMPE</span><span class="d-title">Installation and Software Maintenance</span><span class="d-sample">GIM23903E &middot; GIM27801E &middot; GIM26801E</span><span class="d-count">15<span class="sr"> entries</span></span></a></li>
+      <li><a href="pages/scheduling.html"><span class="d-name">SCHED</span><span class="d-title">Scheduling, Monitoring and Automation</span><span class="d-sample">EQQE001E &middot; EQQF002I &middot; EQQE037E</span><span class="d-count">15<span class="sr"> entries</span></span></a></li>
+      <li><a href="pages/devops.html"><span class="d-name">DEV</span><span class="d-title">DevOps, Testing and Debugging</span><span class="d-sample">C1G0023E &middot; C1G0410E &middot; ENU013</span><span class="d-count">15<span class="sr"> entries</span></span></a></li>
+      <li><a href="pages/printing.html"><span class="d-name">PRINT</span><span class="d-title">Printing and Output Management</span><span class="d-sample">APS810I &middot; APS599I &middot; APS101I</span><span class="d-count">15<span class="sr"> entries</span></span></a></li>
+      <li><a href="pages/hardware.html"><span class="d-name">HW</span><span class="d-title">Hardware, Virtualization and Disaster Recovery</span><span class="d-sample">IOS000I &middot; IOS002A &middot; IOS050I</span><span class="d-count">15<span class="sr"> entries</span></span></a></li>
+      <li><a href="pages/vendor.html"><span class="d-name">VEND</span><span class="d-title">Vendor, Business and Custom Applications</span><span class="d-sample">U0001 &middot; U0016 &middot; U1024</span><span class="d-count">15<span class="sr"> entries</span></span></a></li>
+    </ul>
+  </section>
+
+  <section class="block" aria-labelledby="faq-title">
+    <h2 id="faq-title" class="rule">FAQ <span>the ten codes everyone meets</span></h2>
+    <div class="faq">
+      <details><summary>What does S0C7 mean?</summary><p>A decimal arithmetic instruction encountered invalid packed-decimal or zoned-decimal data. <strong>Fix:</strong> Use NUMERIC test on COMP-3 inputs before arithmetic, or initialize fields to zero. Check the dump for failing instruction (AP, ZAP, CP, etc.) and the contents of the operands. <a href="codes/s0c7.html" data-slug="s0c7">Full entry for S0C7</a></p></details>
+      <details><summary>What does S0C4 mean?</summary><p>The program attempted to access storage it is not authorized to read or write. <strong>Fix:</strong> Look at the PSW and failing instruction in the IPCS dump. Trace the pointer back to where it was set. <a href="codes/s0c4.html" data-slug="s0c4">Full entry for S0C4</a></p></details>
+      <details><summary>What does S806 mean?</summary><p>The system could not find the requested load module in any library on the search order. <strong>Fix:</strong> Verify the load module exists with the correct name and that the JCL points to the right STEPLIB. Check link-edit JCL for the correct member name. <a href="codes/s806.html" data-slug="s806">Full entry for S806</a></p></details>
+      <details><summary>What does SQLCODE -805 mean?</summary><p>The DBRM or package name was not found in the plan. <strong>Fix:</strong> BIND PACKAGE for the program. Check CURRENT PACKAGESET and plan PKLIST. Verify collection ID matches. <a href="codes/sqlcode-805.html" data-slug="sqlcode-805">Full entry for -805</a></p></details>
+      <details><summary>What does SQLCODE -811 mean?</summary><p>The result of an embedded SELECT INTO or scalar subquery is more than one row. <strong>Fix:</strong> Use a cursor (DECLARE/OPEN/FETCH) for multi-row results. Or refine the WHERE clause with a unique key. <a href="codes/sqlcode-811.html" data-slug="sqlcode-811">Full entry for -811</a></p></details>
+      <details><summary>What does SQLCODE -818 mean?</summary><p>The precompiler-generated timestamp X in the load module is different from the bind timestamp Y in the DBRM. <strong>Fix:</strong> Precompile, compile, link, AND bind together. Always rebind after precompiling. <a href="codes/sqlcode-818.html" data-slug="sqlcode-818">Full entry for -818</a></p></details>
+      <details><summary>What does SQLCODE -904 mean?</summary><p>Unsuccessful execution caused by an unavailable resource. <strong>Fix:</strong> Check the reason code and resource name in the message. Run COPY, RECOVER, START DATABASE, or similar to recover. <a href="codes/sqlcode-904.html" data-slug="sqlcode-904">Full entry for -904</a></p></details>
+      <details><summary>What does SQLCODE -911 mean?</summary><p>The current unit of work was rolled back because of a deadlock or timeout. <strong>Fix:</strong> Application must restart the unit of work. Use LOCK TIMEOUT bind option. Reduce hold time by COMMITting more frequently. <a href="codes/sqlcode-911.html" data-slug="sqlcode-911">Full entry for -911</a></p></details>
+      <details><summary>What does SQLCODE +100 mean?</summary><p>No row was found that satisfies the search condition, or the result of a FETCH was past the last row of the cursor result table. <strong>Fix:</strong> Check WHERE clause logic. Treat +100 as a normal end-of-data condition for cursor loops. Always test SQLCODE = 100 after fetches. <a href="codes/sqlcode-plus-100.html" data-slug="sqlcode-plus-100">Full entry for +100</a></p></details>
+      <details><summary>What does ASRA mean?</summary><p>CICS detected a program check (S0Cx-style) in an application program. <strong>Fix:</strong> Read the CICS transaction dump for the actual program-check type (often S0C7) and trace it like a batch S0C7. <a href="codes/asra.html" data-slug="asra">Full entry for ASRA</a></p></details>
+    </div>
+  </section>
+
+  <section class="block prose" aria-labelledby="about-title">
+    <h2 id="about-title" class="rule">ABOUT</h2>
+    <p>A free, searchable reference for the error codes you meet on IBM z/OS: DB2 SQLCODEs, system and user abends, JCL and JES messages, VSAM and storage, CICS and MQ, networking, security, compilers and Language Environment, SMP/E, schedulers, printing, hardware and vendor applications.</p>
+    <p>Every entry has its own page and follows the layout of a message manual: explanation, likely cause, programmer response and an example. The whole site is static, loads no third-party code and works from the keyboard.</p>
+  </section>
+</main>
+<footer class="foot">
+  <ul class="pf" aria-label="Keyboard shortcuts">
+    <li><kbd>/</kbd> Search</li><li><kbd>&uarr;</kbd><kbd>&darr;</kbd> Pick a result</li><li><kbd>Enter</kbd> Open</li><li><kbd>J</kbd><kbd>K</kbd> Move through a listing</li><li><kbd>&larr;</kbd><kbd>&rarr;</kbd> Previous / next entry</li><li><kbd>Esc</kbd> Close</li><li><kbd>T</kbd> Theme</li>
+  </ul>
+  <p>Mainframe Error Code Encyclopedia &middot; 473 entries in 15 categories &middot; Find. Understand. Fix.</p>
+  <p class="fine">An independent reference, not affiliated with or endorsed by IBM or any other vendor. Product names are trademarks of their owners. Entries are summaries: check the vendor documentation for your release before acting on a production system.</p>
+</footer>
+<dialog class="entry-dialog" id="entry-dialog" aria-labelledby="dlg-code"><div id="entry-slot"></div></dialog>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-

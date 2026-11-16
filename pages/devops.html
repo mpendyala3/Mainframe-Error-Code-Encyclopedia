@@ -1,119 +1,91 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-root="../" data-v="60bd8c4f">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DevOps, Testing and Debugging | Mainframe Error Code Encyclopedia</title>
-  <meta name="description" content="Endevor ChangeMan IDz File-AID Abend-AID Fault Analyzer and Xpediter codes with cause and fix.">
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DevOps, Testing and Debugging: 15 error codes explained | Mainframe Error Code Encyclopedia</title>
+  <meta name="description" content="Endevor, ChangeMan, File-AID, Abend-AID, Fault Analyzer, Xpediter and IDz messages with the likely cause, the fix and an example.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/devops.html">
-
-  <meta property="og:title" content="DevOps, Testing and Debugging | Mainframe Error Code Encyclopedia">
-  <meta property="og:description" content="Endevor ChangeMan IDz File-AID Abend-AID Fault Analyzer and Xpediter codes with cause and fix.">
-  <meta property="og:url" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/devops.html">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbfaf3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#060a08" media="(prefers-color-scheme: dark)">
+  <meta property="og:site_name" content="Mainframe Error Code Encyclopedia">
   <meta property="og:type" content="website">
-
+  <meta property="og:title" content="DevOps, Testing and Debugging">
+  <meta property="og:description" content="Endevor, ChangeMan, File-AID, Abend-AID, Fault Analyzer, Xpediter and IDz messages with the likely cause, the fix and an example.">
+  <meta property="og:url" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/devops.html">
+  <meta property="og:image" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mainframe Error Code Encyclopedia: abend codes, SQLCODEs and z/OS messages explained">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Press+Start+2P&display=swap">
-  <link rel="stylesheet" href="../css/main.css?v=19">
+  <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/ibm-plex-mono-latin-400-normal.woff2" crossorigin>
+  <link rel="stylesheet" href="../css/main.css?v=60bd8c4f">
+  <script src="../js/theme.js?v=60bd8c4f"></script>
+  <script src="../js/app.js?v=60bd8c4f" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/"},{"@type":"ListItem","position":2,"name":"DevOps, Testing and Debugging","item":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/devops.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"DevOps, Testing and Debugging","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/devops.html","description":"Endevor, ChangeMan, File-AID, Abend-AID, Fault Analyzer, Xpediter and IDz messages with the likely cause, the fix and an example.","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Mainframe Error Code Encyclopedia","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/"},"mainEntity":{"@type":"ItemList","numberOfItems":15,"itemListElement":[{"@type":"ListItem","position":1,"name":"C1G0023E ENDEVOR NOT APPROVED","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/c1g0023e.html"},{"@type":"ListItem","position":2,"name":"C1G0410E ENDEVOR INVENTORY ERROR","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/c1g0410e.html"},{"@type":"ListItem","position":3,"name":"ENU013 ENDEVOR USER ERROR","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/enu013.html"},{"@type":"ListItem","position":4,"name":"CMN6304 CHANGEMAN STAGE ERROR","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/cmn6304.html"},{"@type":"ListItem","position":5,"name":"CMN0030 CHANGEMAN PACKAGE NOT FOUND","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/cmn0030.html"},{"@type":"ListItem","position":6,"name":"AAUI001 ABEND-AID FAULT CAPTURED","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/aaui001.html"},{"@type":"ListItem","position":7,"name":"FA0001 FAULT ANALYZER REPORT","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/fa0001.html"},{"@type":"ListItem","position":8,"name":"FILEAID I/O ERR FILE-AID FILE ERROR","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/fileaid-i-o-err.html"},{"@type":"ListItem","position":9,"name":"XPED ABEND XPEDITER BREAK","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/xped-abend.html"},{"@type":"ListItem","position":10,"name":"EQAU0100 DEBUG TOOL ATTACH FAILED","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/eqau0100.html"},{"@type":"ListItem","position":11,"name":"IDz CRRZE003 IDz WORKSPACE ERROR","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/idz-crrze003.html"},{"@type":"ListItem","position":12,"name":"TT0001 TOTAL TEST EXECUTION","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/tt0001.html"},{"@type":"ListItem","position":13,"name":"Hiperstation HS001 HIPERSTATION CAPTURE","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/hiperstation-hs001.html"},{"@type":"ListItem","position":14,"name":"APAxxxx APA PROFILING ALERT","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/apaxxxx.html"},{"@type":"ListItem","position":15,"name":"ChangeMan BLD12 BUILD FAILED","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/changeman-bld12.html"}]}}</script>
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <canvas id="matrix-canvas" aria-hidden="true"></canvas>
-  <div class="scanlines" aria-hidden="true"></div>
-  <div class="crt-vignette" aria-hidden="true"></div>
-
-  <nav class="top-nav" aria-label="Primary">
-    <div class="nav-logo">
-      <span class="logo-square" aria-hidden="true">&#9632;</span>
-      <span class="logo-text">MAINFRAME.ENC</span>
-    </div>
-    <ul class="nav-links" role="menubar" data-active="devops">
-      <li role="none"><a role="menuitem" href="../index.html">[HOME]</a></li>
-      <li role="none"><a role="menuitem" href="databases.html" data-key="databases">[DB]</a></li>
-      <li role="none"><a role="menuitem" href="batch.html" data-key="batch">[BATCH]</a></li>
-      <li role="none"><a role="menuitem" href="mvs.html" data-key="mvs">[MVS]</a></li>
-      <li role="none"><a role="menuitem" href="storage.html" data-key="storage">[STOR]</a></li>
-      <li role="none"><a role="menuitem" href="transactions.html" data-key="transactions">[TXN]</a></li>
-      <li role="none"><a role="menuitem" href="network.html" data-key="network">[NET]</a></li>
-      <li role="none"><a role="menuitem" href="security.html" data-key="security">[SEC]</a></li>
-      <li role="none"><a role="menuitem" href="tools.html" data-key="tools">[TSO]</a></li>
-      <li role="none"><a role="menuitem" href="languages.html" data-key="languages">[LANG]</a></li>
-      <li role="none"><a role="menuitem" href="install.html" data-key="install">[SMPE]</a></li>
-      <li role="none"><a role="menuitem" href="scheduling.html" data-key="scheduling">[SCHED]</a></li>
-      <li role="none"><a role="menuitem" href="#" data-key="more">[MORE]</a></li>
-    </ul>
-    <div class="nav-search" role="search">
-      <span class="prompt-prefix">&gt;</span>
-      <input id="search-input" type="search" placeholder="SEARCH ERRORCODE..." aria-label="Search error codes" autocomplete="off">
-      <span class="cursor-blink" aria-hidden="true">&#9608;</span>
-      <button id="search-button" type="button" aria-label="Execute search">[EXEC]</button>
-      <div id="search-results" class="search-results" role="listbox" aria-label="Search suggestions"></div>
-    </div>
-  </nav>
-
-  <main id="main" class="db2-page">
-    <h1>&gt; DEVOPS TESTING AND DEBUGGING</h1>
-    <p>Click any code for description, cause, fix, and example. Filter by category below.</p>
-
-    <div class="filter-bar glass" id="filter-bar"></div>
-    <div id="code-grid" class="code-grid" aria-live="polite"></div>
-  </main>
-
-  <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-code" aria-hidden="true">
-    <div class="modal glass" role="document">
-      <header class="modal-header">
-        <span id="modal-code" class="modal-code"></span>
-        <button id="modal-close" class="modal-close" aria-label="Close dialog">&times;</button>
-      </header>
-      <div class="modal-body">
-        <h2 id="modal-title" class="modal-title"></h2>
-        <div class="modal-meta">
-          <span id="modal-category" class="meta-tag"></span>
-          <span id="modal-severity" class="meta-tag"></span>
-        </div>
-        <section class="modal-section">
-          <h3>&#128203; DESCRIPTION</h3>
-          <p id="modal-description"></p>
-        </section>
-        <section class="modal-section">
-          <h3>&#128269; COMMON CAUSE</h3>
-          <p id="modal-cause"></p>
-        </section>
-        <section class="modal-section">
-          <h3>&#128736; HOW TO FIX</h3>
-          <p id="modal-fix"></p>
-        </section>
-        <section class="modal-section">
-          <h3>&#128161; EXAMPLE</h3>
-          <pre><code id="modal-example"></code></pre>
-        </section>
-      </div>
-      <footer class="modal-footer">
-        <button id="modal-copy" type="button" class="btn">[COPY CODE]</button>
-        <button id="modal-close-btn" type="button" class="btn">[CLOSE]</button>
-      </footer>
-    </div>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="top-row">
+    <a class="brand" href="../" aria-label="Mainframe Error Code Encyclopedia, home"><span class="brand-mark" aria-hidden="true"></span>MAINFRAME<b>.ENC</b></a>
+    <form class="cmd cmd-top" id="cmd" role="search" action="../" method="get">
+      <label for="q">COMMAND&nbsp;===&gt;</label>
+      <input id="q" name="q" type="search" role="combobox" aria-label="Search error codes" aria-autocomplete="list" aria-expanded="false" aria-controls="q-list" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="S0C7, -805, IEC161I, deadlock">
+      <kbd class="cmd-key" aria-hidden="true">/</kbd>
+      <div class="cmd-list" id="q-list" role="listbox" aria-label="Matching codes" hidden></div>
+      <p class="cmd-status sr" id="q-status" role="status"></p>
+    </form>
+    <button class="theme-btn" type="button" id="theme-btn" aria-label="Switch between paper and 3270 theme">THEME</button>
   </div>
-
-  <footer class="site-footer">
-    <p>&gt; MAINFRAME.ENC v1.0 &mdash; Find. Understand. Fix..</p>
-  </footer>
-
-  <script src="../js/devops-codes.js?v=19" defer></script>
-  <script src="../js/main.js?v=19" defer></script>
-  <script src="../js/category-page.js?v=19" defer></script>
+  <nav class="cats" aria-label="Categories"><ul><li><a href="../pages/databases.html" title="Databases">DB</a></li><li><a href="../pages/batch.html" title="Job Control and Batch">BATCH</a></li><li><a href="../pages/mvs.html" title="Operating System and MVS">MVS</a></li><li><a href="../pages/storage.html" title="Storage and Data Sets">STOR</a></li><li><a href="../pages/transactions.html" title="Transaction Processing and Messaging">TXN</a></li><li><a href="../pages/network.html" title="Networking and Communications">NET</a></li><li><a href="../pages/security.html" title="Security and Cryptography">SEC</a></li><li><a href="../pages/tools.html" title="Interactive Tools and Scripting">TSO</a></li><li><a href="../pages/languages.html" title="Languages, Compilers and Runtimes">LANG</a></li><li><a href="../pages/install.html" title="Installation and Software Maintenance">SMPE</a></li><li><a href="../pages/scheduling.html" title="Scheduling, Monitoring and Automation">SCHED</a></li><li><a href="../pages/devops.html" aria-current="page" title="DevOps, Testing and Debugging">DEV</a></li><li><a href="../pages/printing.html" title="Printing and Output Management">PRINT</a></li><li><a href="../pages/hardware.html" title="Hardware, Virtualization and Disaster Recovery">HW</a></li><li><a href="../pages/vendor.html" title="Vendor, Business and Custom Applications">VEND</a></li></ul></nav>
+</header>
+<main id="main" class="sheet">
+  <section class="cat-head">
+    <p class="dsn"><a href="../">MAINFRAME.ENC</a>.DEV</p>
+    <svg class="banner banner-cat" viewBox="0 0 17 7" preserveAspectRatio="xMinYMid meet" aria-hidden="true" focusable="false"><path d="M0 0h.86v.86h-.86zM1 0h.86v.86h-.86zM2 0h.86v.86h-.86zM3 0h.86v.86h-.86zM0 1h.86v.86h-.86zM4 1h.86v.86h-.86zM0 2h.86v.86h-.86zM4 2h.86v.86h-.86zM0 3h.86v.86h-.86zM4 3h.86v.86h-.86zM0 4h.86v.86h-.86zM4 4h.86v.86h-.86zM0 5h.86v.86h-.86zM4 5h.86v.86h-.86zM0 6h.86v.86h-.86zM1 6h.86v.86h-.86zM2 6h.86v.86h-.86zM3 6h.86v.86h-.86zM6 0h.86v.86h-.86zM7 0h.86v.86h-.86zM8 0h.86v.86h-.86zM9 0h.86v.86h-.86zM10 0h.86v.86h-.86zM6 1h.86v.86h-.86zM6 2h.86v.86h-.86zM6 3h.86v.86h-.86zM7 3h.86v.86h-.86zM8 3h.86v.86h-.86zM9 3h.86v.86h-.86zM6 4h.86v.86h-.86zM6 5h.86v.86h-.86zM6 6h.86v.86h-.86zM7 6h.86v.86h-.86zM8 6h.86v.86h-.86zM9 6h.86v.86h-.86zM10 6h.86v.86h-.86zM12 0h.86v.86h-.86zM16 0h.86v.86h-.86zM12 1h.86v.86h-.86zM16 1h.86v.86h-.86zM12 2h.86v.86h-.86zM16 2h.86v.86h-.86zM12 3h.86v.86h-.86zM16 3h.86v.86h-.86zM12 4h.86v.86h-.86zM16 4h.86v.86h-.86zM13 5h.86v.86h-.86zM15 5h.86v.86h-.86zM14 6h.86v.86h-.86z"/></svg>
+    <h1>DevOps, Testing and Debugging</h1>
+    <p class="lede">Source management, debugging and testing tools. Pick a code for the explanation, likely cause, fix and an example.</p>
+  </section>
+  <section aria-label="Entries">
+    <div class="filters" role="group" aria-label="Filter by class">
+      <button class="chip" type="button" data-cat="" aria-pressed="true">ALL <span>15</span></button><button class="chip" type="button" data-cat="ABEND-AID" aria-pressed="false">ABEND-AID <span>1</span></button><button class="chip" type="button" data-cat="APA" aria-pressed="false">APA <span>1</span></button><button class="chip" type="button" data-cat="CHANGEMAN" aria-pressed="false">CHANGEMAN <span>3</span></button><button class="chip" type="button" data-cat="DEBUG TOOL" aria-pressed="false">DEBUG TOOL <span>1</span></button><button class="chip" type="button" data-cat="ENDEVOR" aria-pressed="false">ENDEVOR <span>3</span></button><button class="chip" type="button" data-cat="FAULT ANALYZER" aria-pressed="false">FAULT ANALYZER <span>1</span></button><button class="chip" type="button" data-cat="FILE-AID" aria-pressed="false">FILE-AID <span>1</span></button><button class="chip" type="button" data-cat="HIPERSTATION" aria-pressed="false">HIPERSTATION <span>1</span></button><button class="chip" type="button" data-cat="IDz" aria-pressed="false">IDz <span>1</span></button><button class="chip" type="button" data-cat="TOTAL TEST" aria-pressed="false">TOTAL TEST <span>1</span></button><button class="chip" type="button" data-cat="XPEDITER" aria-pressed="false">XPEDITER <span>1</span></button>
+    </div>
+    <p class="count" id="count" role="status">15 entries</p>
+    <div class="listing-head wide" aria-hidden="true"><span>CODE</span><span>SEV</span><span>CLASS</span><span>TITLE</span></div>
+    <ol class="listing wide" id="listing">
+      <li data-cat="ENDEVOR"><a href="../codes/c1g0023e.html" data-slug="c1g0023e"><span class="c-code">C1G0023E</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">ENDEVOR</span><span class="c-title">ENDEVOR NOT APPROVED</span></a></li>
+      <li data-cat="ENDEVOR"><a href="../codes/c1g0410e.html" data-slug="c1g0410e"><span class="c-code">C1G0410E</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">ENDEVOR</span><span class="c-title">ENDEVOR INVENTORY ERROR</span></a></li>
+      <li data-cat="ENDEVOR"><a href="../codes/enu013.html" data-slug="enu013"><span class="c-code">ENU013</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">ENDEVOR</span><span class="c-title">ENDEVOR USER ERROR</span></a></li>
+      <li data-cat="CHANGEMAN"><a href="../codes/cmn6304.html" data-slug="cmn6304"><span class="c-code">CMN6304</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">CHANGEMAN</span><span class="c-title">CHANGEMAN STAGE ERROR</span></a></li>
+      <li data-cat="CHANGEMAN"><a href="../codes/cmn0030.html" data-slug="cmn0030"><span class="c-code">CMN0030</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">CHANGEMAN</span><span class="c-title">CHANGEMAN PACKAGE NOT FOUND</span></a></li>
+      <li data-cat="ABEND-AID"><a href="../codes/aaui001.html" data-slug="aaui001"><span class="c-code">AAUI001</span><span class="c-sev sev-i" title="INFO">I<span class="sr"> info</span></span><span class="c-class">ABEND-AID</span><span class="c-title">ABEND-AID FAULT CAPTURED</span></a></li>
+      <li data-cat="FAULT ANALYZER"><a href="../codes/fa0001.html" data-slug="fa0001"><span class="c-code">FA0001</span><span class="c-sev sev-i" title="INFO">I<span class="sr"> info</span></span><span class="c-class">FAULT ANALYZER</span><span class="c-title">FAULT ANALYZER REPORT</span></a></li>
+      <li data-cat="FILE-AID"><a href="../codes/fileaid-i-o-err.html" data-slug="fileaid-i-o-err"><span class="c-code">FILEAID I/O ERR</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">FILE-AID</span><span class="c-title">FILE-AID FILE ERROR</span></a></li>
+      <li data-cat="XPEDITER"><a href="../codes/xped-abend.html" data-slug="xped-abend"><span class="c-code">XPED ABEND</span><span class="c-sev sev-i" title="INFO">I<span class="sr"> info</span></span><span class="c-class">XPEDITER</span><span class="c-title">XPEDITER BREAK</span></a></li>
+      <li data-cat="DEBUG TOOL"><a href="../codes/eqau0100.html" data-slug="eqau0100"><span class="c-code">EQAU0100</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">DEBUG TOOL</span><span class="c-title">DEBUG TOOL ATTACH FAILED</span></a></li>
+      <li data-cat="IDz"><a href="../codes/idz-crrze003.html" data-slug="idz-crrze003"><span class="c-code">IDz CRRZE003</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">IDz</span><span class="c-title">IDz WORKSPACE ERROR</span></a></li>
+      <li data-cat="TOTAL TEST"><a href="../codes/tt0001.html" data-slug="tt0001"><span class="c-code">TT0001</span><span class="c-sev sev-i" title="INFO">I<span class="sr"> info</span></span><span class="c-class">TOTAL TEST</span><span class="c-title">TOTAL TEST EXECUTION</span></a></li>
+      <li data-cat="HIPERSTATION"><a href="../codes/hiperstation-hs001.html" data-slug="hiperstation-hs001"><span class="c-code">Hiperstation HS001</span><span class="c-sev sev-i" title="INFO">I<span class="sr"> info</span></span><span class="c-class">HIPERSTATION</span><span class="c-title">HIPERSTATION CAPTURE</span></a></li>
+      <li data-cat="APA"><a href="../codes/apaxxxx.html" data-slug="apaxxxx"><span class="c-code">APAxxxx</span><span class="c-sev sev-w" title="WARNING">W<span class="sr"> warning</span></span><span class="c-class">APA</span><span class="c-title">APA PROFILING ALERT</span></a></li>
+      <li data-cat="CHANGEMAN"><a href="../codes/changeman-bld12.html" data-slug="changeman-bld12"><span class="c-code">ChangeMan BLD12</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">CHANGEMAN</span><span class="c-title">BUILD FAILED</span></a></li>
+    </ol>
+    <p class="note">SEV: <span class="sev-e">E</span> error, <span class="sev-w">W</span> warning, <span class="sev-i">I</span> information.</p>
+  </section>
+</main>
+<footer class="foot">
+  <ul class="pf" aria-label="Keyboard shortcuts">
+    <li><kbd>/</kbd> Search</li><li><kbd>&uarr;</kbd><kbd>&darr;</kbd> Pick a result</li><li><kbd>Enter</kbd> Open</li><li><kbd>J</kbd><kbd>K</kbd> Move through a listing</li><li><kbd>&larr;</kbd><kbd>&rarr;</kbd> Previous / next entry</li><li><kbd>Esc</kbd> Close</li><li><kbd>T</kbd> Theme</li>
+  </ul>
+  <p>Mainframe Error Code Encyclopedia &middot; 473 entries in 15 categories &middot; Find. Understand. Fix.</p>
+  <p class="fine">An independent reference, not affiliated with or endorsed by IBM or any other vendor. Product names are trademarks of their owners. Entries are summaries: check the vendor documentation for your release before acting on a production system.</p>
+</footer>
+<dialog class="entry-dialog" id="entry-dialog" aria-labelledby="dlg-code"><div id="entry-slot"></div></dialog>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-

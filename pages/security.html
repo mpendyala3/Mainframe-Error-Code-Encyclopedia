@@ -1,119 +1,90 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-root="../" data-v="60bd8c4f">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Security and Cryptography | Mainframe Error Code Encyclopedia</title>
-  <meta name="description" content="RACF ACF2 Top Secret ICSF SSL and certificate error codes with cause and fix.">
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Security and Cryptography: 14 error codes explained | Mainframe Error Code Encyclopedia</title>
+  <meta name="description" content="RACF messages (ICH408I), ACF2, Top Secret, ICSF and System SSL certificate errors and security abends, with the likely cause, the fix and an example.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/security.html">
-
-  <meta property="og:title" content="Security and Cryptography | Mainframe Error Code Encyclopedia">
-  <meta property="og:description" content="RACF ACF2 Top Secret ICSF SSL and certificate error codes with cause and fix.">
-  <meta property="og:url" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/security.html">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbfaf3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#060a08" media="(prefers-color-scheme: dark)">
+  <meta property="og:site_name" content="Mainframe Error Code Encyclopedia">
   <meta property="og:type" content="website">
-
+  <meta property="og:title" content="Security and Cryptography">
+  <meta property="og:description" content="RACF messages (ICH408I), ACF2, Top Secret, ICSF and System SSL certificate errors and security abends, with the likely cause, the fix and an example.">
+  <meta property="og:url" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/security.html">
+  <meta property="og:image" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mainframe Error Code Encyclopedia: abend codes, SQLCODEs and z/OS messages explained">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Press+Start+2P&display=swap">
-  <link rel="stylesheet" href="../css/main.css?v=19">
+  <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/ibm-plex-mono-latin-400-normal.woff2" crossorigin>
+  <link rel="stylesheet" href="../css/main.css?v=60bd8c4f">
+  <script src="../js/theme.js?v=60bd8c4f"></script>
+  <script src="../js/app.js?v=60bd8c4f" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/"},{"@type":"ListItem","position":2,"name":"Security and Cryptography","item":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/security.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Security and Cryptography","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/security.html","description":"RACF messages (ICH408I), ACF2, Top Secret, ICSF and System SSL certificate errors and security abends, with the likely cause, the fix and an example.","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"Mainframe Error Code Encyclopedia","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/"},"mainEntity":{"@type":"ItemList","numberOfItems":14,"itemListElement":[{"@type":"ListItem","position":1,"name":"ICH408I INSUFFICIENT ACCESS AUTHORITY","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/ich408i.html"},{"@type":"ListItem","position":2,"name":"ICH415I PASSWORD INVALID","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/ich415i.html"},{"@type":"ListItem","position":3,"name":"ICH70001I LAST ACCESS / LOGON SUCCESSFUL","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/ich70001i.html"},{"@type":"ListItem","position":4,"name":"ICH04001I RACF COMMAND ERROR","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/ich04001i.html"},{"@type":"ListItem","position":5,"name":"ICH13003I CERTIFICATE NOT VALID","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/ich13003i.html"},{"@type":"ListItem","position":6,"name":"CSFM001E ICSF INITIALIZATION ERROR","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/csfm001e.html"},{"@type":"ListItem","position":7,"name":"CSFM015E ICSF SERVICE FAILURE","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/csfm015e.html"},{"@type":"ListItem","position":8,"name":"GSK00112W GSKKYMAN CERT WARNING","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/gsk00112w.html"},{"@type":"ListItem","position":9,"name":"GSK01036E SSL HANDSHAKE FAILED","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/gsk01036e.html"},{"@type":"ListItem","position":10,"name":"ACFAE001 ACF2 ACCESS DENIED","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/acfae001.html"},{"@type":"ListItem","position":11,"name":"TSS7000 TOP SECRET ACCESS DENIED","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/tss7000.html"},{"@type":"ListItem","position":12,"name":"S047 UNAUTHORIZED PROGRAM","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/s047.html"},{"@type":"ListItem","position":13,"name":"ABEND 913 RACF DATA SET ACCESS DENIED","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/abend-913.html"},{"@type":"ListItem","position":14,"name":"IRRRCK001 PASSWORD PHRASE INVALID","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/irrrck001.html"}]}}</script>
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <canvas id="matrix-canvas" aria-hidden="true"></canvas>
-  <div class="scanlines" aria-hidden="true"></div>
-  <div class="crt-vignette" aria-hidden="true"></div>
-
-  <nav class="top-nav" aria-label="Primary">
-    <div class="nav-logo">
-      <span class="logo-square" aria-hidden="true">&#9632;</span>
-      <span class="logo-text">MAINFRAME.ENC</span>
-    </div>
-    <ul class="nav-links" role="menubar" data-active="security">
-      <li role="none"><a role="menuitem" href="../index.html">[HOME]</a></li>
-      <li role="none"><a role="menuitem" href="databases.html" data-key="databases">[DB]</a></li>
-      <li role="none"><a role="menuitem" href="batch.html" data-key="batch">[BATCH]</a></li>
-      <li role="none"><a role="menuitem" href="mvs.html" data-key="mvs">[MVS]</a></li>
-      <li role="none"><a role="menuitem" href="storage.html" data-key="storage">[STOR]</a></li>
-      <li role="none"><a role="menuitem" href="transactions.html" data-key="transactions">[TXN]</a></li>
-      <li role="none"><a role="menuitem" href="network.html" data-key="network">[NET]</a></li>
-      <li role="none"><a role="menuitem" href="security.html" data-key="security">[SEC]</a></li>
-      <li role="none"><a role="menuitem" href="tools.html" data-key="tools">[TSO]</a></li>
-      <li role="none"><a role="menuitem" href="languages.html" data-key="languages">[LANG]</a></li>
-      <li role="none"><a role="menuitem" href="install.html" data-key="install">[SMPE]</a></li>
-      <li role="none"><a role="menuitem" href="scheduling.html" data-key="scheduling">[SCHED]</a></li>
-      <li role="none"><a role="menuitem" href="#" data-key="more">[MORE]</a></li>
-    </ul>
-    <div class="nav-search" role="search">
-      <span class="prompt-prefix">&gt;</span>
-      <input id="search-input" type="search" placeholder="SEARCH ERRORCODE..." aria-label="Search error codes" autocomplete="off">
-      <span class="cursor-blink" aria-hidden="true">&#9608;</span>
-      <button id="search-button" type="button" aria-label="Execute search">[EXEC]</button>
-      <div id="search-results" class="search-results" role="listbox" aria-label="Search suggestions"></div>
-    </div>
-  </nav>
-
-  <main id="main" class="db2-page">
-    <h1>&gt; SECURITY AND CRYPTOGRAPHY</h1>
-    <p>Click any code for description, cause, fix, and example. Filter by category below.</p>
-
-    <div class="filter-bar glass" id="filter-bar"></div>
-    <div id="code-grid" class="code-grid" aria-live="polite"></div>
-  </main>
-
-  <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-code" aria-hidden="true">
-    <div class="modal glass" role="document">
-      <header class="modal-header">
-        <span id="modal-code" class="modal-code"></span>
-        <button id="modal-close" class="modal-close" aria-label="Close dialog">&times;</button>
-      </header>
-      <div class="modal-body">
-        <h2 id="modal-title" class="modal-title"></h2>
-        <div class="modal-meta">
-          <span id="modal-category" class="meta-tag"></span>
-          <span id="modal-severity" class="meta-tag"></span>
-        </div>
-        <section class="modal-section">
-          <h3>&#128203; DESCRIPTION</h3>
-          <p id="modal-description"></p>
-        </section>
-        <section class="modal-section">
-          <h3>&#128269; COMMON CAUSE</h3>
-          <p id="modal-cause"></p>
-        </section>
-        <section class="modal-section">
-          <h3>&#128736; HOW TO FIX</h3>
-          <p id="modal-fix"></p>
-        </section>
-        <section class="modal-section">
-          <h3>&#128161; EXAMPLE</h3>
-          <pre><code id="modal-example"></code></pre>
-        </section>
-      </div>
-      <footer class="modal-footer">
-        <button id="modal-copy" type="button" class="btn">[COPY CODE]</button>
-        <button id="modal-close-btn" type="button" class="btn">[CLOSE]</button>
-      </footer>
-    </div>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="top-row">
+    <a class="brand" href="../" aria-label="Mainframe Error Code Encyclopedia, home"><span class="brand-mark" aria-hidden="true"></span>MAINFRAME<b>.ENC</b></a>
+    <form class="cmd cmd-top" id="cmd" role="search" action="../" method="get">
+      <label for="q">COMMAND&nbsp;===&gt;</label>
+      <input id="q" name="q" type="search" role="combobox" aria-label="Search error codes" aria-autocomplete="list" aria-expanded="false" aria-controls="q-list" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="S0C7, -805, IEC161I, deadlock">
+      <kbd class="cmd-key" aria-hidden="true">/</kbd>
+      <div class="cmd-list" id="q-list" role="listbox" aria-label="Matching codes" hidden></div>
+      <p class="cmd-status sr" id="q-status" role="status"></p>
+    </form>
+    <button class="theme-btn" type="button" id="theme-btn" aria-label="Switch between paper and 3270 theme">THEME</button>
   </div>
-
-  <footer class="site-footer">
-    <p>&gt; MAINFRAME.ENC v1.0 &mdash; Find. Understand. Fix..</p>
-  </footer>
-
-  <script src="../js/security-codes.js?v=19" defer></script>
-  <script src="../js/main.js?v=19" defer></script>
-  <script src="../js/category-page.js?v=19" defer></script>
+  <nav class="cats" aria-label="Categories"><ul><li><a href="../pages/databases.html" title="Databases">DB</a></li><li><a href="../pages/batch.html" title="Job Control and Batch">BATCH</a></li><li><a href="../pages/mvs.html" title="Operating System and MVS">MVS</a></li><li><a href="../pages/storage.html" title="Storage and Data Sets">STOR</a></li><li><a href="../pages/transactions.html" title="Transaction Processing and Messaging">TXN</a></li><li><a href="../pages/network.html" title="Networking and Communications">NET</a></li><li><a href="../pages/security.html" aria-current="page" title="Security and Cryptography">SEC</a></li><li><a href="../pages/tools.html" title="Interactive Tools and Scripting">TSO</a></li><li><a href="../pages/languages.html" title="Languages, Compilers and Runtimes">LANG</a></li><li><a href="../pages/install.html" title="Installation and Software Maintenance">SMPE</a></li><li><a href="../pages/scheduling.html" title="Scheduling, Monitoring and Automation">SCHED</a></li><li><a href="../pages/devops.html" title="DevOps, Testing and Debugging">DEV</a></li><li><a href="../pages/printing.html" title="Printing and Output Management">PRINT</a></li><li><a href="../pages/hardware.html" title="Hardware, Virtualization and Disaster Recovery">HW</a></li><li><a href="../pages/vendor.html" title="Vendor, Business and Custom Applications">VEND</a></li></ul></nav>
+</header>
+<main id="main" class="sheet">
+  <section class="cat-head">
+    <p class="dsn"><a href="../">MAINFRAME.ENC</a>.SEC</p>
+    <svg class="banner banner-cat" viewBox="0 0 17 7" preserveAspectRatio="xMinYMid meet" aria-hidden="true" focusable="false"><path d="M1 0h.86v.86h-.86zM2 0h.86v.86h-.86zM3 0h.86v.86h-.86zM4 0h.86v.86h-.86zM0 1h.86v.86h-.86zM0 2h.86v.86h-.86zM1 3h.86v.86h-.86zM2 3h.86v.86h-.86zM3 3h.86v.86h-.86zM4 4h.86v.86h-.86zM4 5h.86v.86h-.86zM0 6h.86v.86h-.86zM1 6h.86v.86h-.86zM2 6h.86v.86h-.86zM3 6h.86v.86h-.86zM6 0h.86v.86h-.86zM7 0h.86v.86h-.86zM8 0h.86v.86h-.86zM9 0h.86v.86h-.86zM10 0h.86v.86h-.86zM6 1h.86v.86h-.86zM6 2h.86v.86h-.86zM6 3h.86v.86h-.86zM7 3h.86v.86h-.86zM8 3h.86v.86h-.86zM9 3h.86v.86h-.86zM6 4h.86v.86h-.86zM6 5h.86v.86h-.86zM6 6h.86v.86h-.86zM7 6h.86v.86h-.86zM8 6h.86v.86h-.86zM9 6h.86v.86h-.86zM10 6h.86v.86h-.86zM13 0h.86v.86h-.86zM14 0h.86v.86h-.86zM15 0h.86v.86h-.86zM12 1h.86v.86h-.86zM16 1h.86v.86h-.86zM12 2h.86v.86h-.86zM12 3h.86v.86h-.86zM12 4h.86v.86h-.86zM12 5h.86v.86h-.86zM16 5h.86v.86h-.86zM13 6h.86v.86h-.86zM14 6h.86v.86h-.86zM15 6h.86v.86h-.86z"/></svg>
+    <h1>Security and Cryptography</h1>
+    <p class="lede">RACF, ACF2, Top Secret, ICSF and System SSL errors, plus the security abends. Pick a code for the explanation, likely cause, fix and an example.</p>
+  </section>
+  <section aria-label="Entries">
+    <div class="filters" role="group" aria-label="Filter by class">
+      <button class="chip" type="button" data-cat="" aria-pressed="true">ALL <span>14</span></button><button class="chip" type="button" data-cat="ACF2" aria-pressed="false">ACF2 <span>1</span></button><button class="chip" type="button" data-cat="GSKit" aria-pressed="false">GSKit <span>2</span></button><button class="chip" type="button" data-cat="ICSF" aria-pressed="false">ICSF <span>2</span></button><button class="chip" type="button" data-cat="RACF" aria-pressed="false">RACF <span>5</span></button><button class="chip" type="button" data-cat="RACF DIGTCERT" aria-pressed="false">RACF DIGTCERT <span>1</span></button><button class="chip" type="button" data-cat="SECURITY ABEND" aria-pressed="false">SECURITY ABEND <span>2</span></button><button class="chip" type="button" data-cat="TOP SECRET" aria-pressed="false">TOP SECRET <span>1</span></button>
+    </div>
+    <p class="count" id="count" role="status">14 entries</p>
+    <div class="listing-head" aria-hidden="true"><span>CODE</span><span>SEV</span><span>CLASS</span><span>TITLE</span></div>
+    <ol class="listing" id="listing">
+      <li data-cat="RACF"><a href="../codes/ich408i.html" data-slug="ich408i"><span class="c-code">ICH408I</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">RACF</span><span class="c-title">INSUFFICIENT ACCESS AUTHORITY</span></a></li>
+      <li data-cat="RACF"><a href="../codes/ich415i.html" data-slug="ich415i"><span class="c-code">ICH415I</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">RACF</span><span class="c-title">PASSWORD INVALID</span></a></li>
+      <li data-cat="RACF"><a href="../codes/ich70001i.html" data-slug="ich70001i"><span class="c-code">ICH70001I</span><span class="c-sev sev-i" title="INFO">I<span class="sr"> info</span></span><span class="c-class">RACF</span><span class="c-title">LAST ACCESS / LOGON SUCCESSFUL</span></a></li>
+      <li data-cat="RACF"><a href="../codes/ich04001i.html" data-slug="ich04001i"><span class="c-code">ICH04001I</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">RACF</span><span class="c-title">RACF COMMAND ERROR</span></a></li>
+      <li data-cat="RACF DIGTCERT"><a href="../codes/ich13003i.html" data-slug="ich13003i"><span class="c-code">ICH13003I</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">RACF DIGTCERT</span><span class="c-title">CERTIFICATE NOT VALID</span></a></li>
+      <li data-cat="ICSF"><a href="../codes/csfm001e.html" data-slug="csfm001e"><span class="c-code">CSFM001E</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">ICSF</span><span class="c-title">ICSF INITIALIZATION ERROR</span></a></li>
+      <li data-cat="ICSF"><a href="../codes/csfm015e.html" data-slug="csfm015e"><span class="c-code">CSFM015E</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">ICSF</span><span class="c-title">ICSF SERVICE FAILURE</span></a></li>
+      <li data-cat="GSKit"><a href="../codes/gsk00112w.html" data-slug="gsk00112w"><span class="c-code">GSK00112W</span><span class="c-sev sev-w" title="WARNING">W<span class="sr"> warning</span></span><span class="c-class">GSKit</span><span class="c-title">GSKKYMAN CERT WARNING</span></a></li>
+      <li data-cat="GSKit"><a href="../codes/gsk01036e.html" data-slug="gsk01036e"><span class="c-code">GSK01036E</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">GSKit</span><span class="c-title">SSL HANDSHAKE FAILED</span></a></li>
+      <li data-cat="ACF2"><a href="../codes/acfae001.html" data-slug="acfae001"><span class="c-code">ACFAE001</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">ACF2</span><span class="c-title">ACF2 ACCESS DENIED</span></a></li>
+      <li data-cat="TOP SECRET"><a href="../codes/tss7000.html" data-slug="tss7000"><span class="c-code">TSS7000</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">TOP SECRET</span><span class="c-title">TOP SECRET ACCESS DENIED</span></a></li>
+      <li data-cat="SECURITY ABEND"><a href="../codes/s047.html" data-slug="s047"><span class="c-code">S047</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">SECURITY ABEND</span><span class="c-title">UNAUTHORIZED PROGRAM</span></a></li>
+      <li data-cat="SECURITY ABEND"><a href="../codes/abend-913.html" data-slug="abend-913"><span class="c-code">ABEND 913</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">SECURITY ABEND</span><span class="c-title">RACF DATA SET ACCESS DENIED</span></a></li>
+      <li data-cat="RACF"><a href="../codes/irrrck001.html" data-slug="irrrck001"><span class="c-code">IRRRCK001</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">RACF</span><span class="c-title">PASSWORD PHRASE INVALID</span></a></li>
+    </ol>
+    <p class="note">SEV: <span class="sev-e">E</span> error, <span class="sev-w">W</span> warning, <span class="sev-i">I</span> information.</p>
+  </section>
+</main>
+<footer class="foot">
+  <ul class="pf" aria-label="Keyboard shortcuts">
+    <li><kbd>/</kbd> Search</li><li><kbd>&uarr;</kbd><kbd>&darr;</kbd> Pick a result</li><li><kbd>Enter</kbd> Open</li><li><kbd>J</kbd><kbd>K</kbd> Move through a listing</li><li><kbd>&larr;</kbd><kbd>&rarr;</kbd> Previous / next entry</li><li><kbd>Esc</kbd> Close</li><li><kbd>T</kbd> Theme</li>
+  </ul>
+  <p>Mainframe Error Code Encyclopedia &middot; 473 entries in 15 categories &middot; Find. Understand. Fix.</p>
+  <p class="fine">An independent reference, not affiliated with or endorsed by IBM or any other vendor. Product names are trademarks of their owners. Entries are summaries: check the vendor documentation for your release before acting on a production system.</p>
+</footer>
+<dialog class="entry-dialog" id="entry-dialog" aria-labelledby="dlg-code"><div id="entry-slot"></div></dialog>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-

@@ -1,0 +1,122 @@
+[
+  {
+    "key": "databases",
+    "label": "DB",
+    "title": "Databases",
+    "heading": "DB2 SQLCODEs",
+    "description": "DB2 for z/OS SQLCODEs explained: -803, -805, -811, -818, -904, -911 and 250 more, each with the likely cause, the fix and a COBOL or SQL example.",
+    "intro": "DB2 for z/OS SQLCODEs, from +100 to -950. Negative codes are errors, positive codes are warnings."
+  },
+  {
+    "key": "batch",
+    "label": "BATCH",
+    "title": "Job Control and Batch",
+    "heading": "Job Control and Batch",
+    "description": "System and user abend codes (S0C4, S0C7, S806, S322, S913), JCL errors and JES2/JES3 messages, each with the likely cause, the fix and an example.",
+    "intro": "System and user abends, JCL errors and JES2/JES3 messages from the batch window."
+  },
+  {
+    "key": "mvs",
+    "label": "MVS",
+    "title": "Operating System and MVS",
+    "heading": "Operating System and MVS",
+    "description": "Core z/OS and MVS system messages (IEA, IEE, IEC, IXC, IXG, IWM, IRA) explained with the likely cause, the fix and an example.",
+    "intro": "Core z/OS system service messages: supervisor, console, sysplex, logger, WLM and storage management."
+  },
+  {
+    "key": "storage",
+    "label": "STOR",
+    "title": "Storage and Data Sets",
+    "heading": "Storage and Data Sets",
+    "description": "VSAM return codes, IDCAMS messages, DFSMS errors and out-of-space abends (B37, D37, E37) explained with the likely cause, the fix and an example.",
+    "intro": "VSAM, IDCAMS, DFSMS, catalog and out-of-space errors."
+  },
+  {
+    "key": "transactions",
+    "label": "TXN",
+    "title": "Transaction Processing and Messaging",
+    "heading": "Transaction Processing and Messaging",
+    "description": "CICS abend codes (ASRA, AICA, AEY9, APCT), DFH messages and IBM MQ reason codes (2033, 2009, 2059) with the likely cause, the fix and an example.",
+    "intro": "CICS transaction abends, DFH messages and IBM MQ reason codes."
+  },
+  {
+    "key": "network",
+    "label": "NET",
+    "title": "Networking and Communications",
+    "heading": "Networking and Communications",
+    "description": "z/OS Communications Server errors: TCP/IP, VTAM, FTP and sockets messages (EZA, EZZ, IST, EDC) with the likely cause, the fix and an example.",
+    "intro": "TCP/IP, VTAM, FTP and sockets messages from z/OS Communications Server."
+  },
+  {
+    "key": "security",
+    "label": "SEC",
+    "title": "Security and Cryptography",
+    "heading": "Security and Cryptography",
+    "description": "RACF messages (ICH408I), ACF2, Top Secret, ICSF and System SSL certificate errors and security abends, with the likely cause, the fix and an example.",
+    "intro": "RACF, ACF2, Top Secret, ICSF and System SSL errors, plus the security abends."
+  },
+  {
+    "key": "tools",
+    "label": "TSO",
+    "title": "Interactive Tools and Scripting",
+    "heading": "Interactive Tools and Scripting",
+    "description": "TSO/E, ISPF, SDSF, REXX and z/OS UNIX (OMVS) messages explained with the likely cause, the fix and an example.",
+    "intro": "TSO/E, ISPF, SDSF, REXX and z/OS UNIX messages."
+  },
+  {
+    "key": "languages",
+    "label": "LANG",
+    "title": "Languages, Compilers and Runtimes",
+    "heading": "Languages, Compilers and Runtimes",
+    "description": "COBOL compiler and runtime messages (IGY, IGZ), Language Environment conditions (CEE), HLASM, PL/I and binder errors with the likely cause and the fix.",
+    "intro": "COBOL, PL/I, HLASM, the binder and Language Environment."
+  },
+  {
+    "key": "install",
+    "label": "SMPE",
+    "title": "Installation and Software Maintenance",
+    "heading": "Installation and Software Maintenance",
+    "description": "SMP/E GIM messages for RECEIVE, APPLY and ACCEPT processing, HOLDDATA and FIXCAT, with the likely cause, the fix and an example.",
+    "intro": "SMP/E messages from RECEIVE, APPLY and ACCEPT processing."
+  },
+  {
+    "key": "scheduling",
+    "label": "SCHED",
+    "title": "Scheduling, Monitoring and Automation",
+    "heading": "Scheduling, Monitoring and Automation",
+    "description": "IBM Workload Scheduler (EQQ), System Automation, NetView, Control-M and OMEGAMON messages with the likely cause, the fix and an example.",
+    "intro": "Workload Scheduler, System Automation, NetView, Control-M and the monitors."
+  },
+  {
+    "key": "devops",
+    "label": "DEV",
+    "title": "DevOps, Testing and Debugging",
+    "heading": "DevOps, Testing and Debugging",
+    "description": "Endevor, ChangeMan, File-AID, Abend-AID, Fault Analyzer, Xpediter and IDz messages with the likely cause, the fix and an example.",
+    "intro": "Source management, debugging and testing tools."
+  },
+  {
+    "key": "printing",
+    "label": "PRINT",
+    "title": "Printing and Output Management",
+    "heading": "Printing and Output Management",
+    "description": "PSF, Infoprint Server, IP PrintWay, JES output and AFP messages with the likely cause, the fix and an example.",
+    "intro": "PSF, Infoprint Server, IP PrintWay, AFP and JES output."
+  },
+  {
+    "key": "hardware",
+    "label": "HW",
+    "title": "Hardware, Virtualization and Disaster Recovery",
+    "heading": "Hardware, Virtualization and DR",
+    "description": "I/O supervisor messages (IOS), machine checks, FICON, DASD, tape, GDPS HyperSwap and z/VM errors with the likely cause, the fix and an example.",
+    "intro": "I/O supervisor, channel, DASD, tape, GDPS and z/VM."
+  },
+  {
+    "key": "vendor",
+    "label": "VEND",
+    "title": "Vendor, Business and Custom Applications",
+    "heading": "Vendor and Custom Applications",
+    "description": "User abend codes (U0001 to U4093) and typical errors from ERP, banking, insurance and in-house mainframe applications, with the likely cause and the fix.",
+    "intro": "User abends and the conventions used by packaged and in-house applications."
+  }
+]

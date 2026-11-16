@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" data-root="../" data-v="60bd8c4f">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SQLCODE -616: OBJECT CANNOT BE DROPPED BECAUSE OTHER OBJECTS DEPEND… | cause and fix</title>
+  <meta name="description" content="An object cannot be dropped because another object is dependent on it. Cause: DROP blocked by RI constraints, views, triggers, or other deps.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/sqlcode-616.html">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbfaf3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#060a08" media="(prefers-color-scheme: dark)">
+  <meta property="og:site_name" content="Mainframe Error Code Encyclopedia">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="SQLCODE -616: OBJECT CANNOT BE DROPPED BECAUSE OTHER OBJECTS DEPEND ON IT">
+  <meta property="og:description" content="An object cannot be dropped because another object is dependent on it. Cause: DROP blocked by RI constraints, views, triggers, or other deps.">
+  <meta property="og:url" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/sqlcode-616.html">
+  <meta property="og:image" content="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Mainframe Error Code Encyclopedia: abend codes, SQLCODEs and z/OS messages explained">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/ibm-plex-mono-latin-400-normal.woff2" crossorigin>
+  <link rel="stylesheet" href="../css/main.css?v=60bd8c4f">
+  <script src="../js/theme.js?v=60bd8c4f"></script>
+  <script src="../js/app.js?v=60bd8c4f" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/"},{"@type":"ListItem","position":2,"name":"Databases","item":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/pages/databases.html"},{"@type":"ListItem","position":3,"name":"SQLCODE -616","item":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/sqlcode-616.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"SQLCODE -616: OBJECT CANNOT BE DROPPED BECAUSE OTHER OBJECTS DEPEND ON IT","description":"An object cannot be dropped because another object is dependent on it.","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/sqlcode-616.html","mainEntityOfPage":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/sqlcode-616.html","inLanguage":"en","articleSection":"Databases","about":["SQLCODE -616","OBJECT","IBM z/OS"],"isPartOf":{"@type":"WebSite","name":"Mainframe Error Code Encyclopedia","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/"},"publisher":{"@type":"Organization","name":"Mainframe Error Code Encyclopedia","url":"https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/"}}</script>
+</head>
+<body class="">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="top-row">
+    <a class="brand" href="../" aria-label="Mainframe Error Code Encyclopedia, home"><span class="brand-mark" aria-hidden="true"></span>MAINFRAME<b>.ENC</b></a>
+    <form class="cmd cmd-top" id="cmd" role="search" action="../" method="get">
+      <label for="q">COMMAND&nbsp;===&gt;</label>
+      <input id="q" name="q" type="search" role="combobox" aria-label="Search error codes" aria-autocomplete="list" aria-expanded="false" aria-controls="q-list" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" placeholder="S0C7, -805, IEC161I, deadlock">
+      <kbd class="cmd-key" aria-hidden="true">/</kbd>
+      <div class="cmd-list" id="q-list" role="listbox" aria-label="Matching codes" hidden></div>
+      <p class="cmd-status sr" id="q-status" role="status"></p>
+    </form>
+    <button class="theme-btn" type="button" id="theme-btn" aria-label="Switch between paper and 3270 theme">THEME</button>
+  </div>
+  <nav class="cats" aria-label="Categories"><ul><li><a href="../pages/databases.html" aria-current="page" title="Databases">DB</a></li><li><a href="../pages/batch.html" title="Job Control and Batch">BATCH</a></li><li><a href="../pages/mvs.html" title="Operating System and MVS">MVS</a></li><li><a href="../pages/storage.html" title="Storage and Data Sets">STOR</a></li><li><a href="../pages/transactions.html" title="Transaction Processing and Messaging">TXN</a></li><li><a href="../pages/network.html" title="Networking and Communications">NET</a></li><li><a href="../pages/security.html" title="Security and Cryptography">SEC</a></li><li><a href="../pages/tools.html" title="Interactive Tools and Scripting">TSO</a></li><li><a href="../pages/languages.html" title="Languages, Compilers and Runtimes">LANG</a></li><li><a href="../pages/install.html" title="Installation and Software Maintenance">SMPE</a></li><li><a href="../pages/scheduling.html" title="Scheduling, Monitoring and Automation">SCHED</a></li><li><a href="../pages/devops.html" title="DevOps, Testing and Debugging">DEV</a></li><li><a href="../pages/printing.html" title="Printing and Output Management">PRINT</a></li><li><a href="../pages/hardware.html" title="Hardware, Virtualization and Disaster Recovery">HW</a></li><li><a href="../pages/vendor.html" title="Vendor, Business and Custom Applications">VEND</a></li></ul></nav>
+</header>
+<main id="main" class="sheet">
+  <article class="entry is-e">
+    <p class="dsn"><a href="../">MAINFRAME.ENC</a>.<a href="../pages/databases.html">DB</a>(-616)</p>
+    <svg class="banner banner-code" viewBox="0 0 23 7" preserveAspectRatio="xMinYMid meet" aria-hidden="true" focusable="false"><path d="M0 3h.86v.86h-.86zM1 3h.86v.86h-.86zM2 3h.86v.86h-.86zM3 3h.86v.86h-.86zM4 3h.86v.86h-.86zM7 0h.86v.86h-.86zM8 0h.86v.86h-.86zM9 0h.86v.86h-.86zM6 1h.86v.86h-.86zM6 2h.86v.86h-.86zM6 3h.86v.86h-.86zM7 3h.86v.86h-.86zM8 3h.86v.86h-.86zM9 3h.86v.86h-.86zM6 4h.86v.86h-.86zM10 4h.86v.86h-.86zM6 5h.86v.86h-.86zM10 5h.86v.86h-.86zM7 6h.86v.86h-.86zM8 6h.86v.86h-.86zM9 6h.86v.86h-.86zM14 0h.86v.86h-.86zM13 1h.86v.86h-.86zM14 1h.86v.86h-.86zM14 2h.86v.86h-.86zM14 3h.86v.86h-.86zM14 4h.86v.86h-.86zM14 5h.86v.86h-.86zM13 6h.86v.86h-.86zM14 6h.86v.86h-.86zM15 6h.86v.86h-.86zM19 0h.86v.86h-.86zM20 0h.86v.86h-.86zM21 0h.86v.86h-.86zM18 1h.86v.86h-.86zM18 2h.86v.86h-.86zM18 3h.86v.86h-.86zM19 3h.86v.86h-.86zM20 3h.86v.86h-.86zM21 3h.86v.86h-.86zM18 4h.86v.86h-.86zM22 4h.86v.86h-.86zM18 5h.86v.86h-.86zM22 5h.86v.86h-.86zM19 6h.86v.86h-.86zM20 6h.86v.86h-.86zM21 6h.86v.86h-.86z"/></svg>
+    <h1><span class="entry-code sr">SQLCODE -616</span> <span class="entry-title">OBJECT CANNOT BE DROPPED BECAUSE OTHER OBJECTS DEPEND ON IT</span></h1>
+    <ul class="tags"><li class="tag-sev">E &middot; ERROR</li><li>OBJECT</li><li><a href="../pages/databases.html">Databases</a></li></ul>
+    <dl class="msg">
+      <dt>Explanation</dt><dd>An object cannot be dropped because another object is dependent on it.</dd>
+      <dt>Likely cause</dt><dd>DROP blocked by RI constraints, views, triggers, or other deps.</dd>
+      <dt>Programmer response</dt><dd>Drop dependents first or use CASCADE option where supported.</dd>
+      <dt>Example</dt><dd><pre tabindex="0"><code>DROP TABLE DEPT;  /* EMP has FK to DEPT */</code></pre></dd>
+    </dl>
+    <p class="actions"><button class="btn" type="button" data-copy="SQLCODE -616 - OBJECT CANNOT BE DROPPED BECAUSE OTHER OBJECTS DEPEND ON IT">Copy code</button><button class="btn" type="button" data-copy="https://mpendyala3.github.io/Mainframe-Error-Code-Encyclopedia/codes/sqlcode-616.html">Copy link</button></p>
+  </article>
+  <nav class="pager" aria-label="Neighbouring entries">
+    <a rel="prev" href="sqlcode-615.html"><span>&larr; Previous</span>-615</a>
+    <a class="up" href="../pages/databases.html"><span>All of</span>DB</a>
+    <a rel="next" href="sqlcode-618.html"><span>Next &rarr;</span>-618</a>
+  </nav>
+  <section class="block" aria-labelledby="rel-title">
+    <h2 id="rel-title" class="rule">RELATED <span>more OBJECT entries</span></h2>
+    <ol class="listing compact">
+      <li data-cat="OBJECT"><a href="../codes/sqlcode-150.html" data-slug="sqlcode-150"><span class="c-code">-150</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">OBJECT</span><span class="c-title">VIEW IS NOT UPDATABLE</span></a></li>
+      <li data-cat="OBJECT"><a href="../codes/sqlcode-151.html" data-slug="sqlcode-151"><span class="c-code">-151</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">OBJECT</span><span class="c-title">COLUMN CANNOT BE UPDATED</span></a></li>
+      <li data-cat="OBJECT"><a href="../codes/sqlcode-155.html" data-slug="sqlcode-155"><span class="c-code">-155</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">OBJECT</span><span class="c-title">TRIGGER TRANSITION TABLE CANNOT BE MODIFIED</span></a></li>
+      <li data-cat="OBJECT"><a href="../codes/sqlcode-156.html" data-slug="sqlcode-156"><span class="c-code">-156</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">OBJECT</span><span class="c-title">STATEMENT NOT ALLOWED ON A VIEW</span></a></li>
+      <li data-cat="OBJECT"><a href="../codes/sqlcode-159.html" data-slug="sqlcode-159"><span class="c-code">-159</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">OBJECT</span><span class="c-title">DROP/COMMENT TYPE MISMATCH</span></a></li>
+      <li data-cat="OBJECT"><a href="../codes/sqlcode-204.html" data-slug="sqlcode-204"><span class="c-code">-204</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">OBJECT</span><span class="c-title">OBJECT NOT FOUND</span></a></li>
+      <li data-cat="OBJECT"><a href="../codes/sqlcode-205.html" data-slug="sqlcode-205"><span class="c-code">-205</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">OBJECT</span><span class="c-title">COLUMN NOT IN TABLE</span></a></li>
+      <li data-cat="OBJECT"><a href="../codes/sqlcode-206.html" data-slug="sqlcode-206"><span class="c-code">-206</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">OBJECT</span><span class="c-title">COLUMN NOT IN ANY TABLE OF FROM CLAUSE</span></a></li>
+      <li data-cat="OBJECT"><a href="../codes/sqlcode-219.html" data-slug="sqlcode-219"><span class="c-code">-219</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">OBJECT</span><span class="c-title">PLAN_TABLE NOT FOUND</span></a></li>
+      <li data-cat="OBJECT"><a href="../codes/sqlcode-513.html" data-slug="sqlcode-513"><span class="c-code">-513</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">OBJECT</span><span class="c-title">ALIAS MUST NOT BE DEFINED ON ANOTHER LOCAL ALIAS</span></a></li>
+      <li data-cat="OBJECT"><a href="../codes/sqlcode-540.html" data-slug="sqlcode-540"><span class="c-code">-540</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">OBJECT</span><span class="c-title">TABLE DEFINITION INCOMPLETE</span></a></li>
+      <li data-cat="OBJECT"><a href="../codes/sqlcode-600.html" data-slug="sqlcode-600"><span class="c-code">-600</span><span class="c-sev sev-e" title="ERROR">E<span class="sr"> error</span></span><span class="c-class">OBJECT</span><span class="c-title">INDEX OR TABLE ALREADY EXISTS</span></a></li>
+    </ol>
+  </section>
+</main>
+<footer class="foot">
+  <ul class="pf" aria-label="Keyboard shortcuts">
+    <li><kbd>/</kbd> Search</li><li><kbd>&uarr;</kbd><kbd>&darr;</kbd> Pick a result</li><li><kbd>Enter</kbd> Open</li><li><kbd>J</kbd><kbd>K</kbd> Move through a listing</li><li><kbd>&larr;</kbd><kbd>&rarr;</kbd> Previous / next entry</li><li><kbd>Esc</kbd> Close</li><li><kbd>T</kbd> Theme</li>
+  </ul>
+  <p>Mainframe Error Code Encyclopedia &middot; 473 entries in 15 categories &middot; Find. Understand. Fix.</p>
+  <p class="fine">An independent reference, not affiliated with or endorsed by IBM or any other vendor. Product names are trademarks of their owners. Entries are summaries: check the vendor documentation for your release before acting on a production system.</p>
+</footer>
+<dialog class="entry-dialog" id="entry-dialog" aria-labelledby="dlg-code"><div id="entry-slot"></div></dialog>
+</body>
+</html>
